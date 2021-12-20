@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/#Rahul_PC/AndroidStudioProjects/SoilSurveyApp_13_12_21/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/#Rahul_PC/AndroidStudioProjects/SoilSurveyApp_13_12_21/app/src/main/res/layout/activity_register_page.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/custom_exit_box_round.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/exit_card_round.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/ic_round_analytics_24.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/ic_round_logout_24.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/ic_round_warning_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/login_btn.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/drawable/login_circle_img.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_about_app.xml" value="0.22" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_add_photos.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_chemical_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_custom_exit_pop_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_data_collection.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_home_page.xml" value="0.19021739130434784" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_location_details.xml" value="0.19021739130434784" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_main.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_morphological_parameters.xml" value="0.22" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_physical_parameters.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_present_land_use.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_project_credentials.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_project_registration_form.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_register_page.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_data_report.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_fertility_parameters.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_site_parameter2.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_site_parameters.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/card_round.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/custom_exit_dialog.xml" value="0.4939271255060729" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/spinner_item.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_app_icon_launcher.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_app_icon_launcher_round.xml" value="0.15555555555555556" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15555555555555556" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_soil_Img_launcher.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/HP/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_data_collection.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_home_page.xml" value="0.25" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_location_details.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_morphological_parameters.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_present_land_use.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_project_registration_form.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_register_page.xml" value="0.33" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_site_parameter2.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_soil_site_parameters.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/spinner_item.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

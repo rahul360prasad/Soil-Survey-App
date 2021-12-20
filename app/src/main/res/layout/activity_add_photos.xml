@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".AddPhotos">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="30dp"
+            android:paddingRight="10dp"
+            android:text="Add Photos"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_ap_projectID"
+            android:layout_width="190dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="140dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Project ID :"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/out_ap_projectID"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/out_ap_projectID"
+            android:layout_width="190dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="140dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="111"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_ap_projectID"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_landscap_east"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Landscap East"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.204" />
+
+        <Button
+            android:id="@+id/east_img"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Choose File"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/east_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_east"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/east_name"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="No file Chosen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/east_img"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_east"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+
+        <Button
+            android:id="@+id/east_submit_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/east_name"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/east_img"
+            app:layout_constraintTop_toBottomOf="@+id/east_name"
+            app:layout_constraintVertical_bias="0.026" />
+
+        <TextView
+            android:id="@+id/lbl_landscap_west"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Landscap West"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/east_submit_btn"
+            app:layout_constraintVertical_bias="0.063" />
+
+        <Button
+            android:id="@+id/west_img"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Choose File"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_west"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/west_name"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="No file Chosen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/west_img"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_west"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/west_submit_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/west_name"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/west_img"
+            app:layout_constraintTop_toBottomOf="@+id/west_name"
+            app:layout_constraintVertical_bias="0.064" />
+
+        <TextView
+            android:id="@+id/lbl_landscap_north"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Landscap North"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/west_submit_btn"
+            app:layout_constraintVertical_bias="0.124" />
+
+        <Button
+            android:id="@+id/north_img"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Choose File"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_north"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/north_name"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="No file Chosen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/north_img"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_north"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/north_submit_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/north_name"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/north_img"
+            app:layout_constraintTop_toBottomOf="@+id/north_name"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_landscap_south"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Landscap South"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/south_submit_btn"
+            app:layout_constraintVertical_bias="0.124" />
+
+        <Button
+            android:id="@+id/south_img"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Choose File"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_south"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/south_name"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical|center_horizontal"
+            android:text="No file Chosen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/south_img"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_landscap_south"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/south_submit_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/south_name"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/south_img"
+            app:layout_constraintTop_toBottomOf="@+id/south_name"
+            app:layout_constraintVertical_bias="0.064" />
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Back"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.023"
+            app:layout_constraintStart_toStartOf="@+id/north_img"
+            app:layout_constraintTop_toBottomOf="@+id/north_img"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/next_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_marginBottom="20dp"
+             android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Next"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/north_name"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/back_btn"
+            app:layout_constraintTop_toBottomOf="@+id/north_name"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <Button-->
+    <!--            android:textColor="#fff"-->
+    <!--            android:background="@color/purple_700"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Select from Gallery"-->
+    <!--            android:id="@+id/select_from_gallery"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--        <TextView-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:padding="5dp"-->
+    <!--            android:id="@+id/gallery_file_name"-->
+    <!--            android:text="No file Selected"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <ImageView-->
+    <!--            android:id="@+id/gallery_preview"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <Button-->
+    <!--            android:textColor="#fff"-->
+    <!--            android:background="@color/purple_500"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Select from Camera"-->
+    <!--            android:id="@+id/select_from_camera"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--        <TextView-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:padding="5dp"-->
+    <!--            android:id="@+id/camera_file_name"-->
+    <!--            android:text="No file Selected"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <ImageView-->
+    <!--            android:id="@+id/camera_preview"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <Button-->
+    <!--            android:textColor="#fff"-->
+    <!--            android:background="@color/teal_700"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Select from All Files"-->
+    <!--            android:id="@+id/select_from_all_files"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--        <TextView-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:padding="5dp"-->
+    <!--            android:id="@+id/all_file_name"-->
+    <!--            android:text="No file Selected"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+
+    <!--    <Button-->
+    <!--        android:textColor="#fff"-->
+    <!--        android:background="@color/teal_700"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="Advance Upload"-->
+    <!--        android:id="@+id/upload"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"/>-->
+
+
+    <!--    <ProgressBar-->
+    <!--        android:visibility="gone"-->
+    <!--        android:id="@+id/progressbar"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"/>-->
+
+</androidx.core.widget.NestedScrollView>

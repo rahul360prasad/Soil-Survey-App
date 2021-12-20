@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+     android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ProjectRegistrationForm"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-26dp"
+    android:padding="5dp">
+
+    //project registration Header Label
+
+    //project period
+
+    <EditText
+        android:id="@+id/editText_projName"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:hint="Enter name..."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <EditText
+        android:id="@+id/editText_projPeriod"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:hint="Enter period..."
+        android:inputType="text"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         android:textAlignment="center"
+        app:layout_constraintVertical_bias="0.281" />
+
+    <EditText
+        android:id="@+id/editText_projDuration"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:inputType="text"
+        android:hint="Enter duration..."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         android:textAlignment="center"
+        app:layout_constraintVertical_bias="0.395" />
+
+    <EditText
+        android:id="@+id/editText_projID"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:inputType="text"
+        android:hint="Enter project id..."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+         android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_priInvestName"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:inputType="text"
+        android:hint="Enter invest. name..."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         android:textAlignment="center"
+        app:layout_constraintVertical_bias="0.609" />
+
+    //Durations
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:autofillHints="Choose options..."
+        android:gravity="center_horizontal|center_vertical"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toEndOf="@+id/funding_source"
+        app:layout_constraintTop_toBottomOf="@+id/editText_priInvestName"
+        app:layout_constraintVertical_bias="0.154"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/funding_source"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Funding Source"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724" />
+
+    <TextView
+        android:id="@+id/proj_period"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Project Period"
+        android:textAlignment="center"
+         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.281" />
+
+    <TextView
+        android:id="@+id/proj_duration"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Duration"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395" />
+
+    //project id
+
+    //principle investigator name
+
+    <TextView
+        android:id="@+id/proj_id"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Project ID"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    //Funding source
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="5dp"
+        android:text="Project Details"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/proj_name"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Project Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <TextView
+        android:id="@+id/prin_invest_name"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Principle Investigator Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.609" />
+
+    //buttons for submit
+    <Button
+        android:id="@+id/proj_reg_submit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/login_btn"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:backgroundTint="#018786"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.934" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</ScrollView>-->
