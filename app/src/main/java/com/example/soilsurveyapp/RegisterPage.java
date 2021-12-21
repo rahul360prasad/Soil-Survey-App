@@ -29,7 +29,7 @@ public class RegisterPage extends AppCompatActivity {
     private EditText etName, etEmail, etPassword, etReenterPassword;
     private String name, email, password, reenterPassword;
 //    private String url = "http://10.0.0.145/soil_survey/register.php";
-    private String URL = "http://192.168.1.109/login/register.php";
+    private String URL = "http://10.0.0.145/login/register.php";
     private Button btnRegister;
 
 

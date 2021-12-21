@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etName, etPassword;
     private String name, password;
-    private String URL = "http://192.168.1.109/login/login.php";
+    private String URL = "http://10.0.0.145/login/login.php";
     SharedPreferences sharedPreferences;
 
     //creating shared preference name and also creating key name

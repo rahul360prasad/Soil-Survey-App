@@ -41,6 +41,8 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_soil_Img_launcher.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/HP/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app/app/src/main/res/layout/activity_project_registration_form.xml" value="0.25" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app/app/src/main/res/layout/activity_register_page.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_data_collection.xml" value="0.2" />
         <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_home_page.xml" value="0.25" />
         <entry key="..\:/Users/Rahul_PC/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/layout/activity_location_details.xml" value="0.2" />
@@ -56,7 +58,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-     android:gravity="center"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ProjectRegistrationForm"
     tools:layout_editor_absoluteX="0dp"
@@ -17,7 +17,7 @@
     //project period
 
     <EditText
-        android:id="@+id/editText_projName"
+        android:id="@+id/et_projName"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:inputType="text"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.162" />
 
     <EditText
-        android:id="@+id/editText_projPeriod"
+        android:id="@+id/et_projPeriod"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:hint="Enter period..."
@@ -43,11 +43,11 @@
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         android:textAlignment="center"
+        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.281" />
 
     <EditText
-        android:id="@+id/editText_projDuration"
+        android:id="@+id/et_projDuration"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:inputType="text"
@@ -58,11 +58,11 @@
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         android:textAlignment="center"
+        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.395" />
 
     <EditText
-        android:id="@+id/editText_projID"
+        android:id="@+id/et_projID"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:inputType="text"
@@ -72,11 +72,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
-         android:textAlignment="center"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_priInvestName"
+        android:id="@+id/et_priInvestName"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:inputType="text"
@@ -87,13 +87,13 @@
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         android:textAlignment="center"
+        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.609" />
 
     //Durations
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spFundingSource"
         android:layout_width="223dp"
         android:layout_height="53dp"
         android:autofillHints="Choose options..."
@@ -104,7 +104,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/funding_source"
-        app:layout_constraintTop_toBottomOf="@+id/editText_priInvestName"
+        app:layout_constraintTop_toBottomOf="@+id/et_priInvestName"
         app:layout_constraintVertical_bias="0.154"
         tools:ignore="MissingConstraints" />
 
@@ -116,7 +116,7 @@
         android:text="Funding Source"
         android:textAlignment="center"
         android:textSize="20sp"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +130,7 @@
         android:gravity="center"
         android:text="Project Period"
         android:textAlignment="center"
-         android:textSize="20sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
@@ -146,7 +146,7 @@
         android:text="Duration"
         android:textAlignment="center"
         android:textSize="20sp"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
         android:text="Project ID"
         android:textAlignment="center"
         android:textSize="20sp"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
@@ -199,7 +199,7 @@
         android:text="Project Name"
         android:textAlignment="center"
         android:textSize="20sp"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +214,7 @@
         android:text="Principle Investigator Name"
         android:textAlignment="center"
         android:textSize="20sp"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
