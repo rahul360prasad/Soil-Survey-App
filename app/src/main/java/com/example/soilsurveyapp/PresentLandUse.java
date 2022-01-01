@@ -2,17 +2,36 @@ package com.example.soilsurveyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PresentLandUse extends AppCompatActivity {
+
+    private EditText etPhaseSurface, etPhaseSubstratum, etRemark, etYield, etCroppingSys;
+    private String phaseSurface, phaseSubstratum, remark, yield, croppingSystem;
     //declaring variable for storing selected spinner items or options
     private String selectedForest, selectedCultivated, selectedTerraces, selectedPastureLand, selectedDegCulturable, selectedDegUncultrable, selectedLandCapClass, selectedLandCapsubClass, selectedLandIrrigaClass, selectedLandIrrigaSubclass, selectedCrop, selectedManagPractice;
     // defining spinner for all labels which is mentioned
@@ -21,6 +40,9 @@ public class PresentLandUse extends AppCompatActivity {
     private ArrayAdapter<CharSequence> forestAdapter, cultivatedAdapter, terracesAdapter, pastureLandAdapter, degrCulturableAdapter, degrunCulturableAdapter, landCapaClassAdapter, landCapaSubClassAdapter, landIrrigaClassAdapter, landIrrigaSubClassAdapter, cropAdapter, managPractAdapter;
 
     Button backBtn, saveBtn;
+
+    // url to post the data
+    private static final String url = "http://10.0.0.145/login/presentLandUse.php";
 
     @Override
     public void onBackPressed() {
@@ -51,6 +73,12 @@ public class PresentLandUse extends AppCompatActivity {
         landIrrigaSubClassSpinner = (Spinner) findViewById(R.id.spin_land_irrigability_subclass);
         cropSpinner = (Spinner) findViewById(R.id.spin_crop);
         managPractSpinner = (Spinner) findViewById(R.id.spin_management_practice);
+
+        etPhaseSurface=(EditText) findViewById(R.id.et_phase_surface);
+        etPhaseSubstratum=(EditText) findViewById(R.id.et_phase_substratum);
+        etRemark=(EditText) findViewById(R.id.pre_land_remark);
+        etYield=(EditText) findViewById(R.id.et_yield);
+        etCroppingSys=(EditText) findViewById(R.id.et_cropping_system);
 
         backBtn = (Button) findViewById(R.id.present_back_btn);
         saveBtn = (Button) findViewById(R.id.preLand_next_btn);
@@ -191,7 +219,7 @@ public class PresentLandUse extends AppCompatActivity {
         degrCulturableAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
 
         //now simply populate the spinner using the adapter
-        degrunCulturableSpinner.setAdapter(degrCulturableAdapter);
+        degrCulturableSpinner.setAdapter(degrCulturableAdapter);
         //now when selecting any option from spinner
         degrCulturableSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -448,12 +476,87 @@ public class PresentLandUse extends AppCompatActivity {
             }
         });
 
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ProjectCredentials.class));
-            }
-        });
+//        saveBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), ProjectCredentials.class));
+//            }
+//        });
 
+    }
+
+    public void saveNsubmit(View view) {
+        // below is for progress dialog box
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+
+        phaseSurface = etPhaseSurface.getText().toString().trim();
+        phaseSubstratum = etPhaseSubstratum.getText().toString().trim();
+        remark = etRemark.getText().toString().trim();
+        yield = etYield.getText().toString().trim();
+        croppingSystem = etCroppingSys.getText().toString().trim();
+
+        //----------validating the text fields if empty or not.-------------------//commenting only for next page codig
+//        if (TextUtils.isEmpty(geology)) {
+//            etsurveyorName.setError("Please enter geology...");
+//        } else if (TextUtils.isEmpty(parentMaterial)) {
+//            etvillageName.setError("Please enter parent material...");
+//        } else if (TextUtils.isEmpty(climate)) {
+//            etelevation.setError("Please enter climate...");
+//        } else if (TextUtils.isEmpty(rainfall)) {
+//            etprojProfileID.setError("Please enter rainfall...");
+//        } else if (TextUtils.isEmpty(topographyLandform)) {
+//            etremark.setError("Please enter topography landform...");
+//        }
+//        else if (selectedPhysioCatgy.equals("Select Category...")) {
+//            Toast.makeText(SoilSiteParameters.this, "Please Select Physiographic Category !!", Toast.LENGTH_LONG).show();
+//        } else if (selectedSubPhysioUnit.equals("Select Unit...")) {
+//            Toast.makeText(SoilSiteParameters.this, "Please Select unit !!", Toast.LENGTH_LONG).show();
+//        } else {
+        // calling method to add data to Firebase Firestore.
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("resssss", response);
+                if (TextUtils.equals(response, "success")) {
+//                        tvStatus.setText("Successfully registered.");
+                    Toast.makeText(PresentLandUse.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+                } else {
+//                        tvStatus.setText("Something went wrong!");
+                    Toast.makeText(PresentLandUse.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(PresentLandUse.this, ProjectCredentials.class));
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("forest", selectedForest);
+                data.put("cultivated", selectedCultivated);
+                data.put("terraces", selectedTerraces);
+                data.put("pastureLand", selectedPastureLand);
+                data.put("degradedCulturable", selectedDegCulturable);
+                data.put("degradedUnCulturable", selectedDegUncultrable);
+                data.put("landCapabilityClass", selectedLandCapClass);
+                data.put("landCapabilitySubClass", selectedLandCapsubClass);
+                data.put("landIrrigabilityClass", selectedLandIrrigaClass);
+                data.put("landIrrigabilitySubClass", selectedLandIrrigaSubclass);
+                data.put("crop", selectedCrop);
+                data.put("managementPractice", selectedManagPractice);
+                data.put("phaseSurface", phaseSurface);
+                data.put("phaseSubstratum", phaseSubstratum);
+                data.put("remark", remark);
+                data.put("yield", yield);
+                data.put("croppingSystem", croppingSystem);
+                return data;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 }

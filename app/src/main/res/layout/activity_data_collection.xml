@@ -38,7 +38,7 @@
         android:text="Project ID"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/LoginUserInput"
+        app:layout_constraintBottom_toTopOf="@+id/dc_projID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.963" />
 
     <EditText
-        android:id="@+id/LoginUserInput"
+        android:id="@+id/dc_projID"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/login_btn"
         android:text="Next"
+        android:onClick="Next"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:backgroundTint="#018786"
@@ -82,4 +83,54 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/idCVCOurseItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:visibility="gone"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <!--Textview for displaying our Course Name-->
+            <TextView
+                android:id="@+id/idTVCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="CourseName"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!--Textview for displaying our Course Duration-->
+            <TextView
+                android:id="@+id/idTVCourseDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="Duration"
+                android:textColor="@color/black" />
+
+            <!--Textview for displaying our Course Description-->
+            <TextView
+                android:id="@+id/idTVCourseDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="Description"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

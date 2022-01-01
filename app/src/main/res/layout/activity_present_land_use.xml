@@ -206,37 +206,53 @@
             app:layout_constraintStart_toEndOf="@+id/lbl_degraded_unculturable"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/lbl_classification"
-            android:layout_width="171dp"
-            android:layout_height="53dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="476dp"
-            android:gravity="center"
-            android:text="Classification (Family):"
+            android:text="Classification (Family)"
             android:textAlignment="center"
-             android:textSize="20sp"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-        <EditText
-            android:id="@+id/spin_classification"
-            android:layout_width="223dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="476dp"
-            android:hint="Enter classification..."
-            android:inputType="text"
-            android:textAlignment="center"
-             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/lbl_classification"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.016" />
+<!--        <TextView-->
+<!--            android:id="@+id/lbl_classification"-->
+<!--            android:layout_width="171dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:layout_marginTop="476dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Classification (Family):"-->
+<!--            android:textAlignment="center"-->
+<!--             android:textSize="20sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.02"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/classification"-->
+<!--            android:layout_width="223dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:layout_marginTop="476dp"-->
+<!--            android:hint="Enter classification..."-->
+<!--            android:inputType="text"-->
+<!--            android:textAlignment="center"-->
+<!--             android:textSize="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/lbl_classification"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
         <TextView
             android:id="@+id/lbl_phase_surface"
             android:layout_width="171dp"
@@ -267,7 +283,7 @@
 <!--            app:layout_constraintVertical_bias="0.0"-->
 <!--            tools:ignore="MissingConstraints" />-->
         <EditText
-            android:id="@+id/spin_phase_surface"
+            android:id="@+id/et_phase_surface"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="536dp"
@@ -312,7 +328,7 @@
 <!--            app:layout_constraintVertical_bias="0.0"-->
 <!--            tools:ignore="MissingConstraints" />-->
         <EditText
-            android:id="@+id/spin_substratum"
+            android:id="@+id/et_phase_substratum"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="596dp"
@@ -553,7 +569,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
         <EditText
-            android:id="@+id/spin_yield"
+            android:id="@+id/et_yield"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="1086dp"
@@ -612,7 +628,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
         <EditText
-            android:id="@+id/spin_cropping_system"
+            android:id="@+id/et_cropping_system"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="1210dp"
@@ -636,6 +652,7 @@
             android:textAlignment="center"
             android:gravity="center_vertical|center_horizontal"
             android:text="Save &#38; Next"
+            android:onClick="saveNsubmit"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:backgroundTint="#018786"
@@ -643,7 +660,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.877"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spin_cropping_system"
+            app:layout_constraintTop_toBottomOf="@+id/et_cropping_system"
             app:layout_constraintVertical_bias="0.0" />
         <Button
             android:id="@+id/present_back_btn"

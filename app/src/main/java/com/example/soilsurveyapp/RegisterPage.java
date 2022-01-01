@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ public class RegisterPage extends AppCompatActivity {
     private EditText etName, etEmail, etPassword, etReenterPassword;
     private String name, email, password, reenterPassword;
 //    private String url = "http://10.0.0.145/soil_survey/register.php";
-    private String URL = "http://10.0.0.145/login/register.php";
+    private String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
     private Button btnRegister;
 
 
@@ -117,17 +118,31 @@ public class RegisterPage extends AppCompatActivity {
             Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
         }
         else if(!name.equals("") && !email.equals("") && !password.equals("")){
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url+"?TYPE=REGISTER&name="+name+"&email="+email+"&password="+password, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.equals("success")) {
-//                        tvStatus.setText("Successfully registered.");
-                        Toast.makeText(RegisterPage.this,"Successfully registered.",Toast.LENGTH_SHORT).show();
-                        btnRegister.setClickable(false);
-                    } else if (response.equals("failure")) {
-//                        tvStatus.setText("Something went wrong!");
-                        Toast.makeText(RegisterPage.this,"Something went wrong!",Toast.LENGTH_SHORT).show();
+                    try {
+                        if(TextUtils.equals(response,"1")){
+                            Toast.makeText(RegisterPage.this, "Registered Successfull", Toast.LENGTH_SHORT).show();
+                            //JSONObject jsonObject = new JSONObject(response);
+                            // on below line we are displaying a success toast message.
+                            Intent intent = new Intent(RegisterPage.this, RegisterPage.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast.makeText(RegisterPage.this, "Failed to register!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
                     }
+//                    if (response.equals("success")) {
+////                        tvStatus.setText("Successfully registered.");
+//                        Toast.makeText(RegisterPage.this,"Successfully registered.",Toast.LENGTH_SHORT).show();
+//                        btnRegister.setClickable(false);
+//                    } else if (response.equals("failure")) {
+////                        tvStatus.setText("Something went wrong!");
+//                        Toast.makeText(RegisterPage.this,"Something went wrong!",Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -135,14 +150,14 @@ public class RegisterPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             }){
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> data = new HashMap<>();
-                    data.put("name", name);
-                    data.put("email", email);
-                    data.put("password", password);
-                    return data;
-                }
+//                @Override
+//                protected Map<String, String> getParams() throws AuthFailureError {
+//                    Map<String, String> data = new HashMap<>();
+//                    data.put("name", name);
+//                    data.put("email", email);
+//                    data.put("password", password);
+//                    return data;
+//                }
             };
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);

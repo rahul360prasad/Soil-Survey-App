@@ -1251,6 +1251,7 @@
             android:background="@drawable/login_btn"
             android:gravity="center_vertical|center_horizontal"
             android:text="Next"
+            android:onClick="MC_submit"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"

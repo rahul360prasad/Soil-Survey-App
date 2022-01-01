@@ -2,21 +2,40 @@ package com.example.soilsurveyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MorphologicalParameters extends AppCompatActivity {
 
+    private EditText etDepth, et_CF_Vol, et_OF_Size, et_OF_Abundance, et_OF_Nature, et_OF_SampleBagNo, et_OF_AdditionalNotes;
+    private String depth, cf_vol, of_size, of_abundance, of_nature, of_samplebagno, of_additionalnotes;
+
     //declaring variable for storing selected options from spinner
     //---------------------MORPHOLOGICAL PARAMS---------------------------------------------------------------------------------
-    private String selectedBoundary, selectedDistinctness, selectedTopography, selectedDiagnostic, selectedMatrixCol;
+    private String selectedDistinctness, selectedTopography, selectedDiagnostic, selectedMatrixCol;
     //----------------------MOTTLE COLOUR--------------------------------------------------------------------------------
     private String selected_MC_Abundance, selected_MC_Size, selected_MC_Contrast, selected_MC_Texture;
     //------------------------COARSE FRAGMENTS--------------------------------------------------------------------------------
@@ -37,7 +56,7 @@ public class MorphologicalParameters extends AppCompatActivity {
 
     // defining spinner for all label spinners
     //---------------------MORPHOLOGICAL PARAMS---------------------------------------------------------------------------------
-    private Spinner boundarySpinner, distinctnessSpinner, topographySpinner, diagnosticSpinner, matrixColSpinner;
+    private Spinner distinctnessSpinner, topographySpinner, diagnosticSpinner, matrixColSpinner;
     //----------------------MOTTLE COLOUR--------------------------------------------------------------------------------
     private Spinner abundance_MC_Spinner, size_MC_Spinner, contrast_MC_Spinner, texture_MC_Spinner;
     //------------------------COARSE FRAGMENTS--------------------------------------------------------------------------------
@@ -58,11 +77,11 @@ public class MorphologicalParameters extends AppCompatActivity {
 
     //defining and declaring array adapter all spinner options
     //---------------------MORPHOLOGICAL PARAMS---------------------------------------------------------------------------------
-    private ArrayAdapter<CharSequence> boundaryAdapter, distinctnessAdapter, topographyAdapter, diagnosticAdapter, matrixColAdapter;
+    private ArrayAdapter<CharSequence> distinctnessAdapter, topographyAdapter, diagnosticAdapter, matrixColAdapter;
     //----------------------MOTTLE COLOUR--------------------------------------------------------------------------------
     private ArrayAdapter<CharSequence> abundance_MC_Adapter, size_MC_Adapter, contrast_MC_Adapter, texture_MC_Adapter;
     //------------------------COARSE FRAGMENTS--------------------------------------------------------------------------------
-    private ArrayAdapter<CharSequence> size_CF_Adapter, vol_CF_Adapter;
+    private ArrayAdapter<CharSequence> size_CF_Adapter;
     //--------------------------STRUCTURE---------------------------------------------------------------------------------
     private ArrayAdapter<CharSequence> size_Str_Adapter, grade_Str_Adapter, type_Str_Adapter;
     //---------------------------CONSISTENCE--------------------------------------------------------------------------------
@@ -78,9 +97,12 @@ public class MorphologicalParameters extends AppCompatActivity {
 
     private Button backBtn, nextBtn;
 
+    // url to post the data
+    private static final String url = "http://10.0.0.145/login/morphologicalParameters.php";
+
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(), PresentLandUse.class));
+        startActivity(new Intent(getApplicationContext(), ProjectCredentials.class));
     }
 
     @Override
@@ -94,6 +116,15 @@ public class MorphologicalParameters extends AppCompatActivity {
         }
 
 //-------------------------REFERENCES-----------------------------------
+
+        //------------edittext REFERENCES----------------
+        etDepth= (EditText) findViewById(R.id.input_depth);
+        et_CF_Vol= (EditText) findViewById(R.id.txt_cf_vol);
+        et_OF_Size= (EditText) findViewById(R.id.txt_of_size);
+        et_OF_Abundance= (EditText) findViewById(R.id.txt_of_abundance);
+        et_OF_Nature= (EditText) findViewById(R.id.txt_of_nature);
+        et_OF_SampleBagNo= (EditText) findViewById(R.id.txt_of_sample_no_);
+        et_OF_AdditionalNotes= (EditText) findViewById(R.id.txt_additional_notes);
 
         //----------spinners REFERENCES------------------------------
 //        boundarySpinner = (Spinner) findViewById(R.id.spin_boundary);
@@ -1029,11 +1060,113 @@ public class MorphologicalParameters extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+//        nextBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
+//            }
+//        });
+    }
+
+    public void MC_submit(View view) {
+        // below is for progress dialog box
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+
+        depth = etDepth.getText().toString().trim();
+        cf_vol = et_CF_Vol.getText().toString().trim();
+        of_size = et_OF_Size.getText().toString().trim();
+        of_abundance = et_OF_Abundance.getText().toString().trim();
+        of_nature = et_OF_Nature.getText().toString().trim();
+        of_samplebagno = et_OF_SampleBagNo.getText().toString().trim();
+        of_additionalnotes = et_OF_AdditionalNotes.getText().toString().trim();
+
+        //----------validating the text fields if empty or not.-------------------//commenting only for next page codig
+//        if (TextUtils.isEmpty(geology)) {
+//            etsurveyorName.setError("Please enter geology...");
+//        } else if (TextUtils.isEmpty(parentMaterial)) {
+//            etvillageName.setError("Please enter parent material...");
+//        } else if (TextUtils.isEmpty(climate)) {
+//            etelevation.setError("Please enter climate...");
+//        } else if (TextUtils.isEmpty(rainfall)) {
+//            etprojProfileID.setError("Please enter rainfall...");
+//        } else if (TextUtils.isEmpty(topographyLandform)) {
+//            etremark.setError("Please enter topography landform...");
+//        }
+//        else if (selectedPhysioCatgy.equals("Select Category...")) {
+//            Toast.makeText(SoilSiteParameters.this, "Please Select Physiographic Category !!", Toast.LENGTH_LONG).show();
+//        } else if (selectedSubPhysioUnit.equals("Select Unit...")) {
+//            Toast.makeText(SoilSiteParameters.this, "Please Select unit !!", Toast.LENGTH_LONG).show();
+//        } else {
+        // calling method to add data to Firebase Firestore.
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
+            public void onResponse(String response) {
+                Log.d("resssss", response);
+                if (TextUtils.equals(response, "success")) {
+//                        tvStatus.setText("Successfully registered.");
+                    Toast.makeText(MorphologicalParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+                } else {
+//                        tvStatus.setText("Something went wrong!");
+                    Toast.makeText(MorphologicalParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
+                }
             }
-        });
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("depth", depth);
+                //--------BOUNDARY-----------------
+                data.put("b_distinctness", selectedDistinctness);
+                data.put("b_topography", selectedTopography);
+                data.put("b_diagnostic", selectedDiagnostic);
+                data.put("b_matrixColour", selectedMatrixCol);
+                //--------MOTTLE COLOUR-----------------
+                data.put("mc_abundance", selected_MC_Abundance);
+                data.put("mc_size", selected_MC_Size);
+                data.put("mc_contrast", selected_MC_Contrast);
+                data.put("mc_texture", selected_MC_Texture);
+                //--------COARSE FRAGMENTS-----------------
+                data.put("cf_size", selected_CF_Size);
+                data.put("cf_vol", cf_vol);
+                //--------STRUCTURE-----------------
+                data.put("str_size", selected_Str_Size);
+                data.put("str_grade", selected_Str_Grade);
+                data.put("str_type", selected_Str_Type);
+                //--------CONSISTENCE-----------------
+                data.put("con_d", selected_Con_D);
+                data.put("con_m", selected_Con_M);
+                data.put("con_w", selected_Con_W);
+                //--------POROSITY-----------------
+                data.put("poros_s", selected_Poros_S);
+                data.put("poros_q", selected_Poros_Q);
+                //--------CUTANS-----------------
+                data.put("cutans_ty", selected_Cutans_Ty);
+                data.put("cutans_th", selected_Cutans_Th);
+                data.put("cutans_q", selected_Cutans_Q);
+                //--------NODULES-----------------
+                data.put("nodules_s", selected_Nodules_S);
+                data.put("nodules_q", selected_Nodules_Q);
+                //--------ROOTS-----------------
+                data.put("roots_s", selected_Roots_S);
+                data.put("roots_q", selected_Roots_Q);
+                data.put("roots_effervescence", selected_Roots_Effervescence);
+                //--------OTHER FEATURES-----------------
+                data.put("of_size", of_size);
+                data.put("of_abundance", of_abundance);
+                data.put("of_nature", of_nature);
+                data.put("of_samplebagno", of_samplebagno);
+                data.put("of_additionalnotes", of_additionalnotes);
+                return data;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 }

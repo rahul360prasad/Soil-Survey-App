@@ -229,6 +229,7 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/login_btn"
         android:text="Submit"
+        android:onClick="SubmitBtn"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:backgroundTint="#018786"

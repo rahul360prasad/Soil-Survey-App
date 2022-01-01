@@ -1,5 +1,6 @@
 package com.example.soilsurveyapp;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,10 +23,14 @@ public class HomePage extends AppCompatActivity {
 
     private long pressedTime;
     CardView porjRegCard, dataCollectionCard, soilDataReport, aboutApp, logoutCard ;
-    SharedPreferences sharedPreferences;
+    TextView username;
 
+    //--------------SHARED PREFERENCES----------------
+    SharedPreferences sharedPreferences;
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "mypref";
+    public static final String KEY_NAME = "name";
+
 
     //----------------------------------POPUP EXIT APP Msg-----------------------------------------------
     @Override
@@ -71,6 +76,10 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, Context.MODE_PRIVATE);
+        username = findViewById(R.id.testdashboard);
+        username.setText("Welcome, " + sharedPreferences.getString(KEY_NAME,""));
 
         //------------------HIDING THE ACTION BAR--------------------
 //        getSupportActionBar().setTitle("");
@@ -138,9 +147,12 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
-                editor.commit();
+                editor.apply();
+//                editor.commit();
                 Toast.makeText(HomePage.this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
                 finish();
+                Intent intent = new Intent(HomePage.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
