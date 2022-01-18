@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:paddingTop="30dp"
             android:paddingLeft="10dp"
+            android:paddingTop="30dp"
             android:paddingRight="10dp"
             android:text="Physical Parameters"
             android:textAlignment="center"
@@ -47,21 +47,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <EditText
+        <!--        <EditText-->
+        <!--            android:id="@+id/input_pp_horizons"-->
+        <!--            android:layout_width="223dp"-->
+        <!--            android:layout_height="53dp"-->
+        <!--            android:layout_marginTop="112dp"-->
+        <!--            android:hint="Enter horizons..."-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:inputType="text"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_pp_horizons"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+        <TextView
             android:id="@+id/input_pp_horizons"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="112dp"
-            android:hint="Enter horizons..."
+            android:gravity="center"
             android:textAlignment="center"
-            android:inputType="text"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/lbl_pp_horizons"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/lbl_pp_profileDepth"
@@ -78,14 +92,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-        <EditText
+        <!--        <EditText-->
+        <!--            android:id="@+id/input_pp_profileDepth"-->
+        <!--            android:layout_width="223dp"-->
+        <!--            android:layout_height="53dp"-->
+        <!--            android:layout_marginTop="172dp"-->
+        <!--            android:hint="Enter depth..."-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:inputType="text"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_pp_profileDepth"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+        <TextView
             android:id="@+id/input_pp_profileDepth"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="172dp"
-            android:hint="Enter depth..."
+            android:gravity="center"
             android:textAlignment="center"
-            android:inputType="text"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -127,14 +156,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
         <EditText
             android:id="@+id/input_pp_sand"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="275dp"
             android:hint="Enter sand..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -165,8 +195,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="335dp"
             android:hint="Enter slit..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -174,6 +204,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
+
         <TextView
             android:id="@+id/lbl_pp_clay"
             android:layout_width="171dp"
@@ -196,8 +227,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="395dp"
             android:hint="Enter clay..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -228,8 +259,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="454dp"
             android:hint="Enter textural class..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -260,8 +291,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="514dp"
             android:hint="Enter bulk density..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -310,8 +341,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="617dp"
             android:hint="Enter 33kPa..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -342,8 +373,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="677dp"
             android:hint="Enter 1500kPa..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -374,8 +405,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="738dp"
             android:hint="Enter awc..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -406,8 +437,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="798dp"
             android:hint="Enter pawc..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -438,8 +469,8 @@
             android:layout_height="53dp"
             android:layout_marginTop="858dp"
             android:hint="Enter moisture..."
-            android:textAlignment="center"
             android:inputType="text"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -476,6 +507,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/login_btn"
             android:gravity="center_vertical|center_horizontal"
+            android:onClick="ppNext"
             android:text="Next"
             android:textAlignment="center"
             android:textColor="@color/white"

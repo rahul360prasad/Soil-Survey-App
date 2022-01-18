@@ -34,13 +34,16 @@ public class ProjectCredentials extends AppCompatActivity {
     private String projID, projProfileID, horizon;
 
     //--------------SHARED PREFERENCES----------------
+    SharedPreferences sharedPreferences;
     SharedPreferences sharedPreferencesProjID;
     SharedPreferences sharedPreferencesProjProID;
     //creating shared preference name and also creating key name
-    private static final String SHARED_PRE_NAME = "proReg";
+    private static final String SHARED_PRE_NAME = "projCred";
+    private static final String SHARED_PRE_NAME1 = "proReg";
     private static final String SHARED_PRE_NAME2 = "locationDetails";
     private static final String KEY_PROJECT_ID = "id";
     private static final String KEY_PROJECT_PROFILE_ID = "ppid";
+    private static final String KEY_HORIZON = "horizon";
 
     // url to post the data
     private static final String url = "http://10.0.0.145/login/projDetails.php";
@@ -50,12 +53,13 @@ public class ProjectCredentials extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), PresentLandUse.class));
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_credentials);
 
-        sharedPreferencesProjID = getSharedPreferences(SHARED_PRE_NAME, Context.MODE_PRIVATE);
+        sharedPreferencesProjID = getSharedPreferences(SHARED_PRE_NAME1, Context.MODE_PRIVATE);
         sharedPreferencesProjProID = getSharedPreferences(SHARED_PRE_NAME2, Context.MODE_PRIVATE);
 
         lbl_projID = findViewById(R.id.input_project_id);
@@ -91,19 +95,33 @@ public class ProjectCredentials extends AppCompatActivity {
             }
         });
 
-//        nextBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), AddPhotos.class));
-////                Toast.makeText(getApplicationContext(), "go to *** ADD PHOTOS *** page", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AddPhotos.class));
+//                Toast.makeText(getApplicationContext(), "go to *** ADD PHOTOS *** page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //---------shared preference----------------
+        sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, MODE_PRIVATE);
+        //when open the activity then first check "shared preference" data available or not
+        String projID = sharedPreferences.getString(KEY_HORIZON, null);
+        if (projID == null) {
+            Toast.makeText(ProjectCredentials.this, "Enter Horizon!!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void addBtn(View view) {
         // below is for progress dialog box
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
+
+        //--------------------SHAREDPREFERENCE-------------------
+        //when clicking btn put data on shared preference
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_HORIZON, etHorizon.getText().toString());
+        editor.apply();
 
         projID = lbl_projID.getText().toString().trim();
         projProfileID = lbl_projProfileID.getText().toString().trim();
@@ -136,6 +154,10 @@ public class ProjectCredentials extends AppCompatActivity {
                     Toast.makeText(ProjectCredentials.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(KEY_HORIZON, horizon);
+                    editor.apply();
+                    finish();
                     Toast.makeText(ProjectCredentials.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), MorphologicalParameters.class));
                 }

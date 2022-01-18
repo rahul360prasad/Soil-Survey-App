@@ -164,7 +164,6 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                                     Toast.makeText(ProjectRegistrationForm.this, "Failed to store!!", Toast.LENGTH_SHORT).show();
                                 }
 
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

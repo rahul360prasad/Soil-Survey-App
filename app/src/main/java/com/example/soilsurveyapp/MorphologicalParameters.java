@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -99,6 +100,12 @@ public class MorphologicalParameters extends AppCompatActivity {
 
     // url to post the data
     private static final String url = "http://10.0.0.145/login/morphologicalParameters.php";
+
+    //--------------SHARED PREFERENCES----------------
+    SharedPreferences sharedPreferences;
+    //creating shared preference name and also creating key name
+    private static final String SHARED_PRE_NAME = "morphologicalParams";
+    private static final String KEY_DEPTH = "depth";
 
     @Override
     public void onBackPressed() {
@@ -1066,12 +1073,27 @@ public class MorphologicalParameters extends AppCompatActivity {
 //                startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
 //            }
 //        });
+
+        //---------shared preference----------------
+        sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, MODE_PRIVATE);
+        //when open the activity then first check "shared preference" data available or not
+        String projID = sharedPreferences.getString(KEY_DEPTH, null);
+        if (projID == null) {
+            Toast.makeText(MorphologicalParameters.this, "Enter Depth!!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void MC_submit(View view) {
         // below is for progress dialog box
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
+
+        //--------------------SHAREDPREFERENCE-------------------
+        //when clicking btn put data on shared preference
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_DEPTH, etDepth.getText().toString());
+        editor.apply();
 
         depth = etDepth.getText().toString().trim();
         cf_vol = et_CF_Vol.getText().toString().trim();
@@ -1108,6 +1130,10 @@ public class MorphologicalParameters extends AppCompatActivity {
                     Toast.makeText(MorphologicalParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(KEY_DEPTH, depth);
+                    editor.apply();
+                    finish();
                     Toast.makeText(MorphologicalParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
                 }

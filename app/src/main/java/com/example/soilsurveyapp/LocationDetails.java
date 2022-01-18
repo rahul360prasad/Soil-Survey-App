@@ -557,7 +557,7 @@ public class LocationDetails extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
 
         //--------------------SHAREDPREFERENCE-------------------
-        //when clicking register btn put data on shared preference
+        //when clicking btn put data on shared preference
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_PROJECT_PROFILE_ID, etprojProfileID.getText().toString());
         editor.apply();

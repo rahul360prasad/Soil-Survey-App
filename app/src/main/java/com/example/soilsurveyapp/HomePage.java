@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class HomePage extends AppCompatActivity {
 
     private long pressedTime;
-    CardView porjRegCard, dataCollectionCard, soilDataReport, aboutApp, logoutCard ;
+    CardView porjRegCard, dataCollectionCard, soilDataReport, aboutApp, logoutCard, soilDataUpdate ;
     TextView username;
 
     //--------------SHARED PREFERENCES----------------
@@ -126,6 +126,16 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent= new Intent(HomePage.this, SoilDataReport.class);
+                startActivity(intent);
+            }
+        });
+
+        //---------------------------SOIL DATA UPDATE CARD---------------------------------
+        soilDataUpdate= findViewById(R.id.soil_data_update);
+        soilDataUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent= new Intent(HomePage.this, AddPhotos.class);
                 startActivity(intent);
             }
         });

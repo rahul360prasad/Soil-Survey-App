@@ -45,14 +45,29 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <EditText
+<!--        <EditText-->
+<!--            android:id="@+id/input_sfp_horizons"-->
+<!--            android:layout_width="223dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:layout_marginTop="112dp"-->
+<!--            android:hint="Enter horizons..."-->
+<!--            android:textAlignment="center"-->
+<!--            android:inputType="text"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_horizons"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            tools:ignore="MissingConstraints" />-->
+        <TextView
             android:id="@+id/input_sfp_horizons"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="112dp"
-            android:hint="Enter horizons..."
+            android:gravity="center"
             android:textAlignment="center"
-            android:inputType="text"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -76,14 +91,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-        <EditText
+<!--        <EditText-->
+<!--            android:id="@+id/input_sfp_soilDepth"-->
+<!--            android:layout_width="223dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:layout_marginTop="172dp"-->
+<!--            android:hint="Enter depth..."-->
+<!--            android:textAlignment="center"-->
+<!--            android:inputType="text"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_soilDepth"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            tools:ignore="MissingConstraints" />-->
+        <TextView
             android:id="@+id/input_sfp_soilDepth"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="172dp"
-            android:hint="Enter depth..."
+            android:gravity="center"
             android:textAlignment="center"
-            android:inputType="text"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -91,6 +121,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
+
 
         <TextView
             android:id="@+id/lbl_sfp_organicCarbon"
@@ -441,6 +472,7 @@
             android:background="@drawable/login_btn"
             android:gravity="center_vertical|center_horizontal"
             android:text="Next"
+            android:onClick="sfpNext"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
