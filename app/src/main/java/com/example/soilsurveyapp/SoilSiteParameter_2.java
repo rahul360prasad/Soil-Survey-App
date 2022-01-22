@@ -39,6 +39,8 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
 
     Button backBtn, nextBtn;
 
+    ProgressDialog progressDialog;
+
     // url to post the data
     private static final String url = "http://10.0.0.145/login/soilsiteparameter2.php";
 
@@ -501,8 +503,14 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
 
     public void ssp2Btn(View view) {
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(SoilSiteParameter_2.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         naturalVegetation = etNaturalVegetation.getText().toString().trim();
 
@@ -530,9 +538,11 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
                 Log.d("resssss", response);
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(SoilSiteParameter_2.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
+                    progressDialog.dismiss();
                     Toast.makeText(SoilSiteParameter_2.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SoilSiteParameter_2.this, PresentLandUse.class));
                 }
@@ -540,6 +550,7 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

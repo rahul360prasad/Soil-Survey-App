@@ -55,7 +55,6 @@
             android:layout_height="53dp"
             android:layout_marginTop="140dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="111"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +69,20 @@
         //west
 
         //north
+
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/addPhotosProgress"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.498"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.903" />-->
 
         <LinearLayout
             android:id="@+id/east_linearLayout"
@@ -258,15 +271,16 @@
             android:id="@+id/upload_btn_linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="40dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.842"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/south_linearLayout"
-            app:layout_constraintVertical_bias="0.261"
-            android:gravity="center_vertical|center_horizontal">
+            app:layout_constraintVertical_bias="0.261">
+
             <Button
                 android:id="@+id/upload_btn"
                 android:layout_width="150dp"
@@ -279,48 +293,48 @@
                 android:textSize="15sp"
                 app:backgroundTint="#018786" />
 
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/main_btn_linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal"
-             android:layout_margin="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.842"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/upload_btn_linearLayout"
-            app:layout_constraintVertical_bias="0.261"
-            android:gravity="center_vertical|center_horizontal">
+            app:layout_constraintVertical_bias="0.261">
+
             <Button
                 android:id="@+id/back_btn"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:background="@drawable/login_btn"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="Back"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                app:backgroundTint="#018786"
-                android:layout_margin="10dp"
-                />
+                app:backgroundTint="#018786" />
 
             <Button
                 android:id="@+id/next_btn"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                 android:background="@drawable/login_btn"
+                android:layout_margin="10dp"
+                android:background="@drawable/login_btn"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="Next"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                app:backgroundTint="#018786"
-                android:layout_margin="10dp"
-                />
+                app:backgroundTint="#018786" />
 
         </LinearLayout>
 

@@ -47,6 +47,9 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
     private String projName, projPeriod, projDuration, projID, projPrinInvestName, projFundSrc;
     // creating variable for button
     private Button submitBtn;
+
+    ProgressDialog progressDialog;
+
     // url to post the data
     private static final String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
 
@@ -117,8 +120,14 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 
     public void SubmitBtn(View view){
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(ProjectRegistrationForm.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking register btn put data on shared preference
@@ -135,15 +144,20 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 
         //----------validating the text fields if empty or not.-------------------
                 if (TextUtils.isEmpty(projName)) {
+                    progressDialog.dismiss();
                     etProjName.setError("Please enter Project Details");
                 } else if (TextUtils.isEmpty(projPeriod)) {
+                    progressDialog.dismiss();
                     etProjPeriod.setError("Please enter Project Details");
                 } else if (TextUtils.isEmpty(projDuration)) {
+                    progressDialog.dismiss();
                     etProjDuration.setError("Please enter Project Details");
                 } else if (TextUtils.isEmpty(projID)) {
+                    progressDialog.dismiss();
                     etProjID.setError("Please enter Project Details");
                 } else if (TextUtils.isEmpty(projPrinInvestName)) {
-                     etProjPrinInvestName.setError("Please enter Project Details");
+                    progressDialog.dismiss();
+                    etProjPrinInvestName.setError("Please enter Project Details");
                  } else {
                     // calling method to add data to Firebase Firestore.
                     StringRequest stringRequest = new StringRequest(Request.Method.GET, url+"?TYPE=PROJECT_REG&projName="+projName+"&projPeriod="+projPeriod+"&projDuration="+projDuration+"&projID="+projID+"&projPrinInvestName="+projPrinInvestName+"&projFundSrc="+projFundSrc+"", new Response.Listener<String>() {
@@ -151,6 +165,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                         public void onResponse(String response) {
                             try {
                                 if(TextUtils.equals(response,"1")){
+                                    progressDialog.dismiss();
                                     Toast.makeText(ProjectRegistrationForm.this, "Data stored Successfully", Toast.LENGTH_SHORT).show();
                                     //JSONObject jsonObject = new JSONObject(response);
                                     // on below line we are displaying a success toast message.
@@ -161,6 +176,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                                     Intent intent = new Intent(ProjectRegistrationForm.this, HomePage.class);
                                     startActivity(intent);
                                  }else{
+                                    progressDialog.dismiss();
                                     Toast.makeText(ProjectRegistrationForm.this, "Failed to store!!", Toast.LENGTH_SHORT).show();
                                 }
 
@@ -171,6 +187,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
                         }
                     }){
@@ -195,6 +212,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                     dropDown.getSelectedItem().toString();
                 }
                 else{
+                    progressDialog.dismiss();
                     Toast.makeText(ProjectRegistrationForm.this,"Please Select Funding Source !!", Toast.LENGTH_LONG).show();
                     return;
                 }

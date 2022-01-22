@@ -50,6 +50,7 @@ public class LocationDetails extends AppCompatActivity {
     private EditText etsurveyorName, etvillageName, etelevation, etprojProfileID, etremark;
     private TextView dateText, timeText, latitudeText, longitudeText;
     private Button backBtn, nextBtn;
+    ProgressDialog progressDialog;
 
     //declaring variable for storing selected state, district, tehsil, block, topo250k, topo50k
     private String selectedState, selectedDistrict, selectedTehsil, selectedBlock, selectedTopo250k, selectedTopo50k;
@@ -553,8 +554,14 @@ public class LocationDetails extends AppCompatActivity {
 //----------BUTTON METHOD FOR SAVING DATA------------------
     public void SubmitBtn1(View view) {
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(LocationDetails.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking btn put data on shared preference
@@ -609,7 +616,7 @@ public class LocationDetails extends AppCompatActivity {
                 public void onResponse(String response) {
                     Log.d("resssss", response);
                     if (TextUtils.equals(response, "success")) {
-//                        tvStatus.setText("Successfully registered.");
+                        progressDialog.dismiss();
                         Toast.makeText(LocationDetails.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                     } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -618,13 +625,15 @@ public class LocationDetails extends AppCompatActivity {
                         editor.apply();
                         finish();
                         startActivity(new Intent(LocationDetails.this, SoilSiteParameters.class));
+                        progressDialog.dismiss();
                         Toast.makeText(LocationDetails.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter location details...", Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Override

@@ -31,6 +31,8 @@ public class ChemicalParameters extends AppCompatActivity {
     private EditText etPH, etEC, etOC, etCaCo, etCa, etMg, etNa, etK, etTotalBase, etCEC, etBS, etESP;
     private String horizon, soilDepth, PH, EC, OC, CaCo, Ca, Mg, Na, K, TotalBase, CEC, BS, ESP;
     private Button backBtn, nextBtn;
+    ProgressDialog progressDialog;
+
 
     // url to post the data
     private static final String url = "http://10.0.0.145/login/chemicalParameters.php";
@@ -104,8 +106,14 @@ public class ChemicalParameters extends AppCompatActivity {
     public void cpNext(View view) {
 
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(ChemicalParameters.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking btn put data on shared preference
@@ -150,7 +158,7 @@ public class ChemicalParameters extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (TextUtils.equals(response, "success")) {
-//                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(ChemicalParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -158,6 +166,8 @@ public class ChemicalParameters extends AppCompatActivity {
                     editor.putString(KEY_DEPTH, soilDepth);
                     editor.apply();
                     finish();
+                    //Dismiss Progress Dialog
+                    progressDialog.dismiss();
                     Toast.makeText(ChemicalParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), SoilFertilityParameters.class));
                 }
@@ -165,6 +175,8 @@ public class ChemicalParameters extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                //Dismiss Progress Dialog
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

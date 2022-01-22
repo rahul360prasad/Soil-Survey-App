@@ -3,13 +3,16 @@ package com.example.soilsurveyapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -24,6 +27,11 @@ public class SoilDataReport extends AppCompatActivity {
     private Spinner stateSpinner, districtSpinner, searchBySpinner;
     //defining and declaring array adapter for state, district
     private ArrayAdapter<CharSequence> stateAdapter, districtAdapter, searchByAdapter;
+
+    //----LinearLayout-----------
+    private LinearLayout stateLinear, districtLinear, projIDLinear, dateLinear;
+
+    ProgressDialog progressDialog;
 
     TextView dateTextView;
 
@@ -41,6 +49,14 @@ public class SoilDataReport extends AppCompatActivity {
 
         //----------spinnersArrayAdapter REFERENCES------------------------------
         searchBySpinner= (Spinner) findViewById(R.id.spin_search_by);
+
+        //-----hidden part of Search by------
+        stateLinear= (LinearLayout) findViewById(R.id.statelinearLayout);
+        districtLinear= (LinearLayout) findViewById(R.id.districtlinearLayout);
+        projIDLinear= (LinearLayout) findViewById(R.id.projIDlinearLayout);
+        dateLinear= (LinearLayout) findViewById(R.id.datelinearLayout);
+
+
         stateSpinner = (Spinner) findViewById(R.id.spin_sr_select_state);
         districtSpinner = (Spinner) findViewById(R.id.spin_sr_select_district);
 
@@ -72,6 +88,38 @@ public class SoilDataReport extends AppCompatActivity {
                 selectedSearchBy = searchBySpinner.getSelectedItem().toString();
                 //when selecting the state name district spinner is populated
                 //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
+
+                int parentID = parent.getId();
+                if (parentID == R.id.spin_search_by) {
+                    switch (selectedSearchBy) {
+                        case "Select Option...":
+                            stateLinear.setVisibility(View.GONE);
+                            districtLinear.setVisibility(View.GONE);
+                            projIDLinear.setVisibility(View.GONE);
+                            dateLinear.setVisibility(View.GONE);
+                            break;
+                        case "State":
+                                stateLinear.setVisibility(View.VISIBLE);
+                                districtLinear.setVisibility(View.VISIBLE);
+                                projIDLinear.setVisibility(View.GONE);
+                                dateLinear.setVisibility(View.GONE);
+                            break;
+                            case "Project ID":
+                                projIDLinear.setVisibility(View.VISIBLE);
+                                stateLinear.setVisibility(View.GONE);
+                                districtLinear.setVisibility(View.GONE);
+                                dateLinear.setVisibility(View.GONE);
+                            break;
+                            case "Date":
+                                dateLinear.setVisibility(View.VISIBLE);
+                                stateLinear.setVisibility(View.GONE);
+                                districtLinear.setVisibility(View.GONE);
+                                projIDLinear.setVisibility(View.GONE);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
 
             @Override

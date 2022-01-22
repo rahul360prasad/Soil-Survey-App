@@ -2,6 +2,7 @@ package com.example.soilsurveyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -29,6 +30,8 @@ public class DataCollection extends AppCompatActivity {
     // creating variables for our edit text
     private EditText etProjID;
     private String projID;
+    ProgressDialog progressDialog;
+
     // url to post our data
     String url = "http://10.0.0.145/login/dataCollections.php";
 //    private Button nextBtn1;
@@ -54,6 +57,16 @@ public class DataCollection extends AppCompatActivity {
     }
 
     public void Next(View view) {
+
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(DataCollection.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
         // creating a new variable for our request queue
 //        RequestQueue queue = Volley.newRequestQueue(DataCollection.this);
 
@@ -67,15 +80,18 @@ public class DataCollection extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("success")) {
+                        progressDialog.dismiss();
                         Intent intent = new Intent(DataCollection.this, LocationDetails.class);
                         startActivity(intent);
                     } else if (response.equals("failure")) {
+                        progressDialog.dismiss();
                         Toast.makeText(DataCollection.this, "Invalid Project ID", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
                     Toast.makeText(DataCollection.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             }) {
@@ -89,6 +105,7 @@ public class DataCollection extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         } else {
+            progressDialog.dismiss();
             Toast.makeText(this, "Fields can not be empty!", Toast.LENGTH_SHORT).show();
         }
     }

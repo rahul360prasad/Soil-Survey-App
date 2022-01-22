@@ -147,63 +147,124 @@
 <!--        tools:ignore="MissingConstraints" />-->
 
 
-    <TextView
-        android:id="@+id/lbl_sr_select_state"
-        android:layout_width="171dp"
-        android:layout_height="53dp"
-        android:gravity="center"
-        android:text="Select state :"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/lbl_sr_select_district"
-        app:layout_constraintEnd_toStartOf="@+id/spin_sr_select_state"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"
-        app:layout_constraintVertical_bias="0.355" />
-
-    <Spinner
-        android:id="@+id/spin_sr_select_state"
-        android:layout_width="223dp"
-        android:layout_height="53dp"
-        android:autofillHints="Choose options..."
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/spin_sr_select_district"
+    <LinearLayout
+        android:id="@+id/statelinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/lbl_sr_select_state"
-        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"
-        app:layout_constraintVertical_bias="0.333"
-        tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spin_sr_select_district"
-        android:layout_width="223dp"
-        android:layout_height="53dp"
-        android:autofillHints="Choose options..."
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/search_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/lbl_sr_select_district"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbl_sr_select_district"
-        android:layout_width="171dp"
-        android:layout_height="53dp"
-        android:gravity="center"
-        android:text="Select District :"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/search_btn"
-        app:layout_constraintEnd_toStartOf="@+id/spin_sr_select_district"
-        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583" />
+        app:layout_constraintVertical_bias="0.440"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_sr_select_state"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:gravity="center"
+            android:text="Select state :"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spin_sr_select_state"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/districtlinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.450"
+        android:layout_marginTop="100dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_sr_select_district"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:gravity="center"
+            android:text="Select District :"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spin_sr_select_district"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/projIDlinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.440"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_sr_select_projID"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:gravity="center"
+            android:text="Select Project ID :"
+            android:textAlignment="center"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/spin_sr_select_projID"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/datelinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.440"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_sr_select_date"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:gravity="center"
+            android:text="Select Date :"
+            android:textAlignment="center"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/spin_sr_select_date"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/search_btn"

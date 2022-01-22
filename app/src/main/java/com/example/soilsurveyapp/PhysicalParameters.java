@@ -32,6 +32,7 @@ public class PhysicalParameters extends AppCompatActivity {
     private EditText etPD_sand, etPD_silt, etPD_clay, etPD_textural, etPD_density, etWR_33kpa, etWR_1500kpa, etWR_awc, etWR_pawc, etWR_gravimetric;
     private String horizon, profile_depth, PD_sand, PD_silt, PD_clay, PD_textural, PD_density, WR_33kpa, WR_1500kpa, WR_awc, WR_pawc, WR_gravimetric;
     private Button backBtn, nextBtn;
+    ProgressDialog progressDialog;
 
     // url to post the data
     private static final String url = "http://10.0.0.145/login/physicalParameters.php";
@@ -103,9 +104,15 @@ public class PhysicalParameters extends AppCompatActivity {
     }
 
     public void ppNext(View view) {
-// below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        // below is for progress dialog box
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(PhysicalParameters.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking btn put data on shared preference
@@ -149,6 +156,7 @@ public class PhysicalParameters extends AppCompatActivity {
             public void onResponse(String response) {
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(PhysicalParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -156,6 +164,7 @@ public class PhysicalParameters extends AppCompatActivity {
                     editor.putString(KEY_DEPTH, profile_depth);
                     editor.apply();
                     finish();
+                    progressDialog.dismiss();
                     Toast.makeText(PhysicalParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), ChemicalParameters.class));
                 }
@@ -163,6 +172,7 @@ public class PhysicalParameters extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

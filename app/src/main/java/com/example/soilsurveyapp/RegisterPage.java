@@ -29,6 +29,9 @@ public class RegisterPage extends AppCompatActivity {
 
     private EditText etName, etEmail, etPassword, etReenterPassword;
     private String name, email, password, reenterPassword;
+
+    ProgressDialog progressDialog;
+
 //    private String url = "http://10.0.0.145/soil_survey/register.php";
     private String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
     private Button btnRegister;
@@ -59,8 +62,14 @@ public class RegisterPage extends AppCompatActivity {
     public void Register(View view) {
 
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(RegisterPage.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //-----------validations for empty input box--------------
 //        if(userInput.getText().toString().equals("")){
@@ -123,6 +132,7 @@ public class RegisterPage extends AppCompatActivity {
                 public void onResponse(String response) {
                     try {
                         if(TextUtils.equals(response,"1")){
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterPage.this, "Registered Successfull", Toast.LENGTH_SHORT).show();
                             //JSONObject jsonObject = new JSONObject(response);
                             // on below line we are displaying a success toast message.
@@ -130,6 +140,7 @@ public class RegisterPage extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else{
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterPage.this, "Failed to register!!", Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e) {
@@ -147,6 +158,7 @@ public class RegisterPage extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             }){

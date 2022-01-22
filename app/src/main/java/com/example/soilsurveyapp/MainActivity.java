@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
     SharedPreferences sharedPreferences;
 
+    ProgressDialog progressDialog;
+
+
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "mypref";
     private static final String KEY_ID = "id";
@@ -75,6 +78,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void Login(View view) {
 
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(MainActivity.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking register btn put data on shared preference
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -100,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 //                    }
                     try {
                         if(TextUtils.equals(response,"0")){
+                            progressDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Failed to LoggedIn!!", Toast.LENGTH_SHORT).show();
                         }else{
                             JSONArray jsonarray = new JSONArray(response);
@@ -116,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.apply();
 
                                 finish();
+                                progressDialog.dismiss();
                                 Toast.makeText(MainActivity.this, "LoggedIn Successfull", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainActivity.this, HomePage.class);
                                 startActivity(intent);
@@ -128,12 +142,14 @@ public class MainActivity extends AppCompatActivity {
 //                            finish();
                         }
                     }catch (Exception e) {
+                        progressDialog.dismiss();
                         e.printStackTrace();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
                     Toast.makeText(MainActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             }){

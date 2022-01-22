@@ -32,6 +32,8 @@ public class SoilFertilityParameters extends AppCompatActivity {
     private String horizon, soilDepth, organicCarbon, MaN_nitrogen, MaN_phosphorus, MaN_potassium, MiN_sulphur, MiN_zinc, MiN_copper, MiN_iron, MiN_manganese;
     private Button backBtn;
 
+    ProgressDialog progressDialog;
+
     // url to post the data
     private static final String url = "http://10.0.0.145/login/soilFertilityParameters.php";
 
@@ -93,8 +95,14 @@ public class SoilFertilityParameters extends AppCompatActivity {
 
     public void sfpNext(View view) {
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(SoilFertilityParameters.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking btn put data on shared preference
@@ -137,6 +145,7 @@ public class SoilFertilityParameters extends AppCompatActivity {
             public void onResponse(String response) {
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(SoilFertilityParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -144,6 +153,7 @@ public class SoilFertilityParameters extends AppCompatActivity {
                     editor.putString(KEY_DEPTH, soilDepth);
                     editor.apply();
                     finish();
+                    progressDialog.dismiss();
                     Toast.makeText(SoilFertilityParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), AddPhotos.class));
                 }
@@ -151,6 +161,7 @@ public class SoilFertilityParameters extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

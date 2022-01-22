@@ -41,6 +41,8 @@ public class PresentLandUse extends AppCompatActivity {
 
     Button backBtn, saveBtn;
 
+    ProgressDialog progressDialog;
+
     // url to post the data
     private static final String url = "http://10.0.0.145/login/presentLandUse.php";
 
@@ -487,8 +489,14 @@ public class PresentLandUse extends AppCompatActivity {
 
     public void saveNsubmit(View view) {
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(PresentLandUse.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         phaseSurface = etPhaseSurface.getText().toString().trim();
         phaseSubstratum = etPhaseSubstratum.getText().toString().trim();
@@ -520,9 +528,11 @@ public class PresentLandUse extends AppCompatActivity {
                 Log.d("resssss", response);
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(PresentLandUse.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
+                    progressDialog.dismiss();
                     Toast.makeText(PresentLandUse.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(PresentLandUse.this, ProjectCredentials.class));
                 }
@@ -530,6 +540,7 @@ public class PresentLandUse extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

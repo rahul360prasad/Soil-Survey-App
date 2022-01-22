@@ -31,6 +31,8 @@ import java.util.Map;
 
 public class MorphologicalParameters extends AppCompatActivity {
 
+    ProgressDialog progressDialog;
+
     private EditText etDepth, et_CF_Vol, et_OF_Size, et_OF_Abundance, et_OF_Nature, et_OF_SampleBagNo, et_OF_AdditionalNotes;
     private String depth, cf_vol, of_size, of_abundance, of_nature, of_samplebagno, of_additionalnotes;
 
@@ -1086,8 +1088,14 @@ public class MorphologicalParameters extends AppCompatActivity {
 
     public void MC_submit(View view) {
         // below is for progress dialog box
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(MorphologicalParameters.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         //--------------------SHAREDPREFERENCE-------------------
         //when clicking btn put data on shared preference
@@ -1127,6 +1135,7 @@ public class MorphologicalParameters extends AppCompatActivity {
                 Log.d("resssss", response);
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(MorphologicalParameters.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -1134,6 +1143,7 @@ public class MorphologicalParameters extends AppCompatActivity {
                     editor.putString(KEY_DEPTH, depth);
                     editor.apply();
                     finish();
+                    progressDialog.dismiss();
                     Toast.makeText(MorphologicalParameters.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), PhysicalParameters.class));
                 }
@@ -1141,6 +1151,7 @@ public class MorphologicalParameters extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {

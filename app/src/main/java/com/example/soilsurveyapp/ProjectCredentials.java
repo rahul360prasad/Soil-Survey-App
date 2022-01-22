@@ -32,6 +32,7 @@ public class ProjectCredentials extends AppCompatActivity {
     private TextView lbl_projID, lbl_projProfileID;
     private EditText etHorizon;
     private String projID, projProfileID, horizon;
+    ProgressDialog progressDialog;
 
     //--------------SHARED PREFERENCES----------------
     SharedPreferences sharedPreferences;
@@ -39,11 +40,11 @@ public class ProjectCredentials extends AppCompatActivity {
     SharedPreferences sharedPreferencesProjProID;
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "projCred";
-    private static final String SHARED_PRE_NAME1 = "proReg";
-    private static final String SHARED_PRE_NAME2 = "locationDetails";
-    private static final String KEY_PROJECT_ID = "id";
-    private static final String KEY_PROJECT_PROFILE_ID = "ppid";
     private static final String KEY_HORIZON = "horizon";
+    private static final String SHARED_PRE_NAME1 = "proReg";
+    private static final String KEY_PROJECT_ID = "id";
+    private static final String SHARED_PRE_NAME2 = "locationDetails";
+    private static final String KEY_PROJECT_PROFILE_ID = "ppid";
 
     // url to post the data
     private static final String url = "http://10.0.0.145/login/projDetails.php";
@@ -113,6 +114,14 @@ public class ProjectCredentials extends AppCompatActivity {
     }
 
     public void addBtn(View view) {
+        //Initialinzing the progress Dialog
+        progressDialog= new ProgressDialog(ProjectCredentials.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         // below is for progress dialog box
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -151,6 +160,7 @@ public class ProjectCredentials extends AppCompatActivity {
                 Log.d("resssss", response);
                 if (TextUtils.equals(response, "success")) {
 //                        tvStatus.setText("Successfully registered.");
+                    progressDialog.dismiss();
                     Toast.makeText(ProjectCredentials.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
                 } else {
 //                        tvStatus.setText("Something went wrong!");
@@ -158,6 +168,7 @@ public class ProjectCredentials extends AppCompatActivity {
                     editor.putString(KEY_HORIZON, horizon);
                     editor.apply();
                     finish();
+                    progressDialog.dismiss();
                     Toast.makeText(ProjectCredentials.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), MorphologicalParameters.class));
                 }
@@ -165,6 +176,7 @@ public class ProjectCredentials extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {
