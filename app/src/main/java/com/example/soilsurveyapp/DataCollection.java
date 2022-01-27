@@ -1,11 +1,14 @@
 package com.example.soilsurveyapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,12 +51,30 @@ public class DataCollection extends AppCompatActivity {
         setContentView(R.layout.activity_data_collection);
         //---HIDING THE ACTION BAR
         try {
-            this.getSupportActionBar().hide();
+//            this.getSupportActionBar().hide();
+            getSupportActionBar().setTitle("");
         } catch (NullPointerException e) {
         }
 
         projID = "";
         etProjID = findViewById(R.id.dc_projID);
+    }
+
+    //-----------HOME ICON on action bar-------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home_menu:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void Next(View view) {

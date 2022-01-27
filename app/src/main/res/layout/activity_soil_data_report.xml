@@ -54,97 +54,97 @@
     //------------------------------------BY PROJECT ID-----------------------
 
     <!--    <TextView-->
-<!--        android:id="@+id/lbl_sr_project_id"-->
-<!--        android:layout_width="171dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Project ID :"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/lbl_sr_proj_profile_id"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_project_id"-->
-<!--        app:layout_constraintHorizontal_bias="0.02"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-<!--        app:layout_constraintVertical_bias="0.851" />-->
+    <!--        android:id="@+id/lbl_sr_project_id"-->
+    <!--        android:layout_width="171dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Project ID :"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/lbl_sr_proj_profile_id"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_project_id"-->
+    <!--        app:layout_constraintHorizontal_bias="0.02"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
+    <!--        app:layout_constraintVertical_bias="0.851" />-->
 
-<!--    <Spinner-->
-<!--        android:id="@+id/spin_sr_project_id"-->
-<!--        android:layout_width="223dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:autofillHints="Choose options..."-->
-<!--        android:spinnerMode="dropdown"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/spin_sr_proj_profile_id"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_project_id"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-<!--        app:layout_constraintVertical_bias="0.851"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/spin_sr_project_id"-->
+    <!--        android:layout_width="223dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:autofillHints="Choose options..."-->
+    <!--        android:spinnerMode="dropdown"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/spin_sr_proj_profile_id"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="1.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_project_id"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
+    <!--        app:layout_constraintVertical_bias="0.851"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/lbl_sr_proj_profile_id"-->
-<!--        android:layout_width="171dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:layout_marginTop="355dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Project Profile ID"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_proj_profile_id"-->
-<!--        app:layout_constraintHorizontal_bias="0.02"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.25" />-->
-<!--    <Spinner-->
-<!--        android:id="@+id/spin_sr_proj_profile_id"-->
-<!--        android:layout_width="223dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:layout_marginTop="355dp"-->
-<!--        android:autofillHints="Choose options..."-->
-<!--        android:spinnerMode="dropdown"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_proj_profile_id"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.25"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/lbl_sr_proj_profile_id"-->
+    <!--        android:layout_width="171dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:layout_marginTop="355dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Project Profile ID"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_proj_profile_id"-->
+    <!--        app:layout_constraintHorizontal_bias="0.02"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.25" />-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/spin_sr_proj_profile_id"-->
+    <!--        android:layout_width="223dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:layout_marginTop="355dp"-->
+    <!--        android:autofillHints="Choose options..."-->
+    <!--        android:spinnerMode="dropdown"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="1.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_proj_profile_id"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.25"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
     //------------------------------------------BY DATE-------------------------------------
 
     <!--    <TextView-->
-<!--        android:id="@+id/lbl_sr_date"-->
-<!--        android:layout_width="171dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Date :"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/date_sr_date"-->
-<!--        app:layout_constraintHorizontal_bias="0.02"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-<!--        app:layout_constraintVertical_bias="0.111" />-->
+    <!--        android:id="@+id/lbl_sr_date"-->
+    <!--        android:layout_width="171dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Date :"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/date_sr_date"-->
+    <!--        app:layout_constraintHorizontal_bias="0.02"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
+    <!--        app:layout_constraintVertical_bias="0.111" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/date_sr_date"-->
-<!--        android:layout_width="223dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="DD/MM/YYYY"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColor="#9A9A9A"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_date"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-<!--        app:layout_constraintVertical_bias="0.111"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/date_sr_date"-->
+    <!--        android:layout_width="223dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="DD/MM/YYYY"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textColor="#9A9A9A"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="1.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_date"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
+    <!--        app:layout_constraintVertical_bias="0.111"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
 
     <LinearLayout
@@ -152,13 +152,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440"
-        android:visibility="gone">
+        app:layout_constraintVertical_bias="0.440">
 
         <TextView
             android:id="@+id/lbl_sr_select_state"
@@ -176,19 +176,20 @@
             android:autofillHints="Choose options..."
             android:spinnerMode="dropdown" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/districtlinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.450"
-        android:layout_marginTop="100dp"
-        android:visibility="gone">
+        app:layout_constraintVertical_bias="0.450">
 
         <TextView
             android:id="@+id/lbl_sr_select_district"
@@ -212,13 +213,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440"
-        android:visibility="gone">
+        app:layout_constraintVertical_bias="0.440">
 
         <TextView
             android:id="@+id/lbl_sr_select_projID"
@@ -227,27 +228,28 @@
             android:gravity="center"
             android:text="Select Project ID :"
             android:textAlignment="center"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spin_sr_select_projID"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:textSize="20sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/datelinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440"
-        android:visibility="gone">
+        app:layout_constraintVertical_bias="0.440">
 
         <TextView
             android:id="@+id/lbl_sr_select_date"
@@ -256,14 +258,14 @@
             android:gravity="center"
             android:text="Select Date :"
             android:textAlignment="center"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spin_sr_select_date"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown" />
     </LinearLayout>
 
     <Button

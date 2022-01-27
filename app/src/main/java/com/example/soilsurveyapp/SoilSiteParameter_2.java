@@ -1,5 +1,6 @@
 package com.example.soilsurveyapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -8,6 +9,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,11 +58,11 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
         setContentView(R.layout.activity_soil_site_parameter2);
 
  //-----------------HIDING THE ACTION BAR-----------------------------------------------------------
-        try
-        {
-            this.getSupportActionBar().hide();
+        try {
+//            this.getSupportActionBar().hide();
+            getSupportActionBar().setTitle("");
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
 
 //---------------------REFERENCES----------------------------------------------------------------------
         slopeGradientSpinner=(Spinner) findViewById(R.id.spin_slope_gradient);
@@ -499,6 +502,23 @@ public class SoilSiteParameter_2 extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    //-----------HOME ICON on action bar-------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home_menu:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void ssp2Btn(View view) {

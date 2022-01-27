@@ -1,5 +1,6 @@
 package com.example.soilsurveyapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -18,6 +19,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -93,7 +96,8 @@ public class LocationDetails extends AppCompatActivity {
 
         //------------------HIDING THE ACTION BAR
         try {
-            this.getSupportActionBar().hide();
+//            this.getSupportActionBar().hide();
+            getSupportActionBar().setTitle("");
         } catch (NullPointerException e) {
         }
 
@@ -504,6 +508,23 @@ public class LocationDetails extends AppCompatActivity {
         if (projID == null) {
             Toast.makeText(LocationDetails.this, "Enter project profile id!!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //-----------HOME ICON on action bar-------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home_menu:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 //--------------BUTTON METHOD FOR GETTING CURRENT LOCATION DETAILS---------------

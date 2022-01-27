@@ -1,11 +1,16 @@
 package com.example.soilsurveyapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,51 +19,70 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SoilDataReport extends AppCompatActivity {
 
-    //declaring variable for storing selected state, district
+    //declaring variable for storing selected data
     private String selectedState, selectedDistrict, selectedSearchBy;
-    // defining spinner for state, district
-    private Spinner stateSpinner, districtSpinner, searchBySpinner;
-    //defining and declaring array adapter for state, district
-    private ArrayAdapter<CharSequence> stateAdapter, districtAdapter, searchByAdapter;
+    // defining spinner
+    private Spinner stateSpinner, districtSpinner, searchBySpinner, projectIDSpinner, projectDateSpinner;
+    //defining and declaring array adapter
+    private ArrayAdapter<CharSequence> stateAdapter, districtAdapter, searchByAdapter, projectIDAdapter, projectDateAdapter;
+
+    //-----------for search by project ID and Date----------------
+    ArrayList<String> projectIDList = new ArrayList<>();
+    ArrayList<String> projectDateList = new ArrayList<>();
+    RequestQueue requestQueue;
 
     //----LinearLayout-----------
     private LinearLayout stateLinear, districtLinear, projIDLinear, dateLinear;
-
-    ProgressDialog progressDialog;
-
-    TextView dateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soil_data_report);
 
+        String url_id = "http://10.0.0.145/login/project_ID.php";
+        String url_date = "http://10.0.0.145/login/projectDate.php";
+
+        requestQueue = Volley.newRequestQueue(this);
+
         //-----------------HIDING THE ACTION BAR-----------------------------------------------------------
-        try
-        {
-            this.getSupportActionBar().hide();
+        try {
+//            this.getSupportActionBar().hide();
+            getSupportActionBar().setTitle("");
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
 
         //----------spinnersArrayAdapter REFERENCES------------------------------
-        searchBySpinner= (Spinner) findViewById(R.id.spin_search_by);
+        searchBySpinner = (Spinner) findViewById(R.id.spin_search_by);
 
-        //-----hidden part of Search by------
-        stateLinear= (LinearLayout) findViewById(R.id.statelinearLayout);
-        districtLinear= (LinearLayout) findViewById(R.id.districtlinearLayout);
-        projIDLinear= (LinearLayout) findViewById(R.id.projIDlinearLayout);
-        dateLinear= (LinearLayout) findViewById(R.id.datelinearLayout);
+        //-----hidden part of Search by state, district, projectID and date------
+        stateLinear = (LinearLayout) findViewById(R.id.statelinearLayout);
+        districtLinear = (LinearLayout) findViewById(R.id.districtlinearLayout);
+        projIDLinear = (LinearLayout) findViewById(R.id.projIDlinearLayout);
+        dateLinear = (LinearLayout) findViewById(R.id.datelinearLayout);
 
 
         stateSpinner = (Spinner) findViewById(R.id.spin_sr_select_state);
         districtSpinner = (Spinner) findViewById(R.id.spin_sr_select_district);
+        projectIDSpinner = (Spinner) findViewById(R.id.spin_sr_select_projID);
+        projectDateSpinner = (Spinner) findViewById(R.id.spin_sr_select_date);
 
 
         //---------------------------------------------LIST OF SEARCH BY AND STATE AND DISTRICT ON SPINNER-----------------------------------------------------------------
@@ -99,22 +123,22 @@ public class SoilDataReport extends AppCompatActivity {
                             dateLinear.setVisibility(View.GONE);
                             break;
                         case "State":
-                                stateLinear.setVisibility(View.VISIBLE);
-                                districtLinear.setVisibility(View.VISIBLE);
-                                projIDLinear.setVisibility(View.GONE);
-                                dateLinear.setVisibility(View.GONE);
+                            stateLinear.setVisibility(View.VISIBLE);
+                            districtLinear.setVisibility(View.VISIBLE);
+                            projIDLinear.setVisibility(View.GONE);
+                            dateLinear.setVisibility(View.GONE);
                             break;
-                            case "Project ID":
-                                projIDLinear.setVisibility(View.VISIBLE);
-                                stateLinear.setVisibility(View.GONE);
-                                districtLinear.setVisibility(View.GONE);
-                                dateLinear.setVisibility(View.GONE);
+                        case "Project ID":
+                            projIDLinear.setVisibility(View.VISIBLE);
+                            stateLinear.setVisibility(View.GONE);
+                            districtLinear.setVisibility(View.GONE);
+                            dateLinear.setVisibility(View.GONE);
                             break;
-                            case "Date":
-                                dateLinear.setVisibility(View.VISIBLE);
-                                stateLinear.setVisibility(View.GONE);
-                                districtLinear.setVisibility(View.GONE);
-                                projIDLinear.setVisibility(View.GONE);
+                        case "Date":
+                            dateLinear.setVisibility(View.VISIBLE);
+                            stateLinear.setVisibility(View.GONE);
+                            districtLinear.setVisibility(View.GONE);
+                            projIDLinear.setVisibility(View.GONE);
                             break;
                         default:
                             break;
@@ -340,6 +364,57 @@ public class SoilDataReport extends AppCompatActivity {
             }
         });
 
+        //----------------------------SEARCH BY PROJECT ID--------------------------
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_id, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("projectregistrationtbl");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String projectID = jsonObject.optString("projID");
+                        projectIDList.add(projectID);
+                        projectIDAdapter = new ArrayAdapter(SoilDataReport.this, android.R.layout.simple_spinner_item, projectIDList);
+                        projectIDAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
+                        projectIDSpinner.setAdapter(projectIDAdapter);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+
+        //----------------------------SEARCH BY DATE--------------------------
+        JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest(Request.Method.POST, url_date, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("locationdetails");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String projectID = jsonObject.optString("date");
+                        projectDateList.add(projectID);
+                        projectDateAdapter = new ArrayAdapter(SoilDataReport.this, android.R.layout.simple_spinner_item, projectDateList);
+                        projectDateAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
+                        projectDateSpinner.setAdapter(projectDateAdapter);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonObjectRequest2);
 
 
         //----------------------------SHOWING DATE CALENDER------------------------note: working--------------------------
@@ -363,5 +438,22 @@ public class SoilDataReport extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    //-----------HOME ICON on action bar-------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home_menu:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

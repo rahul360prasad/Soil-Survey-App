@@ -173,6 +173,9 @@ public class RegisterPage extends AppCompatActivity {
             };
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
+        }else{
+            progressDialog.dismiss();
+            Toast.makeText(this, "Fields can not be empty!", Toast.LENGTH_SHORT).show();
         }
     }
 

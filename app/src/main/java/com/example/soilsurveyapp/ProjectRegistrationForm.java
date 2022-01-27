@@ -12,6 +12,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -66,7 +68,8 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 
         //---HIDING THE ACTION BAR
         try {
-            this.getSupportActionBar().hide();
+//            this.getSupportActionBar().hide();
+            getSupportActionBar().setTitle("");
         } catch (NullPointerException e) {
         }
 
@@ -116,6 +119,23 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
         if (projID == null) {
             Toast.makeText(ProjectRegistrationForm.this, "Enter project id!!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //-----------HOME ICON on action bar-------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home_menu:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void SubmitBtn(View view){

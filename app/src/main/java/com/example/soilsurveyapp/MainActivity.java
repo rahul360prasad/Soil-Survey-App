@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }catch (Exception e) {
                         progressDialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Failed to LoggedIn!!", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }
@@ -164,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }else{
+            progressDialog.dismiss();
             Toast.makeText(this, "Fields can not be empty!", Toast.LENGTH_SHORT).show();
         }
 
