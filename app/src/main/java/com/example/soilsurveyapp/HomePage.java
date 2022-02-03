@@ -135,7 +135,7 @@ public class HomePage extends AppCompatActivity {
         soilDataUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Intent intent= new Intent(HomePage.this, AddPhotos.class);
+                Intent intent= new Intent(HomePage.this, SearchByState.class);
                 startActivity(intent);
             }
         });

@@ -14,16 +14,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -34,11 +38,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SoilDataReport extends AppCompatActivity {
 
     //declaring variable for storing selected data
-    private String selectedState, selectedDistrict, selectedSearchBy;
+    private String selectedState, selectedDistrict, selectedSearchBy, selectedProjectID,selectedDate;
     // defining spinner
     private Spinner stateSpinner, districtSpinner, searchBySpinner, projectIDSpinner, projectDateSpinner;
     //defining and declaring array adapter
@@ -52,13 +58,22 @@ public class SoilDataReport extends AppCompatActivity {
     //----LinearLayout-----------
     private LinearLayout stateLinear, districtLinear, projIDLinear, dateLinear;
 
+    ProgressDialog progressDialog;
+    //url_state for checking selected state from database
+    String url_state = "http://10.0.0.145/login/selectByState.php";
+
+    Button searchBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soil_data_report);
 
+        //url_id for fetching all project id from database
         String url_id = "http://10.0.0.145/login/project_ID.php";
+        //url_date for fetching all date from database
         String url_date = "http://10.0.0.145/login/projectDate.php";
+
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -84,6 +99,7 @@ public class SoilDataReport extends AppCompatActivity {
         projectIDSpinner = (Spinner) findViewById(R.id.spin_sr_select_projID);
         projectDateSpinner = (Spinner) findViewById(R.id.spin_sr_select_date);
 
+        searchBtn = (Button) findViewById(R.id.search_btn);
 
         //---------------------------------------------LIST OF SEARCH BY AND STATE AND DISTRICT ON SPINNER-----------------------------------------------------------------
 
@@ -121,24 +137,28 @@ public class SoilDataReport extends AppCompatActivity {
                             districtLinear.setVisibility(View.GONE);
                             projIDLinear.setVisibility(View.GONE);
                             dateLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.GONE);
                             break;
                         case "State":
                             stateLinear.setVisibility(View.VISIBLE);
                             districtLinear.setVisibility(View.VISIBLE);
                             projIDLinear.setVisibility(View.GONE);
                             dateLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.VISIBLE);
                             break;
                         case "Project ID":
                             projIDLinear.setVisibility(View.VISIBLE);
                             stateLinear.setVisibility(View.GONE);
                             districtLinear.setVisibility(View.GONE);
                             dateLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.VISIBLE);
                             break;
                         case "Date":
                             dateLinear.setVisibility(View.VISIBLE);
                             stateLinear.setVisibility(View.GONE);
                             districtLinear.setVisibility(View.GONE);
                             projIDLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.VISIBLE);
                             break;
                         default:
                             break;
@@ -165,6 +185,7 @@ public class SoilDataReport extends AppCompatActivity {
         stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                searchBtn.setVisibility(View.VISIBLE);
                 //for disabling the first option of state spinner
                 TextView tv = (TextView) view;
                 if (position == 0) {
@@ -365,6 +386,17 @@ public class SoilDataReport extends AppCompatActivity {
         });
 
         //----------------------------SEARCH BY PROJECT ID--------------------------
+
+        projectIDSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedProjectID = projectIDSpinner.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_id, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -449,11 +481,100 @@ public class SoilDataReport extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.home_menu:
                 startActivity(new Intent(getApplicationContext(), HomePage.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //search button functionality
+    public void searchBtn(View view) {
+        //Initialinzing the progress Dialog
+        progressDialog = new ProgressDialog(SoilDataReport.this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        if (selectedSearchBy.equals("State")) {
+            if (!selectedState.equals("Select Your State")) {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_state, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.equals("success")) {
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(SoilDataReport.this, SearchByState.class);
+                            startActivity(intent);
+                        } else if (response.equals("failure")) {
+                            progressDialog.dismiss();
+                            Toast.makeText(SoilDataReport.this, "State not exist !!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        Toast.makeText(SoilDataReport.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> data = new HashMap<>();
+                        data.put("state", selectedState);
+                        return data;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                requestQueue.add(stringRequest);
+            } else {
+                progressDialog.dismiss();
+                Toast.makeText(this, "Choose state and district...", Toast.LENGTH_SHORT).show();
+            }
+        } else if (selectedSearchBy.equals("Project ID")) {
+            Toast.makeText(this, selectedProjectID+" project id selected", Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+            Intent intent = new Intent(SoilDataReport.this, SearchByProjID.class);
+            startActivity(intent);
+//            if (!selectedState.equals("Select Your State")) {
+//                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_state, new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        if (response.equals("success")) {
+//                            progressDialog.dismiss();
+//                            Intent intent = new Intent(SoilDataReport.this, SearchByState.class);
+//                            startActivity(intent);
+//                        } else if (response.equals("failure")) {
+//                            progressDialog.dismiss();
+//                            Toast.makeText(SoilDataReport.this, "State not exist !!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(SoilDataReport.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+//                    }
+//                }) {
+//                    @Override
+//                    protected Map<String, String> getParams() throws AuthFailureError {
+//                        Map<String, String> data = new HashMap<>();
+//                        data.put("state", selectedState);
+//                        return data;
+//                    }
+//                };
+//                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+//                requestQueue.add(stringRequest);
+//            } else {
+//                progressDialog.dismiss();
+//                Toast.makeText(this, "Choose state and district...", Toast.LENGTH_SHORT).show();
+//            }
+        } else if (selectedSearchBy.equals("Date")) {
+            Toast.makeText(this, "date id selected", Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+        }
     }
 }

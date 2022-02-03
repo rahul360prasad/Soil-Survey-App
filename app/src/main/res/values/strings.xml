@@ -1469,8 +1469,8 @@
     </string-array>
 
 
-
-    //-------------------------------GENERATE REPORT DETAILS (grd)----------------------------------------
+    //-------------------------------GENERATE REPORT DETAILS
+    (grd)----------------------------------------
 
     <string-array name="array_search_by">
         <item>Select Option...</item>
@@ -1480,7 +1480,8 @@
     </string-array>
 
 
-    //----------------------------ALL STATE AND DISTRICT--------------------------------------------------------
+    //----------------------------ALL STATE AND
+    DISTRICT--------------------------------------------------------
     <string-array name="array_grd_indian_state">
         <item>Select Your State</item>
         <item>Andaman and Nicobar Islands</item>
