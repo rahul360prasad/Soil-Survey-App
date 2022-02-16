@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,8 +48,17 @@ import java.util.Map;
 
 public class SoilDataReport extends AppCompatActivity {
 
+    TextView heading_lbl, searchBy, lbl_report;
+    //----LinearLayout-----------
+    private LinearLayout stateLinear, districtLinear, projIDLinear, dateLinear;
+    Button searchBtn;
+
+    //--------------------FOR STATE WISE REPORT GENERATION CODE------------------------
+    ListView listview;
+    LinearLayout report_root_layout;
+
     //declaring variable for storing selected data
-    private String selectedState, selectedDistrict, selectedSearchBy, selectedProjectID,selectedDate;
+    private String selectedState, selectedDistrict, selectedSearchBy, selectedProjectID, selectedDate;
     // defining spinner
     private Spinner stateSpinner, districtSpinner, searchBySpinner, projectIDSpinner, projectDateSpinner;
     //defining and declaring array adapter
@@ -55,25 +69,31 @@ public class SoilDataReport extends AppCompatActivity {
     ArrayList<String> projectDateList = new ArrayList<>();
     RequestQueue requestQueue;
 
-    //----LinearLayout-----------
-    private LinearLayout stateLinear, districtLinear, projIDLinear, dateLinear;
-
     ProgressDialog progressDialog;
     //url_state for checking selected state from database
-    String url_state = "http://10.0.0.145/login/selectByState.php";
+    String url_state = "http://10.0.0.145/login/state_report.php";
 
-    Button searchBtn;
+    //--------------SHARED PREFERENCES----------------
+    SharedPreferences sharedPreferences;
+    //creating shared preference name and also creating key name
+    private static final String SHARED_PRE_NAME = "soilDataReport";
+    private static final String KEY_STATE = "state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soil_data_report);
 
+        heading_lbl = (TextView) findViewById(R.id.h_soil_data_report);
+        searchBy = (TextView) findViewById(R.id.lbl_search_by);
+        report_root_layout = (LinearLayout) findViewById(R.id.report_root_layout);
+        listview = (ListView) findViewById(R.id.listView);
+        lbl_report = (TextView) findViewById(R.id.lbl_report);
+
         //url_id for fetching all project id from database
         String url_id = "http://10.0.0.145/login/project_ID.php";
         //url_date for fetching all date from database
         String url_date = "http://10.0.0.145/login/projectDate.php";
-
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -392,6 +412,7 @@ public class SoilDataReport extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedProjectID = projectIDSpinner.getSelectedItem().toString();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -447,8 +468,6 @@ public class SoilDataReport extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest2);
-
-
         //----------------------------SHOWING DATE CALENDER------------------------note: working--------------------------
 //        dateTextView=findViewById(R.id.date_sr_date);
 //        MaterialDatePicker.Builder materialDateBuilder = MaterialDatePicker.Builder.datePicker();
@@ -470,6 +489,13 @@ public class SoilDataReport extends AppCompatActivity {
 //            }
 //        });
 
+        //---------shared preference----------------
+        sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, MODE_PRIVATE);
+        //when open the activity then first check "shared preference" data available or not
+        String state = sharedPreferences.getString(KEY_STATE, null);
+        if (state == null) {
+            Toast.makeText(SoilDataReport.this, "Enter State!!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //-----------HOME ICON on action bar-------------------
@@ -500,25 +526,56 @@ public class SoilDataReport extends AppCompatActivity {
         //set transparent background
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
+//--------------------SHAREDPREFERENCE-------------------
+        //when clicking btn put data on shared preference
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_STATE, stateSpinner.getSelectedItem().toString());
+        editor.apply();
+
         if (selectedSearchBy.equals("State")) {
             if (!selectedState.equals("Select Your State")) {
+
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url_state, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.equals("success")) {
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString(KEY_STATE, selectedState);
+                            editor.apply();
+                            finish();
+
+                            showJSON(response);
+                            report_root_layout.setVisibility(View.VISIBLE);
+                            lbl_report.setVisibility(View.VISIBLE);
+                            heading_lbl.setVisibility(View.GONE);
+                            searchBy.setVisibility(View.GONE);
+                            searchBySpinner.setVisibility(View.GONE);
+                            stateLinear.setVisibility(View.GONE);
+                            districtLinear.setVisibility(View.GONE);
+                            projIDLinear.setVisibility(View.GONE);
+                            dateLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.GONE);
                             progressDialog.dismiss();
-                            Intent intent = new Intent(SoilDataReport.this, SearchByState.class);
-                            startActivity(intent);
-                        } else if (response.equals("failure")) {
+                        } else {
+                            showJSON(response);
+                            report_root_layout.setVisibility(View.VISIBLE);
+                            lbl_report.setVisibility(View.VISIBLE);
+                            heading_lbl.setVisibility(View.GONE);
+                            searchBy.setVisibility(View.GONE);
+                            searchBySpinner.setVisibility(View.GONE);
+                            stateLinear.setVisibility(View.GONE);
+                            districtLinear.setVisibility(View.GONE);
+                            projIDLinear.setVisibility(View.GONE);
+                            dateLinear.setVisibility(View.GONE);
+                            searchBtn.setVisibility(View.GONE);
                             progressDialog.dismiss();
-                            Toast.makeText(SoilDataReport.this, "State not exist !!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
-                        Toast.makeText(SoilDataReport.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SoilDataReport.this, "Connectivity problem...", Toast.LENGTH_SHORT).show();
                     }
                 }) {
                     @Override
@@ -535,7 +592,7 @@ public class SoilDataReport extends AppCompatActivity {
                 Toast.makeText(this, "Choose state and district...", Toast.LENGTH_SHORT).show();
             }
         } else if (selectedSearchBy.equals("Project ID")) {
-            Toast.makeText(this, selectedProjectID+" project id selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, selectedProjectID + " project id selected", Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
             Intent intent = new Intent(SoilDataReport.this, SearchByProjID.class);
             startActivity(intent);
@@ -576,5 +633,45 @@ public class SoilDataReport extends AppCompatActivity {
             Toast.makeText(this, "date id selected", Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
         }
+    }
+
+    //------------------METHOD FOR STATE CALLING FROM INSIDE SEARCH BUTTON METHOD-----------------------
+    private void showJSON(String response) {
+        ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray result = jsonObject.getJSONArray("result");
+
+            for (int i = 0; i < result.length(); i++) {
+                JSONObject jo = result.getJSONObject(i);
+                String projID = jo.getString("projID");
+                String projName = jo.getString("projName");
+                String projProfID = jo.getString("projectProfileID");
+                String state = jo.getString("state");
+                String district = jo.getString("district");
+                String tehsil = jo.getString("tehsil");
+                String block = jo.getString("block");
+                String village = jo.getString("villagename");
+                String date = jo.getString("date");
+
+                final HashMap<String, String> stateInfo = new HashMap<>();
+                stateInfo.put("projID", projID);
+                stateInfo.put("projName", projName);
+                stateInfo.put("projProfID", projProfID);
+                stateInfo.put("state", state);
+                stateInfo.put("district", district);
+                stateInfo.put("tehsil", tehsil);
+                stateInfo.put("block", block);
+                stateInfo.put("villagename", village);
+                stateInfo.put("date", date);
+                 list.add(stateInfo);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ListAdapter adapter = new SimpleAdapter(SoilDataReport.this, list, R.layout.report_list,
+                new String[]{"projID","projName","projProfID","state","district","tehsil","block","village","date"},
+                new int[]{R.id.tvPorjID, R.id.tvProjName, R.id.tvProjProfID, R.id.tvState, R.id.tvDistrict, R.id.tvTehsil, R.id.tvBlock, R.id.tvVillage, R.id.tvDate});
+        listview.setAdapter(adapter);
     }
 }

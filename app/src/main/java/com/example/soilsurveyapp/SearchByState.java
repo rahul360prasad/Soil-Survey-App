@@ -3,17 +3,29 @@ package com.example.soilsurveyapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class SearchByState extends AppCompatActivity {
+    private TextView lbl_reports;
+
+    SharedPreferences sharedPreferencesHorizon, sharedPreferencesState;
+    private static final String SHARED_PRE_NAME = "soilDataReport";
+    private static final String KEY_STATE = "state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_by_state);
+//        setContentView(R.layout.activity_search_by_state);
+//        lbl_reports = findViewById(R.id.lbl_report);
+
+        sharedPreferencesState = getSharedPreferences(SHARED_PRE_NAME, Context.MODE_PRIVATE);
+        lbl_reports.setText(sharedPreferencesState.getString(KEY_STATE, ""));
 
         //-----------------HIDING THE ACTION BAR-----------------------------------------------------------
         try {

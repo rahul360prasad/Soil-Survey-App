@@ -16,12 +16,13 @@
         android:textColor="@color/teal_700"
         android:textSize="35sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/lbl_search_by"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintVertical_bias="0.417"/>
 
     <TextView
         android:id="@+id/lbl_search_by"
@@ -31,6 +32,7 @@
         android:text="Search By"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/spin_search_by"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,109 +45,12 @@
         android:layout_height="53dp"
         android:autofillHints="Choose options..."
         android:spinnerMode="dropdown"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.336" />
-
-    //------------------------------------BY STATE AND DISTRICT-----------------------
-
-    //------------------------------------BY PROJECT ID-----------------------
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/lbl_sr_project_id"-->
-    <!--        android:layout_width="171dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="Project ID :"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textSize="20sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/lbl_sr_proj_profile_id"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_project_id"-->
-    <!--        app:layout_constraintHorizontal_bias="0.02"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-    <!--        app:layout_constraintVertical_bias="0.851" />-->
-
-    <!--    <Spinner-->
-    <!--        android:id="@+id/spin_sr_project_id"-->
-    <!--        android:layout_width="223dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:autofillHints="Choose options..."-->
-    <!--        android:spinnerMode="dropdown"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/spin_sr_proj_profile_id"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_project_id"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-    <!--        app:layout_constraintVertical_bias="0.851"-->
-    <!--        tools:ignore="MissingConstraints" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/lbl_sr_proj_profile_id"-->
-    <!--        android:layout_width="171dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:layout_marginTop="355dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="Project Profile ID"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textSize="20sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/spin_sr_proj_profile_id"-->
-    <!--        app:layout_constraintHorizontal_bias="0.02"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.25" />-->
-    <!--    <Spinner-->
-    <!--        android:id="@+id/spin_sr_proj_profile_id"-->
-    <!--        android:layout_width="223dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:layout_marginTop="355dp"-->
-    <!--        android:autofillHints="Choose options..."-->
-    <!--        android:spinnerMode="dropdown"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_proj_profile_id"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.25"-->
-    <!--        tools:ignore="MissingConstraints" />-->
-
-    //------------------------------------------BY DATE-------------------------------------
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/lbl_sr_date"-->
-    <!--        android:layout_width="171dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="Date :"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textSize="20sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/date_sr_date"-->
-    <!--        app:layout_constraintHorizontal_bias="0.02"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-    <!--        app:layout_constraintVertical_bias="0.111" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/date_sr_date"-->
-    <!--        android:layout_width="223dp"-->
-    <!--        android:layout_height="53dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="DD/MM/YYYY"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textColor="#9A9A9A"-->
-    <!--        android:textSize="20sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/search_btn"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/lbl_sr_date"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/spin_search_by"-->
-    <!--        app:layout_constraintVertical_bias="0.111"-->
-    <!--        tools:ignore="MissingConstraints" />-->
-
 
     <LinearLayout
         android:id="@+id/statelinearLayout"
@@ -273,11 +178,11 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_btn"
-        android:text="Search"
         android:onClick="searchBtn"
-        android:visibility="gone"
+        android:text="Search"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:visibility="gone"
         app:backgroundTint="#018786"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -285,5 +190,160 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
+
+    <TextView
+        android:id="@+id/lbl_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="State-Wise Report"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        android:visibility="gone"/>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:id="@+id/report_root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TableLayout
+                android:id="@+id/tbl_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2,3,4">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/tvPorjID"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Project ID"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvProjName"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Project Name"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvProjProfID"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Proj. Profile ID"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvState"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="State"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/tvDistrict"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="District"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/tvTehsil"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Tehsil"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/tvBlock"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Block/Mandal"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/tvVillage"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Village"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_shape_blue"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Date"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                </TableRow>
+            </TableLayout>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="388dp"></ListView>
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+def lottieVersion = "4.2.2"
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -38,4 +39,6 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'gun0912.ted:tedpermission:2.2.2'
     implementation 'com.karumi:dexter:6.2.3'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 }
