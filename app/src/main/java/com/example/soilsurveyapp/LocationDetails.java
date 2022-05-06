@@ -2863,7 +2863,6 @@ public class LocationDetails extends AppCompatActivity {
 
         }
     }
-
     private void east_encodeBitmapImg(Bitmap sec_bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         sec_bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
