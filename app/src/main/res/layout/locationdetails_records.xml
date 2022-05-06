@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4"
+    >
+    <TableLayout>
+        <TextView
+            android:id="@+id/tv_loc_projectProfileID"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_surveyorname"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:scrollHorizontally="true"/>
+        <TextView
+            android:id="@+id/tv_loc_district"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_tehsil"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_block"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_villagename"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_toposheet250k"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_toposheet50k"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_date"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_time"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_latitude"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_longitude"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_loc_elevation"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvDistrict"-->
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvTehsil"-->
+        <!--            android:layout_width="135dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvBlock"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvVillage"-->
+        <!--            android:layout_width="135dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvDate"-->
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+
+    </TableLayout>
+</TableLayout>

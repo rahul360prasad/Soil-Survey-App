@@ -124,7 +124,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/lbl_mottle_color"
+            android:id="@+id/lbl_particle_size_distribution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"

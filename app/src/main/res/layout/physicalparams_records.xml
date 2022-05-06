@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv_pp_horizon_dummy"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pp_depth_dummy"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_pp_sand"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_silt"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/tv_pp_clay"
+                    android:layout_width="83dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_USDATexturalClass"
+                    android:layout_width="234dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_bulkDensity"
+                    android:layout_width="232dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_pp_33kPa"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_1500kPa"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_AWC"
+                    android:layout_width="184dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_PAWC"
+                    android:layout_width="198dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pp_gravimetricMoisture"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape_grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                     android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

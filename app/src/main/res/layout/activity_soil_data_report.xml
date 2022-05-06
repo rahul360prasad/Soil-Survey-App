@@ -1,254 +1,472 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".SoilDataReport">
 
-    <TextView
-        android:id="@+id/h_soil_data_report"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Generate Report"
-        android:textAlignment="center"
-        android:textColor="@color/teal_700"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/lbl_search_by"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417"/>
-
-    <TextView
-        android:id="@+id/lbl_search_by"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Search By"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/spin_search_by"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
-
-    <Spinner
-        android:id="@+id/spin_search_by"
-        android:layout_width="223dp"
-        android:layout_height="53dp"
-        android:autofillHints="Choose options..."
-        android:spinnerMode="dropdown"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
-
-    <LinearLayout
-        android:id="@+id/statelinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/lbl_sr_select_state"
-            android:layout_width="171dp"
-            android:layout_height="53dp"
-            android:gravity="center"
-            android:text="Select state :"
+            android:id="@+id/h_soil_data_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Generate Report"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/lbl_search_by"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.417" />
+
+        <TextView
+            android:id="@+id/lbl_search_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Search By"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/spin_search_by"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
 
         <Spinner
-            android:id="@+id/spin_sr_select_state"
+            android:id="@+id/spin_search_by"
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/districtlinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.450">
-
-        <TextView
-            android:id="@+id/lbl_sr_select_district"
-            android:layout_width="171dp"
-            android:layout_height="53dp"
-            android:gravity="center"
-            android:text="Select District :"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spin_sr_select_district"
-            android:layout_width="223dp"
-            android:layout_height="53dp"
-            android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/projIDlinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440">
-
-        <TextView
-            android:id="@+id/lbl_sr_select_projID"
-            android:layout_width="171dp"
-            android:layout_height="53dp"
-            android:gravity="center"
-            android:text="Select Project ID :"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spin_sr_select_projID"
-            android:layout_width="223dp"
-            android:layout_height="53dp"
             android:spinnerMode="dropdown"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/datelinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440">
-
-        <TextView
-            android:id="@+id/lbl_sr_select_date"
-            android:layout_width="171dp"
-            android:layout_height="53dp"
-            android:gravity="center"
-            android:text="Select Date :"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spin_sr_select_date"
-            android:layout_width="223dp"
-            android:layout_height="53dp"
-            android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/login_btn"
-        android:onClick="searchBtn"
-        android:text="Search"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:backgroundTint="#018786"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
-
-    <TextView
-        android:id="@+id/lbl_report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="State-Wise Report"
-        android:textAlignment="center"
-        android:textColor="@color/teal_700"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        android:visibility="gone"/>
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.336" />
 
         <LinearLayout
-            android:id="@+id/report_root_layout"
+            android:id="@+id/statelinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.440">
 
-            <TableLayout
-                android:id="@+id/tbl_layout"
+            <TextView
+                android:id="@+id/lbl_sr_select_state"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Select state :"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_sr_select_state"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:autofillHints="Choose options..."
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/districtlinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.450">
+
+            <TextView
+                android:id="@+id/lbl_sr_select_district"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Select District :"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_sr_select_district"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:autofillHints="Choose options..."
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/projIDlinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.440">
+
+            <TextView
+                android:id="@+id/lbl_sr_select_projID"
+                android:layout_width="171dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Select \nProject ID :"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_sr_select_projID"
+                android:layout_width="223dp"
+                android:layout_height="match_parent"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/projProfileIDlinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/projIDlinearLayout"
+            app:layout_constraintVertical_bias="0.05">
+
+            <TextView
+                android:id="@+id/lbl_sr_select_projprofileID"
+                android:layout_width="171dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Select Project \nProfile ID :"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_sr_select_projprofileID"
+                android:layout_width="223dp"
+                android:layout_height="match_parent"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/datelinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.440">
+
+            <TextView
+                android:id="@+id/lbl_sr_select_date"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Select Date :"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_sr_select_date"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:autofillHints="Choose options..."
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_btn"
+            android:onClick="searchBtn"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.948" />
+
+        //-------state-wise---
+
+        <TextView
+            android:id="@+id/lbl_statewise_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="State-wise Report"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.311"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:id="@+id/state_report_root_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableLayout
+                    android:id="@+id/tbl_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1,2,3,4">
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/tvPorjID"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Project ID"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvProjName"
+                            android:layout_width="145dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Project Name"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvProjProfID"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Proj. Profile ID"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvState"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="State"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvDistrict"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="District"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvTehsil"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Tehsil"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvBlock"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Block/Mandal"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvVillage"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Village"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Date"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </TableRow>
+                </TableLayout>
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="388dp"></ListView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        //-------project id-wise---
+
+        <TextView
+            android:id="@+id/lbl_projectidwise_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Project ID-wise Report"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.013" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="125dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_project_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="1,2,3,4">
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingBottom="10dp"
+                android:text="Project Details"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/projID_report_root_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TableRow>
+            <LinearLayout
+                android:id="@+id/projID_report_root_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableLayout
+                    android:id="@+id/tbl_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center_vertical|center_horizontal">
 
                     <TextView
-                        android:id="@+id/tvPorjID"
+                        android:id="@+id/tvProjNames"
                         android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/cell_shape_blue"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Project ID"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/tvProjName"
-                        android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cell_shape_blue"
                         android:gravity="center"
@@ -259,91 +477,2592 @@
                         android:textSize="20dp" />
 
                     <TextView
-                        android:id="@+id/tvProjProfID"
-                        android:layout_width="150dp"
+                        android:id="@+id/tvProjPeriod"
+                        android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cell_shape_blue"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Proj. Profile ID"
+                        android:text="Project Period"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
                     <TextView
-                        android:id="@+id/tvState"
-                        android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/cell_shape_blue"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="State"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:id="@+id/tvDistrict"
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/cell_shape_blue"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="District"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:id="@+id/tvTehsil"
-                        android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/cell_shape_blue"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Tehsil"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:id="@+id/tvBlock"
+                        android:id="@+id/tvProjDuration"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cell_shape_blue"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Block/Mandal"
+                        android:text="Proj. Duration"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
+
                     <TextView
-                        android:id="@+id/tvVillage"
+                        android:id="@+id/tvProjFundSrc"
                         android:layout_width="135dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cell_shape_blue"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Village"
+                        android:text="Proj. Fund Source"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
+
                     <TextView
-                        android:id="@+id/tvDate"
-                        android:layout_width="160dp"
+                        android:id="@+id/tvRegisteredDate"
+                        android:layout_width="135dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cell_shape_blue"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Date"
+                        android:text="Registered Date"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
-                </TableRow>
-            </TableLayout>
 
-            <ListView
-                android:id="@+id/listView"
+                </TableLayout>
+
+                <ListView
+                    android:id="@+id/projReg_details_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"></ListView>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        // -------Location details-------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loc_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_location_details"
                 android:layout_width="match_parent"
-                android:layout_height="388dp"></ListView>
-        </LinearLayout>
-    </HorizontalScrollView>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingTop="25dp"
+                android:text="Location Details"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.311"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/location_report_root_layouts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableLayout
+                        android:id="@+id/location_tbl_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_loc_ProjProfileID"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Project Profile Id"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_SurveyorName"
+                            android:layout_width="145dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Surveyor Name"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_States"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="State"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_District"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="District"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Tehsil"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Tehsil"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Block"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Block/Mandal"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Village"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Village"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Toposheet250k"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Toposheet 250K"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Toposheet50k"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Toposheet 50K"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Date"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Date"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Time"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Time"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Latitude"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Latitude"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Longitude"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Longitude"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_loc_Elevation"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Elevation"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/location_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        // -------Soil site parameters-------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/soilSiteParams_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loc_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_soil_site_params_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingTop="25dp"
+                android:text="Soil Site Parameters"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.311"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/ssp_report_root_layouts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableLayout
+                        android:id="@+id/soilSiteParams_tbl_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_ssp_physio_ctgy"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Physiographic Category"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_sub_physio_unit"
+                            android:layout_width="145dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Sub-Physiographic Unit"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_geology"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Geology"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_parent_material"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Parent Material"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_climate"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Climate"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_rainfall"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Rainfall(in mm)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_landformType"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Topography/Landform Type"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_slopeGradient"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Slope Gradiant(%)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_slopeLength"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Slope Length(in m)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_erosion"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Erosion"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_runoff"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Runoff"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_drainage"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Drainage"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_groundWaterDepth"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Ground Water Depth(in m)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_flooding"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Flooding"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_saltAlkali"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Salt/Alkali(% Surface coverage)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_pH"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="pH"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_Ec"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Ec"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_stoneSize"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Stone Size(in cm)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_stoiness"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Stoiness(% Sur. Cov.)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_rock_outcrops"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Rock Outcrops (Distance part in m)"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ssp_natural_vegetation"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Natural Vegetation"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/soilSiteParams_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        // -------Present Land Use-------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/presentLandUse_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soilSiteParams_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_present_land_use_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingTop="25dp"
+                android:text="Present Land Use"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.311"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/plu_report_root_layouts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableLayout
+                        android:id="@+id/presentLandUse_tbl_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_plu_forest"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Forest"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_cultivated"
+                            android:layout_width="145dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Cultivated"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_terraces"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Terraces"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_pastureLand"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Pasture Land"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_degradedCulturable"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Degraded Culturable"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_degradedUnCulturable"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Degraded Unculturable"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/lbl_plu_classification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Classifica"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_phaseSurface"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Phase Surface"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_phaseSubstratum"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Phase Substratum"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_landCapabilityClass"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Land Capability Class"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_landCapabilitySubClass"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Land Capability Sub-class"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_landIrrigabilityClass"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Land Irrigability Class"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_landIrrigabilitySubClass"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Land Irrigability Sub-class"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_remarks"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Remarks"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/lbl_plu_addcrops"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Add"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_crop"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Crop"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_yield"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Yield"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_managementPractice"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Management Practice"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_plu_croppingSystem"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Cropping System"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/presentLandUse_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //-------morphological parameters-----------------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/morphological_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/presentLandUse_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_morphological_params_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Morphological parameters"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_morphological_params_details"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/mp_report_root_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TableLayout
+                        android:id="@+id/mc_tbl_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1,2,3,4">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_mp_horizon"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Horizon"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_depth"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:width="126dp"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Depth"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_boundary"
+                                android:layout_width="240dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Boundary"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_dignosticHorizon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Dignostic Horizon"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_matrixColour"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Matrix Colour"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_mottleColour"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Mottle Colour"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_texture"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Texture"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_coarseFragments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Coarse Fragments %"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_structure"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Structure"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_consistency"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Consistency"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_porosity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Porosity"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_cutans"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Cutans"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_nodules"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Nodules"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_roots"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Roots"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_effervesence"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Effervesence"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_other_feature"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Other feature"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_sample_bag_no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Sample Bag No."
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_additional_notes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Additional Notes"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </TableRow>
+
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_mp_horizon_dummy"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_depth_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_boundary_D"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="D"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_boundary_T"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="T"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/tv_mp_dignosticHorizon_dummy"
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_matrixColour_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_mottleColour_A"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="A"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_mottleColour_S"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="S"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_mottleColour_C"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="C"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_mp_texture_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_coarseFragments_S"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Size"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_coarseFragments_V"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Vol(%)"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_structure_S"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Size"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_structure_G"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Grade"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_structure_T"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Type"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_consistency_D"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="D"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_consistency_M"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="M"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_consistency_W"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="W"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_porosity_S"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="S"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_porosity_Q"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Q"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_cutans_Q"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Q"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_cutans_Ty"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Ty"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_cutans_Th"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Th"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_nodules_Q"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Q"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_nodules_S"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="S"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_roots_S"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="S"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_roots_Q"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Q"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/tv_mp_effervesence_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_mp_other_feature_S"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="S"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_other_feature_A"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="A"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mp_other_feature_N"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="N"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_mp_sample_bag_no_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_mp_additional_notes_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </TableRow>
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/morphological_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //-------Physical Parameters-----------------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/physical_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/morphological_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_physical_params_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Physical Parameters"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/phy_horizontalScrollView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/phy_horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_physical_params_details"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/pp_report_root_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TableLayout
+                        android:id="@+id/pp_tbl_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1,2,3,4">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_pp_horizon"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Horizon"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_pp_depth"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:width="126dp"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Depth"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_pp_particleSizeDistribution"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Particle size distribution(%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_pp_waterRetension"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Water Retension(%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </TableRow>
+
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_pp_horizon_dummy"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_pp_depth_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_pp_sand"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Sand"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_silt"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Silt"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_clay"
+                                    android:layout_width="83dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Clay"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_USDATexturalClass"
+                                    android:layout_width="234dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="USDA Textural Class"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_bulkDensity"
+                                    android:layout_width="232dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Bulk Density (Mg m-3)"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_pp_33kPa"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="33kPa"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_1500kPa"
+                                    android:layout_width="125dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="1500kPa"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_AWC"
+                                    android:layout_width="184dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="AWC(cm m-1)"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_PAWC"
+                                    android:layout_width="198dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="PAWC(cm m-1)"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pp_gravimetricMoisture"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Gravimetric Moisture(%)"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                        </TableRow>
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/physical_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //-------chemical parameters-----------------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chemical_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/physical_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_chemical_params_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Chemical parameters"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/cp_horizontalScrollView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/cp_horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_chemical_params_details"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/cp_report_root_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TableLayout
+                        android:id="@+id/cp_tbl_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1,2,3,4">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_cp_horizon"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Horizon"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_depth"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:width="126dp"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Depth"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_pH"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="pH"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_EC"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="EC"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_OC"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="OC(%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_CaCo"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="CaCo(%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_Ca"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Ca (cmol/kg soil)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_Mg"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Mg (cmol/kg soil)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_Na"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Na (cmol/kg soil)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_K"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="K (cmol/kg soil )"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_TotalBase"
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Total Base (cmol(+)/kg)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_CEC"
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="CEC cmol (p+)/kg soil)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_BS"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="%BS=(total Base/CEC)*100"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_cp_ESP"
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="ESP%(Na/CEC)*100"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/chemical_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //-------Soil Fertility Parameters-----------------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/soilfertility_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chemical_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_soil_fertility_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Soil Fertility Parameters"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/sfp_horizontalScrollView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/sfp_horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_soil_fertility_details"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/sfp_report_root_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TableLayout
+                        android:id="@+id/sfp_tbl_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1,2,3,4">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_sfp_horizon"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Horizon"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_depth"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Depth"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_organicCarbon"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Organic carbon(%):"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_majorNutrients"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Major Nutrients (%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_microNutrients"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Micro Nutrients (%)"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </TableRow>
+
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/tv_sfp_horizon_dummy"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_depth_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/tv_sfp_organicCarbon_dummy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cell_shape_blue"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_nitrogen"
+                                    android:layout_width="180dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Nitrogen kg -1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_phosphorus"
+                                    android:layout_width="220dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Phosphorus kg ha-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_potassium"
+                                    android:layout_width="220dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Potassium kg ha-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_sulphur"
+                                    android:layout_width="195dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Sulphur mg kg-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_zinc"
+                                    android:layout_width="160dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Zinc mg kg-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_copper"
+                                    android:layout_width="185dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Copper mg kg-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_iron"
+                                    android:layout_width="160dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Iron mg kg-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_sfp_manganese"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cell_shape_blue"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:text="Manganese mg kg-1"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                        </TableRow>
+                    </TableLayout>
+
+                    <ListView
+                        android:id="@+id/soilfertility_details_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //-------All Four Images-----------------------
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/img_details_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soilfertility_details_root"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/lbl_projectProfile_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingBottom="10dp"
+                android:text="Images"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/img_report_root_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/img_report_root_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:textAlignment="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableLayout
+                    android:id="@+id/img_tbl_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal">
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/tv_img_projProfile_lbl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape_blue"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Project Profile ID"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <ListView
+                            android:id="@+id/projProfileimg_details_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"></ListView>
+                    </TableRow>
+                </TableLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
+                    //----east img
+
+                    <TextView
+                        android:id="@+id/tv_east_img_lbl"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                         android:text="East"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                    <ImageView
+                        android:id="@+id/report_east_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:onClick="eastImgClick"/>
+
+
+                    //--------west img-------
+
+                    <TextView
+                        android:id="@+id/tv_west_img_lbl"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="West"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/report_west_imgView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:onClick="westImgClick"/>
+
+                    //------north img-----
+
+                    <TextView
+                        android:id="@+id/tv_north_img_lbl"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="North"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/report_north_imgView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:onClick="northImgClick"/>
+
+                    //----south img----
+
+                    <TextView
+                        android:id="@+id/tv_south_img_lbl"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="South"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/report_south_imgView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:onClick="southImgClick" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

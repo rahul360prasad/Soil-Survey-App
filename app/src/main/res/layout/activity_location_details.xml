@@ -12,54 +12,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/location_detail_back_btn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/login_btn"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Back"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:backgroundTint="#018786"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/lbl_location_detail_remark"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/lbl_location_detail_remark"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_location_detail_remark"
-            app:layout_constraintVertical_bias="0.0" />
+        <!--        <Button-->
+        <!--            android:id="@+id/location_detail_back_btn"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:layout_marginBottom="20dp"-->
+        <!--            android:background="@drawable/login_btn"-->
+        <!--            android:gravity="center_vertical|center_horizontal"-->
+        <!--            android:text="Back"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="20sp"-->
+        <!--            app:backgroundTint="#018786"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/lbl_location_detail_remark"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/lbl_location_detail_remark"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/lbl_location_detail_remark"-->
+        <!--            app:layout_constraintVertical_bias="0.0" />-->
 
-        <Button
-            android:id="@+id/location_detail_next_btn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/login_btn"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Next"
-            android:onClick="SubmitBtn1"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:backgroundTint="#018786"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/remark"
-            app:layout_constraintHorizontal_bias="0.52"
-            app:layout_constraintStart_toStartOf="@+id/remark"
-            app:layout_constraintTop_toBottomOf="@+id/remark"
-            app:layout_constraintVertical_bias="0.0" />
+        <!--        <Button-->
+        <!--            android:id="@+id/location_detail_next_btn"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:layout_marginBottom="20dp"-->
+        <!--            android:background="@drawable/login_btn"-->
+        <!--            android:gravity="center_vertical|center_horizontal"-->
+        <!--            android:text="Next"-->
+        <!--            android:onClick="SubmitBtn1"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="20sp"-->
+        <!--            app:backgroundTint="#018786"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/remark"-->
+        <!--            app:layout_constraintHorizontal_bias="0.52"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/remark"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/remark"-->
+        <!--            app:layout_constraintVertical_bias="0.0" />-->
 
         <EditText
             android:id="@+id/surveyor_name"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="112dp"
+            android:layout_marginTop="95dp"
             android:hint="Enter surveyor name..."
-             android:inputType="text"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
             android:id="@+id/village_name"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="412dp"
+            android:layout_marginTop="395dp"
             android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
@@ -88,9 +88,9 @@
             android:id="@+id/elevation"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="900dp"
+            android:layout_marginTop="870dp"
             android:hint="Enter elevation..."
-             android:inputType="text"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -104,9 +104,9 @@
             android:id="@+id/profileID"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="964dp"
+            android:layout_marginTop="930dp"
             android:hint="Enter profile id..."
-             android:inputType="text"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,13 +116,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <Spinner
-            android:id="@+id/spin_select_tehsil"
+        <EditText
+            android:id="@+id/tehsil_name"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="292dp"
-            android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown"
+            android:layout_marginTop="265dp"
+            android:hint="Enter thesil..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -135,7 +137,7 @@
             android:id="@+id/spin_toposheet250k"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="476dp"
+            android:layout_marginTop="455dp"
             android:autofillHints="Choose options..."
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -150,7 +152,7 @@
             android:id="@+id/spin_toposheet50k"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="536dp"
+            android:layout_marginTop="515dp"
             android:autofillHints="Choose options..."
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -161,13 +163,15 @@
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
-        <Spinner
-            android:id="@+id/spin_select_block"
+        <EditText
+            android:id="@+id/block_name"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="352dp"
-            android:autofillHints="Choose options..."
-            android:spinnerMode="dropdown"
+            android:layout_marginTop="335dp"
+            android:hint="Enter block..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -180,7 +184,7 @@
             android:id="@+id/spin_select_state"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="155dp"
             android:autofillHints="Choose options..."
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -195,7 +199,7 @@
             android:id="@+id/spin_select_district"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="232dp"
+            android:layout_marginTop="215dp"
             android:autofillHints="Choose options..."
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -210,7 +214,7 @@
             android:id="@+id/lbl_select_tehsil"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="292dp"
+            android:layout_marginTop="265dp"
             android:gravity="center"
             android:text="Select Tehsil /\n Sub-Division"
             android:textAlignment="center"
@@ -226,7 +230,7 @@
             android:id="@+id/lbl_select_block"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="352dp"
+            android:layout_marginTop="335dp"
             android:gravity="center"
             android:text="Select Block /\n Mandal"
             android:textAlignment="center"
@@ -242,7 +246,7 @@
             android:id="@+id/lbl_village_name"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="412dp"
+            android:layout_marginTop="395dp"
             android:gravity="center"
             android:text="Village Name"
             android:textAlignment="center"
@@ -258,7 +262,7 @@
             android:id="@+id/lbl_select_toposheet250k"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="476dp"
+            android:layout_marginTop="455dp"
             android:gravity="center"
             android:text="Select Toposheet 250K"
             android:textAlignment="center"
@@ -274,7 +278,7 @@
             android:id="@+id/lbl_select_toposheet50k"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="536dp"
+            android:layout_marginTop="515dp"
             android:gravity="center"
             android:text="Select Toposheet 50K"
             android:textAlignment="center"
@@ -301,13 +305,13 @@
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/lbl_select_district"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="232dp"
+            android:layout_marginTop="215dp"
             android:gravity="center"
             android:text="Select District"
             android:textAlignment="center"
@@ -323,7 +327,7 @@
             android:id="@+id/lbl_select_state"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="155dp"
             android:gravity="center"
             android:text="Select state"
             android:textAlignment="center"
@@ -339,7 +343,7 @@
             android:id="@+id/lbl_location_detail_date"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="596dp"
+            android:layout_marginTop="575dp"
             android:gravity="center"
             android:text="Date (MM/DD/YYYY)"
             android:textAlignment="center"
@@ -355,7 +359,7 @@
             android:id="@+id/lbl_full_date"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="596dp"
+            android:layout_marginTop="575dp"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -370,7 +374,7 @@
             android:id="@+id/lbl_location_detail_latitude"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="695dp"
             android:gravity="center"
             android:text="Latitude"
             android:textAlignment="center"
@@ -381,11 +385,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
         <TextView
             android:id="@+id/lbl_latitude"
-             android:layout_width="223dp"
+            android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="695dp"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -400,7 +405,7 @@
             android:id="@+id/lbl_location_detail_longitude"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="780dp"
+            android:layout_marginTop="755dp"
             android:gravity="center"
             android:text="Longitude"
             android:textAlignment="center"
@@ -411,11 +416,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
         <TextView
             android:id="@+id/lbl_longitude"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="780dp"
+            android:layout_marginTop="755dp"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -430,25 +436,26 @@
             android:id="@+id/get_location"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/login_btn"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Get Cureent Location"
-            android:onClick="getLocation"
-             android:textAlignment="center"
+             android:text="Get Cureent Location"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:backgroundTint="#018786"
             app:layout_constraintBottom_toTopOf="@+id/elevation"
             app:layout_constraintEnd_toEndOf="@+id/lbl_longitude"
-            app:layout_constraintHorizontal_bias="0.451"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="@+id/lbl_location_detail_longitude"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_location_detail_longitude" />
+            app:layout_constraintTop_toBottomOf="@+id/lbl_location_detail_longitude"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/lbl_location_detail_elevation"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="900dp"
+            android:layout_marginTop="870dp"
             android:gravity="center"
             android:text="Elevation (in m)"
             android:textAlignment="center"
@@ -464,7 +471,7 @@
             android:id="@+id/lbl_location_detail_pprofileID"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="964dp"
+            android:layout_marginTop="930dp"
             android:gravity="center"
             android:text="Project Profile Id"
             android:textAlignment="center"
@@ -480,7 +487,7 @@
             android:id="@+id/lbl_location_detail_remark"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="1025dp"
+            android:layout_marginTop="990dp"
             android:gravity="center"
             android:text="Remark"
             android:textAlignment="center"
@@ -496,9 +503,9 @@
             android:id="@+id/remark"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="1025dp"
+            android:layout_marginTop="990dp"
             android:hint="Enter remark..."
-             android:inputType="text"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -512,7 +519,7 @@
             android:id="@+id/lbl_location_detail_time"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="660dp"
+            android:layout_marginTop="635dp"
             android:gravity="center"
             android:text="Time"
             android:textAlignment="center"
@@ -529,7 +536,7 @@
             android:id="@+id/lbl_full_time"
             android:layout_width="223dp"
             android:layout_height="53dp"
-            android:layout_marginTop="660dp"
+            android:layout_marginTop="635dp"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -544,7 +551,7 @@
             android:id="@+id/lbl_surveyor_name"
             android:layout_width="171dp"
             android:layout_height="53dp"
-            android:layout_marginTop="112dp"
+            android:layout_marginTop="95dp"
             android:gravity="center"
             android:text="Surveyor Name"
             android:textAlignment="center"
@@ -555,5 +562,3951 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
+        <!-- =======================================================================================================================-->
+        //soil site parameters 1
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="1080dp"
+            android:text="Soil Site Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_phy_catgy"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1140dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Physiographic Category/Broad* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_phy_catgy"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1140dp"
+            android:autofillHints="Choose options..."
+            android:gravity="center_horizontal|center_vertical"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_phy_catgy"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_phy_unit"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1200dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sub Physiographic Unit* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_phy_unit"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1200dp"
+            android:autofillHints="Choose options..."
+            android:gravity="center_horizontal|center_vertical"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_phy_unit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_geology"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1260dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Geology* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/geology"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1260dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter geology..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_geology"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_parent_material"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1320dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Parent Material* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/parent_material"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1320dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter material..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_parent_material"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_climate"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1380dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Climate* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/climate"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1380dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter climate..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_climate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_rainfall"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1440dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Rainfall (in mm) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/rainfall"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1440dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter rainfall..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_rainfall"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_topography_type"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1500dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Topography/Landform Type :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/topography_type"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1500dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter type..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_topography_type"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        //site parameters 2
+
+        <TextView
+            android:id="@+id/lbl_slope_gradient"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1560dp"
+            android:gravity="center"
+            android:text="Slope Gradiant (%)*:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_slope_gradient"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1560dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_slope_gradient"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_slope_length"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1620dp"
+            android:gravity="center"
+            android:text="Slope Length (in m)*:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_slope_length"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1620dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_slope_length"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_erosion"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1680dp"
+            android:gravity="center"
+            android:text="Erosion*:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_erosion"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1680dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_erosion"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_runoff"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1740dp"
+            android:gravity="center"
+            android:text="Runoff:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001" />
+
+        <Spinner
+            android:id="@+id/spin_runoff"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1740dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_runoff"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_drainage"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1800dp"
+            android:gravity="center"
+            android:text="Drainage*:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_drainage"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1800dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_drainage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_ground_water"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1860dp"
+            android:gravity="center"
+            android:text="Ground Water Depth (in m):"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_ground_water"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1860dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_ground_water"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_flooding"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1920dp"
+            android:gravity="center"
+            android:text="Flooding:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_flooding"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1920dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_flooding"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_salt_alkali"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1980dp"
+            android:gravity="center"
+            android:text="Salt/Alkali (% Surface coverage):"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_salt_alkali"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="1980dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_salt_alkali"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pH"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2040dp"
+            android:gravity="center"
+            android:text="pH:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_pH"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2040dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pH"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_Ec"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2100dp"
+            android:gravity="center"
+            android:text="Ec:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_Ec"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2100dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_Ec"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_stone_size"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2160dp"
+            android:gravity="center"
+            android:text="Stone Size (in cm):"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_stone_size"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2160dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_stone_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_stoiness"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2220dp"
+            android:gravity="center"
+            android:text="Stoiness (% Sur.Cov):"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_stoiness"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2220dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_stoiness"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_rock_outcrops"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2280dp"
+            android:gravity="center"
+            android:text="Rock Outcrops (Distance in m):"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_rock_outcrops"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2280dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_rock_outcrops"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_natural_vegetation"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2340dp"
+            android:gravity="center"
+            android:text="Natural Vegetation:"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_natural_vegetation"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2340dp"
+            android:hint="Enter vegetation..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_natural_vegetation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //PRESENT LAND USE
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="2410dp"
+            android:text="Present Land Use"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_forest"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2460dp"
+            android:gravity="center"
+            android:text="Forest* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_forest"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2460dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_forest"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cultivated"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2520dp"
+            android:gravity="center"
+            android:text="Cultivated* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_cultivated"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2520dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cultivated"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_terraces"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2580dp"
+            android:gravity="center"
+            android:text="Terraces* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_terraces"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2580dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_terraces"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pasture_land"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2640dp"
+            android:gravity="center"
+            android:text="Pasture Land* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001" />
+
+        <Spinner
+            android:id="@+id/spin_pasture_land"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2640dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pasture_land"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_degraded_culturable"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2700dp"
+            android:gravity="center"
+            android:text="Degraded Culturable* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_degraded_culturable"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2700dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_degraded_culturable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_degraded_unculturable"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2760dp"
+            android:gravity="center"
+            android:text="Degraded Unculturable* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_degraded_unculturable"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2760dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_degraded_unculturable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_classification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="2825dp"
+            android:text="Classification (Family)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_phase_surface"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2860dp"
+            android:gravity="center"
+            android:text="Phase Surface :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        <!--        <Spinner-->
+        <!--            android:id="@+id/spin_phase_surface"-->
+        <!--            android:layout_width="223dp"-->
+        <!--            android:layout_height="53dp"-->
+        <!--            android:layout_marginTop="536dp"-->
+        <!--            android:autofillHints="Choose options..."-->
+        <!--            android:spinnerMode="dropdown"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_phase_surface"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+        <EditText
+            android:id="@+id/et_phase_surface"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2860dp"
+            android:hint="Enter surface..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_phase_surface"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_substratum"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2920dp"
+            android:gravity="center"
+            android:text="Phase Substratum :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        <!--        <Spinner-->
+        <!--            android:id="@+id/spin_substratum"-->
+        <!--            android:layout_width="223dp"-->
+        <!--            android:layout_height="53dp"-->
+        <!--            android:layout_marginTop="596dp"-->
+        <!--            android:autofillHints="Choose options..."-->
+        <!--            android:spinnerMode="dropdown"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_substratum"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+        <EditText
+            android:id="@+id/et_phase_substratum"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2920dp"
+            android:hint="Enter substratum..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_substratum"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_land_capability"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2980dp"
+            android:gravity="center"
+            android:text="Land Capability Class* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_land_capability"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="2980dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_land_capability"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_land_capab_subclass"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3040dp"
+            android:gravity="center"
+            android:text="Land Capability Sub-Class* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_land_capab_subclass"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3040dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_land_capab_subclass"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_land_irrigability_class"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3100dp"
+            android:gravity="center"
+            android:text="Land Irrigability Class* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_land_irrigability_class"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3100dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_land_irrigability_class"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_land_irrigability_subclass"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3160dp"
+            android:gravity="center"
+            android:text="Land irrigability Sub-Class* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_land_irrigability_subclass"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3160dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_land_irrigability_subclass"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pre_land_remark"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3220dp"
+            android:gravity="center"
+            android:text="Remark"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/pre_land_remark"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3220dp"
+            android:hint="Enter remark"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pre_land_remark"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/lbl_add_crops"-->
+        <!--            android:layout_width="171dp"-->
+        <!--            android:layout_height="53dp"-->
+        <!--            android:layout_marginTop="962dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="Add Crop"-->
+        <!--            android:textAlignment="center"-->
+        <!--             android:textSize="20sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.02"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0" />-->
+        <TextView
+            android:id="@+id/lbl_add_crops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="3285dp"
+            android:text="Add Crop"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_crop"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3320dp"
+            android:gravity="center"
+            android:text="Crop :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_crop"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3320dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_crop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_yield"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3380dp"
+            android:gravity="center"
+            android:text="Yield (in kg/ha) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/et_yield"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3380dp"
+            android:hint="Enter yield..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_yield"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_management_practice"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3440dp"
+            android:gravity="center"
+            android:text="Management Practice :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_management_practice"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3440dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_crop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cropping_system"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3500dp"
+            android:gravity="center"
+            android:text="Cropping System :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/et_cropping_system"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3500dp"
+            android:hint="Enter crop. sys..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cropping_system"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //PROJECT DETAILS or PROJECT CREDENTIALS
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="3570dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Project Details"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_proCredential_horizon"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3620dp"
+            android:gravity="center"
+            android:text="Horizon :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_proCredential_horizon"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3620dp"
+            android:hint="Enter horizon"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_proCredential_horizon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_depth"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3680dp"
+            android:gravity="center"
+            android:text="Depth(cm) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_depth"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3680dp"
+            android:hint="Enter depth..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_depth"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        //---------MORPHOLOGICAL PARAMETERS------------
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="3755dp"
+            android:text="Morphological Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_boundary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="3845dp"
+            android:text="Boundary*"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_distinctness"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3870dp"
+            android:gravity="center"
+            android:text="Distinctness :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_distinctness"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3870dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_distinctness"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_typography"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3930dp"
+            android:gravity="center"
+            android:text="Topography :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001" />
+
+        <Spinner
+            android:id="@+id/spin_topography"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3930dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_typography"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_diagnostic_horizon"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3990dp"
+            android:gravity="center"
+            android:text="Diagnostic Horizon* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_diagnostic_horizon"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="3990dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_diagnostic_horizon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_matrix_color"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4050dp"
+            android:gravity="center"
+            android:text="Matrix Colour* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_matrix_color"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4050dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_matrix_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_mottle_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="4125dp"
+            android:text="Mottle Colour (Munshell)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_mc_abundance"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4160dp"
+            android:gravity="center"
+            android:text="Abundance :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_mc_abundance"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4160dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_mc_abundance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_mc_size"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4220dp"
+            android:gravity="center"
+            android:text="Size :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_mc_size"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4220dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_mc_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_mc_contrast"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4280dp"
+            android:gravity="center"
+            android:text="Contrast :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_mc_contrast"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4280dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_mc_contrast"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_mc_texture"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4340dp"
+            android:gravity="center"
+            android:text="Texture* :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_mc_texture"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4340dp"
+            android:inputType="text"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_mc_texture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_coarse_fragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="4425dp"
+            android:text="Coarse Fragments"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cf_size"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4460dp"
+            android:gravity="center"
+            android:text="Size :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_cf_size"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4460dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cf_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cf_vol"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4520dp"
+            android:gravity="center"
+            android:text="Vol(%) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_cf_vol"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4520dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter vol..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cf_vol"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_structure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="4600dp"
+            android:text="Structure*"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_structure_size"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4640dp"
+            android:gravity="center"
+            android:text="Size :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_structure_size"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4640dp"
+            android:autofillHints="Choose options..."
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_structure_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_structure_grade"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4700dp"
+            android:gravity="center"
+            android:text="Grade :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_structure_grade"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4700dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_structure_grade"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_structure_type"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4760dp"
+            android:gravity="center"
+            android:text="Type :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_structure_type"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4760dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_structure_type"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_consistence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="4820dp"
+            android:text="Consistence (D-M-W)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_consistence_d"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4855dp"
+            android:gravity="center"
+            android:text="D :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_consistence_d"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4855dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_consistence_d"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_consistence_m"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4915dp"
+            android:gravity="center"
+            android:text="M :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_consistence_m"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4915dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_consistence_m"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_consistence_w"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4980dp"
+            android:gravity="center"
+            android:text="W :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_consistence_w"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="4980dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_consistence_w"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_porosity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="5065dp"
+            android:text="Porosity (S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_porosity_s"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5100dp"
+            android:gravity="center"
+            android:text="S :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_porosity_s"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5100dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_porosity_s"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_porosity_q"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5160dp"
+            android:gravity="center"
+            android:text="Q :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_porosity_q"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5160dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_porosity_q"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cutans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="5245dp"
+            android:text="Cutans (Ty-Th-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cutans_ty"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5280dp"
+            android:gravity="center"
+            android:text="Ty :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_cutans_ty"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5280dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cutans_ty"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cutans_th"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5340dp"
+            android:gravity="center"
+            android:text="Th :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_cutans_th"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5340dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cutans_th"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cutans_q"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5400dp"
+            android:gravity="center"
+            android:text="Q :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_cutans_q"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5400dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cutans_q"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_nodules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="5485dp"
+            android:text="Nodules(S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_nodules_s"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5520dp"
+            android:gravity="center"
+            android:text="S :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_nodules_s"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5520dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_nodules_s"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_nodules_q"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5580dp"
+            android:gravity="center"
+            android:text="Q :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_nodules_q"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5580dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_nodules_q"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_roots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="5665dp"
+            android:text="Roots (S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_roots_s"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5700dp"
+            android:gravity="center"
+            android:text="S :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_roots_s"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5700dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_roots_s"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_roots_q"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5760dp"
+            android:gravity="center"
+            android:text="Q :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_roots_q"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5760dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_roots_q"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_roots_effervescence"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5820dp"
+            android:gravity="center"
+            android:text="Effervescence (With dil HCL) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spin_roots_effervescence"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5820dp"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_roots_effervescence"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_other_features"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="5885dp"
+            android:text="Other Features(allckan sides/Pressure face, etc.)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_of_size"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5940dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Size :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_of_size"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="5940dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter Size..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_of_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_of_abundance"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6000dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Abundance :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_of_abundance"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6000dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter abundance..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_of_abundance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_nature"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6060dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Nature :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_of_nature"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6060dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter nature..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_nature"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_sample_no."
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6120dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sample Bag No. :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_of_sample_no."
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6120dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter sample no..."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sample_no."
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_additional_notes"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6180dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Additional Notes :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txt_additional_notes"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6180dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter additional notes..."
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:minLines="10"
+            android:overScrollMode="always"
+            android:padding="10dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_additional_notes"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //------------PHYSICAL PARAMETERS---------------
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="6250dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Physical Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_particle_size_distribution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="6325dp"
+            android:text="Particle size distribution(%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_pp_sand"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6360dp"
+            android:gravity="center"
+            android:text="Sand :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_sand"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6360dp"
+            android:hint="Enter sand..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_sand"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_silt"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6420dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Silt :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_silt"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6420dp"
+            android:hint="Enter slit..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_silt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_clay"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6480dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Clay :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_clay"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6480dp"
+            android:hint="Enter clay..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_clay"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_texture"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6540dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="USDA Textural Class :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_texture"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6540dp"
+            android:hint="Enter textural class..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_texture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_bulkDensity"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6600dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Bulk Density (Mg m-3) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_bulkDensity"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6600dp"
+            android:hint="Enter bulk density..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_bulkDensity"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_water_retension"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="6680dp"
+            android:text="Water Retension(%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_pp_33kPa"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6720dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="33kPa :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_33kPa"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6720dp"
+            android:hint="Enter 33kPa..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_33kPa"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_1500kPa"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6780dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="1500kPa :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_1500kPa"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6780dp"
+            android:hint="Enter 1500kPa..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_1500kPa"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_awc"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6840dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="AWC(cm m-1) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_awc"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6840dp"
+            android:hint="Enter awc..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_awc"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_pawc"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6900dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="PAWC(cm m-1) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_pawc"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6900dp"
+            android:hint="Enter pawc..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_pawc"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_pp_graviMoisture"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6960dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Gravimetric Moisture(%) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_pp_graviMoisture"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="6960dp"
+            android:hint="Enter moisture..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_pp_graviMoisture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        //----------CHEMICAL PARAMETERS---------------------
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="7020dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Chemical Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_cp_ph"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7080dp"
+            android:gravity="center"
+            android:text="pH :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_ph"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7080dp"
+            android:hint="Enter pH..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_ph"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_ec"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7140dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="EC :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_ec"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7140dp"
+            android:hint="Enter EC..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_ec"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_oc"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7200dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="OC(%) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_oc"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7200dp"
+            android:hint="Enter OC..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_oc"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_caco"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7260dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="CaCo(%) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_caco"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7260dp"
+            android:hint="Enter CaCo..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_caco"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_ca"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7320dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Ca(cmol/kg soil) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_ca"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7320dp"
+            android:hint="Enter Ca..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_ca"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_mg"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7380dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Mg(cmol/kg soil) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_mg"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7380dp"
+            android:hint="Enter Mg..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_mg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_na"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7440dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Na(cmol/kg soil) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_na"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7440dp"
+            android:hint="Enter Na..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_na"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_k"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7500dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="K(cmol/kg soil) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_k"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7500dp"
+            android:hint="Enter K..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_k"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_totalBase"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7560dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Total Base(cmol(+)/kg) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_totalBase"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7560dp"
+            android:hint="Enter total base ..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_totalBase"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_cec"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7620dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="CEC cmol(p+)/kg soil) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_cec"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7620dp"
+            android:hint="Enter CEC..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_cec"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_bs"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7680dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="%BS=(total Base/CEC)*100 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_bs"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7680dp"
+            android:hint="Enter BS..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_bs"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_cp_esp"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7740dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="ESP%(Na/CEC)*100 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_cp_esp"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7740dp"
+            android:hint="Enter ESP..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_cp_esp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        //-----------SOIL FERTILITY------------------
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="7810dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Soil Fertility Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_organicCarbon"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7870dp"
+            android:gravity="center"
+            android:text="Organic Carbon(%) :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_organicCarbon"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7870dp"
+            android:hint="Enter organic carbon..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_organicCarbon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_major_nutrients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="7940dp"
+            android:text="Major Nutrients (%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_nitrogen"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7980dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Nitrogen kg ha-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_nitrogen"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="7980dp"
+            android:hint="Enter nitrogen..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_nitrogen"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_phosphorus"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8040dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Phosphorus kg ha-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_phosphorus"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8040dp"
+            android:hint="Enter phosphorus..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_phosphorus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_potassium"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8100dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Potassium kg ha-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_potassium"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8100dp"
+            android:hint="Enter potassium..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_potassium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_micro_nutrients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="8185dp"
+            android:text="Micro Nutrients (%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_sulphur"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8220dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sulphur mg kg-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_sulphur"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8220dp"
+            android:hint="Enter sulphur..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_sulphur"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_zinc"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8280dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Zinc mg kg-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_zinc"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8280dp"
+            android:hint="Enter zinc..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_zinc"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_copper"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8340dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Copper mg kg-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_copper"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8340dp"
+            android:hint="Enter copper..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_copper"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_iron"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8400dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Iron mg kg-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_iron"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8400dp"
+            android:hint="Enter iron..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_iron"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lbl_sfp_manganese"
+            android:layout_width="171dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8460dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Manganese mg kg-\u00B9 :"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/input_sfp_manganese"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8460dp"
+            android:hint="Enter manganese..."
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lbl_sfp_manganese"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        //-----------ADD PHOTOS------------------
+
+        <TextView
+            android:id="@+id/lbl_addPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="8530dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Add Photos"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/east_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_addPhotos"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/lbl_landscap_east"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Landscape East"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/east_img"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/select_img" />
+
+            <Button
+                android:id="@+id/east_img_btn"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/teal_700"
+                android:text="Choose East Image"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/west_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/east_linearLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/lbl_landscap_west"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Landscape West"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/west_img"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/select_img" />
+
+            <Button
+                android:id="@+id/west_img_btn"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/teal_700"
+                android:text="Choose West Image"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/north_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.315"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/west_linearLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/lbl_landscap_north"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Landscape North"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/north_img"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/select_img" />
+
+            <Button
+                android:id="@+id/north_img_btn"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/teal_700"
+                android:text="Choose North Image"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/south_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/north_linearLayout"
+            app:layout_constraintVertical_bias="0.029">
+
+            <TextView
+                android:id="@+id/lbl_landscap_south"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Landscape South"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/south_img"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/select_img" />
+
+            <Button
+                android:id="@+id/south_img_btn"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/teal_700"
+                android:text="Choose South Image"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/upload_btn_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/south_linearLayout"
+            app:layout_constraintVertical_bias="0.261">
+
+            <Button
+                android:id="@+id/location_detail_next_btn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="SubmitBtn1"
+                android:text="Submit"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:backgroundTint="#018786" />
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

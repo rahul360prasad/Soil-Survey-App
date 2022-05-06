@@ -38,35 +38,31 @@
         android:text="Project ID"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/dc_projID"
+        app:layout_constraintBottom_toTopOf="@+id/spin_dc_projID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963" />
+        app:layout_constraintVertical_bias="0.876" />
 
-    <EditText
-        android:id="@+id/dc_projID"
-        android:layout_width="350dp"
+    <Spinner
+        android:id="@+id/spin_dc_projID"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:gravity="center_horizontal|center_vertical"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginBottom="32dp"
-        android:hint="Enter project id..."
-         android:layout_weight="1"
-        android:cursorVisible="true"
-        android:ems="10"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:textCursorDrawable="@null"
-        android:textSize="20sp"
+        android:padding="25dp"
+          android:textAlignment="center"
+         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/data_collectin_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
+
 
     <Button
         android:id="@+id/data_collectin_btn"

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TableLayout
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+    <TableRow>
+
+        <TextView
+            android:id="@+id/tv_mp_horizon"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_mp_depth"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:width="100dp"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_b_distinctness"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_b_topography"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_mp_b_diagnostic"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_mp_b_matrixColour"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_mc_abundance"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_mc_size"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_mc_contrast"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_mp_mc_texture"
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_cf_size"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_cf_vol"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_str_size"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_str_grade"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_str_type"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_con_d"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_con_m"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_con_w"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_poros_s"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_poros_q"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_cutans_ty"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_cutans_th"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_cutans_q"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_nodules_s"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_nodules_q"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_roots_s"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_roots_q"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_mp_roots_effervescence"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_mp_of_size"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_of_abundance"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_mp_of_nature"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_shape_grey"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_mp_of_samplebagno"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_mp_of_additionalnotes"
+            android:layout_width="168dp"
+            android:layout_marginRight="-2dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+    </TableRow>
+    </TableLayout>
+</LinearLayout>

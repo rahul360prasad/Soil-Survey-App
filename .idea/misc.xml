@@ -41,6 +41,45 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/SoilSurveyApp/app/src/main/res/mipmap-anydpi-v26/ic_soil_Img_launcher.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/HP/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/drawable/bg_round.xml" value="0.14739583333333334" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/drawable/cell_shape_grey.xml" value="0.11015625" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/drawable/cell_shape_light_grey.xml" value="0.14739583333333334" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/drawable/mydialogtheme.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_add_photos.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_chemical_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_data_collection.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_home_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_location_details.xml" value="0.1" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_morphological_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_physical_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_present_land_use.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_project_credentials.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_project_registration_form.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_search_by_proj_id.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_soil_data_report.xml" value="0.2" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_soil_fertility_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_soil_site_parameter2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/activity_soil_site_parameters.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/chemical_records.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/chemicalparams_records.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/custom_exit_dialog.xml" value="0.13125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/custom_img_dialog.xml" value="0.2" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/locationdetails_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/morphologicalparams_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/physicalparams_records.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/presentlanduse_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/progress_dialog.xml" value="0.13125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/project_id_list.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/project_id_list_2.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/projectprofileid_img_records.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/projectregistration_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/report_list.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/soilfertilityparams_records.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/soilsiteparams_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/spinner_item.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/statewise_records.xml" value="0.153125" />
+        <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app-single/app/src/main/res/layout/wait_loading_animation.xml" value="0.153125" />
         <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app/app/src/main/res/drawable/bg_round.xml" value="0.2203125" />
         <entry key="..\:/Users/HP4/AndroidStudioProjects/soil-survey-app/app/src/main/res/drawable/cell_shape_grey.xml" value="0.2203125" />
@@ -107,5 +146,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>

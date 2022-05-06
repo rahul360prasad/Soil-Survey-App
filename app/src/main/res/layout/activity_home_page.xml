@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_baseline_background_img"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".HomePage">
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,9 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="105dp"
             android:layout_gravity="clip_horizontal"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="35dp"
-            android:scaleType="fitXY"
+              android:scaleType="fitXY"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/soil_header_img"
             app:layout_constraintBottom_toTopOf="@+id/testdashboard"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,13 +35,13 @@
 
         <TextView
             android:id="@+id/testdashboard"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center_horizontal|center_vertical"
              android:textColor="#FFFFFF"
             android:textSize="22sp"
-            android:textStyle="bold"
+             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/gridLayout1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -55,7 +54,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
             android:alignmentMode="alignMargins"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="10dp"
             android:columnCount="2"
             android:columnOrderPreserved="true"
             android:orientation="vertical"
@@ -185,7 +184,7 @@
                         android:layout_height="105dp"
                         android:layout_marginBottom="12dp"
                         android:src="@drawable/data_report"
-                        app:layout_constraintBottom_toTopOf="@+id/textView7"
+                         app:layout_constraintBottom_toTopOf="@+id/textView7"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"

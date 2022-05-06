@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4">
+    <TableLayout>
+        <TextView
+            android:id="@+id/tvProjNames"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tvprojPeriod"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/cell_shape_grey"/>
+
+        <TextView
+            android:id="@+id/tvprojDuration"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/cell_shape_grey"
+            />
+        <TextView
+            android:id="@+id/tvprojFundSrc"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/cell_shape_grey"
+            />
+        <TextView
+            android:id="@+id/tvregisteredDate"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/cell_shape_grey"
+            />
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvDistrict"-->
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvTehsil"-->
+        <!--            android:layout_width="135dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvBlock"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvVillage"-->
+        <!--            android:layout_width="135dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvDate"-->
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="16dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:background="@drawable/cell_shape_grey"-->
+        <!--            />-->
+
+    </TableLayout>
+</TableLayout>

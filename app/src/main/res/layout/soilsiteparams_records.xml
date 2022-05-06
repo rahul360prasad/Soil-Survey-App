@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4"
+    >
+    <TableLayout>
+        <TextView
+            android:id="@+id/tv_ssp_physiographicCategory"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_subPhysiographicUnit"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_geology"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:scrollHorizontally="true"/>
+        <TextView
+            android:id="@+id/tv_ssp_parentMaterial"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_climate"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_rainfall"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_topographyLandformType"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_slopeGradiant"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_slopeLength"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_erosion"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_runoff"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_drainage"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_groundWaterDepth"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_flooding"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_saltAlkali"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_pH"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_Ec"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_stoneSize"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_stoiness"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_rockOutcrops"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_ssp_naturalVegetation"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    </TableLayout>
+</TableLayout>

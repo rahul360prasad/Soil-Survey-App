@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -46,7 +47,8 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
     private EditText etProjName, etProjPeriod, etProjDuration, etProjID, etProjPrinInvestName;
     private Spinner dropDown;
     // creating a strings for storing our values from edittext fields.
-    private String projName, projPeriod, projDuration, projID, projPrinInvestName, projFundSrc;
+    private String projName, projPeriod, projDuration, projID, projPrinInvestName, projFundSrc ;
+    private int userid;
     // creating variable for button
     private Button submitBtn;
 
@@ -54,6 +56,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 
     // url to post the data
     private static final String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+//    private static final String url = "http://10.0.0.145/login/projRegForm.php";
 
     //---------SHARED PREFERENCES-------------------
     SharedPreferences sharedPreferences;
@@ -61,14 +64,22 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
     private static final String SHARED_PRE_NAME = "proReg";
     private static final String KEY_PROJECT_ID = "id";
 
+    //taking user id from login/register
+    SharedPreferences sharedPreferencesId;
+    private static final String SHARED_PRE_NAME2 = "mypref";
+     public static final String KEY_ID = "id";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_registration_form);
 
+         sharedPreferencesId = getSharedPreferences(SHARED_PRE_NAME2, Context.MODE_PRIVATE);
+         userid= Integer.parseInt(sharedPreferencesId.getString(KEY_ID,""));
+        //Log.d("userid", userid);
         //---HIDING THE ACTION BAR
         try {
-//            this.getSupportActionBar().hide();
+//          this.getSupportActionBar().hide();
             getSupportActionBar().setTitle("");
         } catch (NullPointerException e) {
         }
@@ -180,12 +191,33 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
                     etProjPrinInvestName.setError("Please enter Project Details");
                  } else {
                     // calling method to add data to Firebase Firestore.
-                    StringRequest stringRequest = new StringRequest(Request.Method.GET, url+"?TYPE=PROJECT_REG&projName="+projName+"&projPeriod="+projPeriod+"&projDuration="+projDuration+"&projID="+projID+"&projPrinInvestName="+projPrinInvestName+"&projFundSrc="+projFundSrc+"", new Response.Listener<String>() {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url+"?TYPE=PROJECT_REG&userid="+userid+
+                            "&projName="+projName+
+                            "&projPeriod="+projPeriod+
+                            "&projDuration="+projDuration+
+                            "&projID="+projID+
+                            "&projPrinInvestName="+projPrinInvestName+
+                            "&projFundSrc="+projFundSrc+"", new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+//                            if (TextUtils.equals(response, "success")) {
+//                                progressDialog.dismiss();
+//                                Toast.makeText(ProjectRegistrationForm.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+//                            } else {
+////                        tvStatus.setText("Something went wrong!");
+////                        SharedPreferences.Editor editor = sharedPreferences.edit();
+////                        editor.putString(KEY_PROJECT_PROFILE_ID, projectProfileID);
+////                        editor.apply();
+////                        finish();
+//                                progressDialog.dismiss();
+//                                startActivity(new Intent(ProjectRegistrationForm.this, HomePage.class));
+//                                Toast.makeText(ProjectRegistrationForm.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
+//                            }
+
+                            //below code is for live server
                             try {
                                 if(TextUtils.equals(response,"1")){
-                                    progressDialog.dismiss();
+                                     progressDialog.dismiss();
                                     Toast.makeText(ProjectRegistrationForm.this, "Data stored Successfully", Toast.LENGTH_SHORT).show();
                                     //JSONObject jsonObject = new JSONObject(response);
                                     // on below line we are displaying a success toast message.
@@ -214,6 +246,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 //                        @Override
 //                        protected Map<String, String> getParams() throws AuthFailureError {
 //                            Map<String, String> data = new HashMap<String, String>();
+//                            data.put("userid", String.valueOf(userid));
 //                            data.put("projName", projName);
 //                            data.put("projPeriod", projPeriod);
 //                            data.put("projDuration", projDuration);

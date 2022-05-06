@@ -1,5 +1,6 @@
 package com.example.soilsurveyapp;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,8 @@ public class HomePage extends AppCompatActivity {
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "mypref";
     public static final String KEY_NAME = "name";
+
+    ProgressDialog progressDialog;
 
 
     //----------------------------------POPUP EXIT APP Msg-----------------------------------------------
@@ -77,6 +80,15 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+//        //Initialinzing the progress Dialog
+//        progressDialog = new ProgressDialog(HomePage.this);
+//        //show Dialog
+//        progressDialog.show();
+//        //set Content View
+//        progressDialog.setContentView(R.layout.progress_dialog);
+//        //set transparent background
+//        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
         sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, Context.MODE_PRIVATE);
         username = findViewById(R.id.testdashboard);
         username.setText("Welcome, " + sharedPreferences.getString(KEY_NAME,""));
@@ -123,6 +135,7 @@ public class HomePage extends AppCompatActivity {
         //---------------------------SOIL DATA REPORT CARD---------------------------------
         soilDataReport= findViewById(R.id.soil_data_report);
         soilDataReport.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view){
                 Intent intent= new Intent(HomePage.this, SoilDataReport.class);

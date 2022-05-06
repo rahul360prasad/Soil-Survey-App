@@ -11,46 +11,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/soil_site_back_btn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/login_btn"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Back"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:backgroundTint="#018786"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/lbl_topography_type"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/lbl_topography_type"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_topography_type"
-            app:layout_constraintVertical_bias="0.0" />
+<!--        <Button-->
+<!--            android:id="@+id/soil_site_back_btn"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:background="@drawable/login_btn"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:text="Back"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            app:backgroundTint="#018786"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/lbl_topography_type"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/lbl_topography_type"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/lbl_topography_type"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
 
-        <Button
-            android:id="@+id/soil_site_next_btn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/login_btn"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Next"
-            android:onClick="sspBtn"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:backgroundTint="#018786"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/topography_type"
-            app:layout_constraintHorizontal_bias="0.52"
-            app:layout_constraintStart_toStartOf="@+id/topography_type"
-            app:layout_constraintTop_toBottomOf="@+id/topography_type"
-            app:layout_constraintVertical_bias="0.0" />
+<!--        <Button-->
+<!--            android:id="@+id/soil_site_next_btn"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:background="@drawable/login_btn"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:text="Next"-->
+<!--            android:onClick="sspBtn"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            app:backgroundTint="#018786"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/topography_type"-->
+<!--            app:layout_constraintHorizontal_bias="0.52"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/topography_type"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/topography_type"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
         <EditText
             android:id="@+id/climate"
             android:layout_width="223dp"

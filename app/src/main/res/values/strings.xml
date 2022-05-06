@@ -1476,8 +1476,7 @@
         <item>Select Option...</item>
         <item>State</item>
         <item>Project ID</item>
-        <item>Date</item>
-    </string-array>
+     </string-array>
 
 
     //----------------------------ALL STATE AND

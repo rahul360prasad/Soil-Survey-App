@@ -53,7 +53,7 @@
             android:padding="10dp"
             android:gravity="center"
             android:textAlignment="center"
-             android:background="@drawable/cell_shape_grey"
+            android:background="@drawable/cell_shape_grey"
             />
         <TextView
             android:id="@+id/tvTehsil"

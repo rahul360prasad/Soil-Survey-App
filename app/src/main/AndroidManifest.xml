@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.soilsurveyapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SoilSurveyApp"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <activity
             android:name=".UpdateProjID"
             android:exported="false" />
@@ -35,41 +37,13 @@
             android:name=".SoilDataReport"
             android:exported="false" />
         <activity
-            android:name=".AddPhotos"
-            android:exported="false" />
-        <activity
-            android:name=".ProjectCredentials"
-            android:exported="false" />
-        <activity
-            android:name=".SoilFertilityParameters"
-            android:exported="false" />
-        <activity
-            android:name=".ChemicalParameters"
-            android:exported="false" />
-        <activity
-            android:name=".PhysicalParameters"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MorphologicalParameters"
-            android:exported="true" />
-        <activity
-            android:name=".PresentLandUse"
-            android:exported="true" />
-        <activity
-            android:name=".SoilSiteParameter_2"
-            android:exported="true" />
-        <activity
-            android:name=".SoilSiteParameters"
-            android:exported="true" />
         <activity
             android:name=".LocationDetails"
             android:exported="true" />

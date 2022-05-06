@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4"
+    >
+    <TableLayout>
+        <TextView
+            android:id="@+id/tv_plu_forest"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_cultivated"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_terraces"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:scrollHorizontally="true"/>
+        <TextView
+            android:id="@+id/tv_plu_pastureLand"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_degradedCulturable"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_degradedUnCulturable"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lbl_plu_classification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:text="tion (Family)"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_plu_phaseSurface"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_phaseSubstratum"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_landCapabilityClass"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_landCapabilitySubClass"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_landIrrigabilityClass"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_landIrrigabilitySubClass"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_remarks"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/lbl_plu_addcrops"
+             android:layout_height="wrap_content"
+             android:text=" Crop"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_plu_crop"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_yield"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_managementPractice"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_plu_croppingSystem"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_shape_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+    </TableLayout>
+</TableLayout>
