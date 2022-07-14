@@ -7,10 +7,11 @@
     android:layout_gravity="center_horizontal"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="5dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     tools:context=".ProjectRegistrationForm"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-26dp"
-    android:padding="5dp">
+    tools:layout_editor_absoluteY="-26dp">
 
     //project registration Header Label
 
@@ -20,9 +21,9 @@
         android:id="@+id/et_projName"
         android:layout_width="223dp"
         android:layout_height="53dp"
+        android:hint="Enter name..."
         android:inputType="text"
         android:textAlignment="center"
-        android:hint="Enter name..."
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,57 +38,57 @@
         android:layout_height="53dp"
         android:hint="Enter period..."
         android:inputType="text"
+        android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.281" />
 
     <EditText
         android:id="@+id/et_projDuration"
         android:layout_width="223dp"
         android:layout_height="53dp"
-        android:inputType="text"
         android:hint="Enter duration..."
+        android:inputType="text"
+        android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.395" />
 
     <EditText
         android:id="@+id/et_projID"
         android:layout_width="223dp"
         android:layout_height="53dp"
-        android:inputType="text"
         android:hint="Enter project id..."
+        android:inputType="text"
+        android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
-        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_priInvestName"
         android:layout_width="223dp"
         android:layout_height="53dp"
-        android:inputType="text"
         android:hint="Enter invest. name..."
+        android:inputType="text"
+        android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textAlignment="center"
         app:layout_constraintVertical_bias="0.609" />
 
     //Durations
@@ -96,16 +97,17 @@
         android:id="@+id/spFundingSource"
         android:layout_width="223dp"
         android:layout_height="53dp"
+        android:layout_marginTop="5dp"
         android:autofillHints="Choose options..."
         android:gravity="center_horizontal|center_vertical"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/funding_source"
-        app:layout_constraintTop_toBottomOf="@+id/et_priInvestName"
-        app:layout_constraintVertical_bias="0.154"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -118,10 +120,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724" />
+        app:layout_constraintVertical_bias="0.718" />
 
     <TextView
         android:id="@+id/proj_period"
@@ -222,14 +224,15 @@
         app:layout_constraintVertical_bias="0.609" />
 
     //buttons for submit
+
     <Button
         android:id="@+id/proj_reg_submit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/login_btn"
-        android:text="Submit"
         android:onClick="SubmitBtn"
+        android:text="Submit"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:backgroundTint="#018786"
@@ -240,4 +243,3 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.934" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--</ScrollView>-->

@@ -4,36 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,8 +37,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -54,11 +44,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SoilDataReport extends AppCompatActivity {
+public class admin_DataReport extends AppCompatActivity {
 
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "soilDataReport";
@@ -66,16 +55,16 @@ public class SoilDataReport extends AppCompatActivity {
     public static ArrayList<LocationRecordData> LocationRecordDataArraylist = new ArrayList<>();
     LocationRecordData locationRecordData;
     String url_east_img, url_west_img, url_north_img, url_south_img;
-    TextView heading_lbl, searchBy, lbl_statewise_report,
+    TextView heading_lbl, searchBy, lbl_statewise_report, lbl_projectidwise_report,
             lbl_project_details, lbl_location_details, lbl_soil_site_params_details,
             lbl_present_land_use_details, lbl_morphological_params_details, lbl_physical_params_details,
             lbl_chemical_params_details, lbl_soil_fertility_details, lbl_projectProfile_details, imageLblDialog;
     Button searchBtn;
     //--------------------FOR STATE WISE REPORT GENERATION CODE------------------------
-    ListView listview, approvalStatus_details_list, projReg_details_list, location_details_list, soilSiteParams_details_list,
+    ListView listview, projReg_details_list, location_details_list, soilSiteParams_details_list,
             presentLandUse_details_list, morphological_details_list, physical_details_list, chemical_details_list,
             soilfertility_details_list, projProfileimg_details_list;
-    LinearLayout state_report_root_layout, lbl_projectidwise_report, approval_status_root_layout, projID_report_root_layout, location_report_root_layouts,
+    LinearLayout state_report_root_layout, projID_report_root_layout, location_report_root_layouts,
             ssp_report_root_layouts, plu_report_root_layouts, mp_report_root_layout, pp_report_root_layout,
             cp_report_root_layout, sfp_report_root_layout, img_report_root_layout;
     //-----------for search by project ID and Date----------------
@@ -106,6 +95,11 @@ public class SoilDataReport extends AppCompatActivity {
     String url_projectID = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
     //url_profile_id for fetching all project profile id list from locationdetailsingle table
     String url_profile_id = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+
+    //    String update_fields_url = "http://14.139.123.73:9090/web/NBSS/php/updateRecordsData.php";
+    String adminStatusApproved_url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+    String adminStatusNotApproved_url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+
     //--------------SHARED PREFERENCES----------------
     SharedPreferences sharedPreferences;
     ImageView report_east_imgView, report_west_imgView, report_north_imgView, report_south_imgView;
@@ -118,21 +112,31 @@ public class SoilDataReport extends AppCompatActivity {
     //defining and declaring array adapter
     private ArrayAdapter<CharSequence> stateAdapter, districtAdapter, searchByAdapter, projectIDAdapter, projectprofileIDAdapter, projectDateAdapter;
 
+    private String approved, notApproved;
+    private String admin_selectedProjectID, admin_selectedProjectProfileID, projectProfileID_admin;
+
     //--------------when pressing hardware back button----------------
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(), SoilDataReport.class));
+        startActivity(new Intent(getApplicationContext(), admin_DataReport.class));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soil_data_report);
+        setContentView(R.layout.activity_admin_data_report);
+
+        approved = "Approved";
+        notApproved = "Not Approved";
+
+        //receiving intent params from updateRecords file
+//        Intent intent = getIntent();
+//        admin_selectedProjectID = intent.getExtras().getString("admin_selectedProjectID");
+//        admin_selectedProjectProfileID = intent.getExtras().getString("admin_selectedProjectProfileID");
 
         heading_lbl = (TextView) findViewById(R.id.h_soil_data_report);
         searchBy = (TextView) findViewById(R.id.lbl_search_by);
         state_report_root_layout = (LinearLayout) findViewById(R.id.state_report_root_layout);
-        approval_status_root_layout = (LinearLayout) findViewById(R.id.approval_status_root_layout);
         projID_report_root_layout = (LinearLayout) findViewById(R.id.projID_report_root_layout);
         location_report_root_layouts = (LinearLayout) findViewById(R.id.location_report_root_layouts);
         ssp_report_root_layouts = (LinearLayout) findViewById(R.id.ssp_report_root_layouts);
@@ -144,7 +148,6 @@ public class SoilDataReport extends AppCompatActivity {
         img_report_root_layout = (LinearLayout) findViewById(R.id.img_report_root_layout);
 
         listview = (ListView) findViewById(R.id.listView);
-        approvalStatus_details_list = (ListView) findViewById(R.id.approvalStatus_details_list);
         projReg_details_list = (ListView) findViewById(R.id.projReg_details_list);
         location_details_list = (ListView) findViewById(R.id.location_details_list);
         soilSiteParams_details_list = (ListView) findViewById(R.id.soilSiteParams_details_list);
@@ -156,7 +159,7 @@ public class SoilDataReport extends AppCompatActivity {
         projProfileimg_details_list = (ListView) findViewById(R.id.projProfileimg_details_list);
 
         lbl_statewise_report = (TextView) findViewById(R.id.lbl_statewise_report);
-        lbl_projectidwise_report = (LinearLayout) findViewById(R.id.lbl_projectidwise_report);
+        lbl_projectidwise_report = (TextView) findViewById(R.id.lbl_projectidwise_report);
         lbl_project_details = (TextView) findViewById(R.id.lbl_project_details);
         //-----location details-----------
         lbl_location_details = (TextView) findViewById(R.id.lbl_location_details);
@@ -514,7 +517,7 @@ public class SoilDataReport extends AppCompatActivity {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     String projectprofileID = jsonObject.optString("projectProfileID");
                                     projectprofileIDList.add(projectprofileID);
-                                    projectprofileIDAdapter = new ArrayAdapter(SoilDataReport.this, android.R.layout.simple_spinner_item, projectprofileIDList);
+                                    projectprofileIDAdapter = new ArrayAdapter(admin_DataReport.this, android.R.layout.simple_spinner_item, projectprofileIDList);
                                     projectprofileIDAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
                                     projectProfileIDSpinner.setAdapter(projectprofileIDAdapter);
                                 }
@@ -560,7 +563,7 @@ public class SoilDataReport extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String projectID = jsonObject.optString("projID");
                         projectIDList.add(projectID);
-                        projectIDAdapter = new ArrayAdapter(SoilDataReport.this, android.R.layout.simple_spinner_item, projectIDList);
+                        projectIDAdapter = new ArrayAdapter(admin_DataReport.this, android.R.layout.simple_spinner_item, projectIDList);
                         projectIDAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
                         projectIDSpinner.setAdapter(projectIDAdapter);
                     }
@@ -585,7 +588,7 @@ public class SoilDataReport extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String projectID = jsonObject.optString("date");
                         projectDateList.add(projectID);
-                        projectDateAdapter = new ArrayAdapter(SoilDataReport.this, android.R.layout.simple_spinner_item, projectDateList);
+                        projectDateAdapter = new ArrayAdapter(admin_DataReport.this, android.R.layout.simple_spinner_item, projectDateList);
                         projectDateAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
                         projectDateSpinner.setAdapter(projectDateAdapter);
                     }
@@ -604,7 +607,7 @@ public class SoilDataReport extends AppCompatActivity {
         //when open the activity then first check "shared preference" data available or not
         String state = sharedPreferences.getString(KEY_STATE, null);
         if (state == null) {
-            Toast.makeText(SoilDataReport.this, "Enter State!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(admin_DataReport.this, "Enter State!!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -628,7 +631,7 @@ public class SoilDataReport extends AppCompatActivity {
     //search button functionality
     public void searchBtn(View view) {
         //Initialinzing the progress Dialog
-        progressDialog = new ProgressDialog(SoilDataReport.this);
+        progressDialog = new ProgressDialog(admin_DataReport.this);
         //show Dialog
         progressDialog.show();
         //set Content View
@@ -657,7 +660,6 @@ public class SoilDataReport extends AppCompatActivity {
                             finish();
                             showJSON_statewise(response);
                             state_report_root_layout.setVisibility(View.VISIBLE);
-                            approval_status_root_layout.setVisibility(View.GONE);
                             projID_report_root_layout.setVisibility(View.GONE);
                             location_report_root_layouts.setVisibility(View.GONE);
                             ssp_report_root_layouts.setVisibility(View.GONE);
@@ -691,7 +693,6 @@ public class SoilDataReport extends AppCompatActivity {
                         } else {
                             showJSON_statewise(response);
                             state_report_root_layout.setVisibility(View.VISIBLE);
-                            approval_status_root_layout.setVisibility(View.GONE);
                             projID_report_root_layout.setVisibility(View.GONE);
                             location_report_root_layouts.setVisibility(View.GONE);
                             ssp_report_root_layouts.setVisibility(View.GONE);
@@ -728,7 +729,7 @@ public class SoilDataReport extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
-                        Toast.makeText(SoilDataReport.this, "Connectivity problem...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(admin_DataReport.this, "Connectivity problem...", Toast.LENGTH_SHORT).show();
                     }
                 });
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -739,10 +740,9 @@ public class SoilDataReport extends AppCompatActivity {
             }
         } else if (selectedSearchBy.equals("Project ID")) {
             progressDialog.show();
-            StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                    url_projectID +"?TYPE=projectID_report&projID=" +
-                            selectedProjectID + "&projectProfileID=" + selectedProjectProfileID,
-                    new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url_projectID +
+                    "?TYPE=projectID_report&projID=" + selectedProjectID + "&projectProfileID=" +
+                    selectedProjectProfileID, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     progressDialog.show();
@@ -753,7 +753,6 @@ public class SoilDataReport extends AppCompatActivity {
                         finish();
 
                         showJSON_projectidwise(response);
-                        approval_status_root_layout.setVisibility(View.VISIBLE);
                         projID_report_root_layout.setVisibility(View.VISIBLE);
                         location_report_root_layouts.setVisibility(View.VISIBLE);
                         ssp_report_root_layouts.setVisibility(View.VISIBLE);
@@ -787,7 +786,6 @@ public class SoilDataReport extends AppCompatActivity {
                         progressDialog.dismiss();
                     } else {
                         showJSON_projectidwise(response);
-                        approval_status_root_layout.setVisibility(View.VISIBLE);
                         projID_report_root_layout.setVisibility(View.VISIBLE);
                         location_report_root_layouts.setVisibility(View.VISIBLE);
                         ssp_report_root_layouts.setVisibility(View.VISIBLE);
@@ -825,7 +823,7 @@ public class SoilDataReport extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     progressDialog.dismiss();
-                    Toast.makeText(SoilDataReport.this, "Please check your internet...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(admin_DataReport.this, "Please check your internet...", Toast.LENGTH_SHORT).show();
                 }
             });
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -888,10 +886,6 @@ public class SoilDataReport extends AppCompatActivity {
             if (resultList.length() > 0) {
                 for (int i = 0; i < resultList.length(); i++) {
                     JSONObject jo = resultList.getJSONObject(i);
-
-                    //---------------------------------FOR APPROVAL STATUS-------------------
-                    String admin_status = jo.getString("admin_status");
-                    //---------------------------------FOR PROJECT REGISTRATION DETAILS-------------------
                     String projNames = jo.getString("projNames");
                     String projPeriod = jo.getString("projPeriod");
                     String projDuration = jo.getString("projDuration");
@@ -1038,10 +1032,6 @@ public class SoilDataReport extends AppCompatActivity {
                     LocationRecordDataArraylist.add(locationRecordData);
 
                     final HashMap<String, String> stateInfo = new HashMap<>();
-
-                    stateInfo.put("admin_status", admin_status);
-
-                    //--------------FOR PROJECT REGISTRATION-----------
                     stateInfo.put("projNames", projNames);
                     stateInfo.put("projPeriod", projPeriod);
                     stateInfo.put("projDuration", projDuration);
@@ -1219,19 +1209,13 @@ public class SoilDataReport extends AppCompatActivity {
         }
 
         //                    -----------------------FOR PROJECT REGISTRATION---------------
-        ListAdapter adapter1 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.approval_records,
-                new String[]{"admin_status"},
-                new int[]{R.id.tvStatus});
-        approvalStatus_details_list.setAdapter(adapter1);
-
-        //                    -----------------------FOR PROJECT REGISTRATION---------------
-        ListAdapter adapter2 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.projectregistration_records,
+        ListAdapter adapter2 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.projectregistration_records,
                 new String[]{"projNames", "projPeriod", "projDuration", "projFundSrc", "date", "state"},
                 new int[]{R.id.tvProjNames, R.id.tvprojPeriod, R.id.tvprojDuration, R.id.tvprojFundSrc, R.id.tvregisteredDate});
         projReg_details_list.setAdapter(adapter2);
 
         //                    -----------------------FOR LOCATION---------------
-        ListAdapter adapter3 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.locationdetails_records,
+        ListAdapter adapter3 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.locationdetails_records,
                 new String[]{"projectProfileID", "surveyorname", "state", "district", "tehsil", "block",
                         "villagename", "toposheet250k", "toposheet50k", "date", "time", "latitude",
                         "longitude", "elevation"},
@@ -1242,7 +1226,7 @@ public class SoilDataReport extends AppCompatActivity {
         location_details_list.setAdapter(adapter3);
 
         //                    -----------------------FOR SOIL SITE PARAMETERS---------------
-        ListAdapter adapter4 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.soilsiteparams_records,
+        ListAdapter adapter4 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.soilsiteparams_records,
                 new String[]{"physiographicCategory", "subPhysiographicUnit", "geology", "parentMaterial", "climate", "rainfall",
                         "topographyLandformType", "slopeGradiant", "slopeLength", "erosion", "runoff", "drainage", "groundWaterDepth",
                         "flooding", "saltAlkali", "pH", "Ec", "stoneSize", "stoiness", "rockOutcrops", "naturalVegetation"},
@@ -1254,7 +1238,7 @@ public class SoilDataReport extends AppCompatActivity {
         soilSiteParams_details_list.setAdapter(adapter4);
 
         //                    -----------------------FOR PRESENT LAND USE---------------
-        ListAdapter adapter5 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.presentlanduse_records,
+        ListAdapter adapter5 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.presentlanduse_records,
                 new String[]{"forest", "cultivated", "terraces", "pastureLand", "degradedCulturable", "degradedUnCulturable", "phaseSurface",
                         "phaseSubstratum", "landCapabilityClass", "landCapabilitySubClass", "landIrrigabilityClass", "landIrrigabilitySubClass",
                         "remarks", "crop", "yield", "managementPractice", "croppingSystem"},
@@ -1265,7 +1249,7 @@ public class SoilDataReport extends AppCompatActivity {
         presentLandUse_details_list.setAdapter(adapter5);
 
         //                    -----------------------FOR MORPHOLOGICAL PARAMETERS---------------
-        ListAdapter adapter6 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.morphologicalparams_records,
+        ListAdapter adapter6 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.morphologicalparams_records,
                 new String[]{"horizon", "depth", "b_distinctness", "b_topography", "b_diagnostic", "b_matrixColour", "mc_abundance",
                         "mc_size", "mc_contrast", "mc_texture", "cf_size", "cf_vol", "str_size", "str_grade", "str_type", "con_d", "con_m",
                         "con_w", "poros_s", "poros_q", "cutans_ty", "cutans_th", "cutans_q", "nodules_s", "nodules_q", "roots_s", "roots_q",
@@ -1279,7 +1263,7 @@ public class SoilDataReport extends AppCompatActivity {
         morphological_details_list.setAdapter(adapter6);
 
         //                    -----------------------FOR PHYSICAL PARAMETERS---------------
-        ListAdapter adapter7 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.physicalparams_records,
+        ListAdapter adapter7 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.physicalparams_records,
                 new String[]{"horizon", "depth", "sand", "silt", "clay", "USDA_textural_class",
                         "bulk_density", "wr_33kPa", "wr_1500kPa", "AWC", "PAWC", "gravimetric_moisture"},
                 new int[]{R.id.tv_pp_horizon_dummy, R.id.tv_pp_depth_dummy, R.id.tv_pp_sand, R.id.tv_pp_silt, R.id.tv_pp_clay,
@@ -1288,7 +1272,7 @@ public class SoilDataReport extends AppCompatActivity {
         physical_details_list.setAdapter(adapter7);
 
         //                    -----------------------FOR CHEMICAL PARAMETERS---------------
-        ListAdapter adapter8 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.chemical_records,
+        ListAdapter adapter8 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.chemical_records,
                 new String[]{"horizon", "depth", "cp_pH", "cp_EC", "OC", "CaCo",
                         "Ca", "Mg", "Na", "K", "totalBase", "CEC", "BS", "ESP"},
                 new int[]{R.id.tv_cp_horizon, R.id.tv_cp_depth, R.id.tv_cp_pH, R.id.tv_cp_EC, R.id.tv_cp_OC,
@@ -1297,7 +1281,7 @@ public class SoilDataReport extends AppCompatActivity {
         chemical_details_list.setAdapter(adapter8);
 
         //                    -----------------------FOR SOIL FERTILITY PARAMETERS---------------
-        ListAdapter adapter9 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.soilfertilityparams_records,
+        ListAdapter adapter9 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.soilfertilityparams_records,
                 new String[]{"horizon", "depth", "organicCarbon", "MaN_nitrogen", "MaN_phosphorus", "MaN_potassium",
                         "MiN_sulphur", "MiN_zinc", "MiN_copper", "MiN_iron", "MiN_manganese"},
                 new int[]{R.id.tv_sfp_horizon, R.id.tv_sfp_depth, R.id.tv_sfp_organicCarbon, R.id.tv_sfp_nitrogen, R.id.tv_sfp_phosphorus,
@@ -1306,7 +1290,7 @@ public class SoilDataReport extends AppCompatActivity {
         soilfertility_details_list.setAdapter(adapter9);
 
         //                    -----------------------FOR IMAGES---------------
-        ListAdapter adapter10 = new SimpleAdapter(SoilDataReport.this, id_list, R.layout.projectprofileid_img_records,
+        ListAdapter adapter10 = new SimpleAdapter(admin_DataReport.this, id_list, R.layout.projectprofileid_img_records,
                 new String[]{"projectProfileID"},
                 new int[]{R.id.tvProjProfileID});
         projProfileimg_details_list.setAdapter(adapter10);
@@ -1356,4 +1340,117 @@ public class SoilDataReport extends AppCompatActivity {
         dialog.show();
         Toast.makeText(this, "SOUTH image selected", Toast.LENGTH_LONG).show();
     }
+
+    public void adminApproveBtn(View view) {
+        Toast.makeText(this, "APPROVED", Toast.LENGTH_LONG).show();
+        // below is for progress dialog box
+        //Initialinzing the progress Dialog
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        // dismiss the dialog
+        // and exit the exit
+        Log.d("selectedProjectID", "selectedProjectID-------" + selectedProjectID);
+
+        // calling method to add data
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                adminStatusApproved_url + "?TYPE=adminApproveRecords&projID=" +
+                        selectedProjectID + "&approved=" + approved,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //below code is for live server
+                        try {
+                            if (TextUtils.equals(response, "1")) {
+                                Toast.makeText(admin_DataReport.this, "Response saved Successfully", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+
+                                JSONObject jsonObject = new JSONObject(response);
+                                Log.d("res", "response------" + jsonObject);
+                            } else {
+                                Toast.makeText(admin_DataReport.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+//        {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> data = new HashMap<>();
+//                data.put("projID", selectedProjectID);
+//                data.put("approved", approved);
+//                return data;
+//            }
+//        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+
+
+    }
+
+    public void adminNotApproveBtn(View view) {
+        Toast.makeText(this, "NOT APPROVED", Toast.LENGTH_LONG).show();
+        // below is for progress dialog box
+        //Initialinzing the progress Dialog
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        //show Dialog
+        progressDialog.show();
+        //set Content View
+        progressDialog.setContentView(R.layout.progress_dialog);
+        //set transparent background
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        // dismiss the dialog
+        // and exit the exit
+
+        // calling method to add data
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, adminStatusNotApproved_url +
+                "?TYPE=adminNotApproveRecords&projID=" + selectedProjectID + "&notApproved=" + notApproved
+                , new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //below code is for live server
+                try {
+                    if (TextUtils.equals(response, "1")) {
+                        Toast.makeText(admin_DataReport.this, "Response saved Successfully", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    } else {
+                        Toast.makeText(admin_DataReport.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) ;
+//        {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> data = new HashMap<>();
+//                data.put("projID", selectedProjectID);
+//                data.put("notApproved", notApproved);
+//                return data;
+//            }
+//        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+
 }

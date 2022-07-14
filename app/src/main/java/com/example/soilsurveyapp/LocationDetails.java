@@ -1,10 +1,15 @@
 package com.example.soilsurveyapp;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.Manifest;
@@ -25,6 +30,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,9 +44,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -55,11 +63,134 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
- import java.util.HashMap;
- import java.util.Map;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LocationDetails extends AppCompatActivity {
 
+    public static final String KEY_PROJECT_ID = "id";
+    public static final String KEY_ID = "id";
+    // url to post the data
+//    private static final String url = "http://10.0.0.145/login/locationDetailSingle.php";
+//    private static final String url = "http://10.0.0.145/login/locationDetailSingle1.php";
+//    private static final String url = "http://14.139.123.73:9090/web/NBSS/php/locationDetailSingle.php";  //working 100%
+    private static final String url = "http://14.139.123.73:9090/web/NBSS/php/locationDetailSingle1.php"; //working 100%
+    //------------LOCATION CODE------------
+    private static final int REQUEST_LOCATION = 1;
+    private static final String SHARED_PRE_NAME = "dataCollection";
+    private static final String SHARED_PRE_NAME2 = "mypref";
+    ProgressDialog progressDialog;
+    //-------------------ADD PHOTOS-----------------------
+    Button east_browse, west_browse, north_browse, south_browse, uploadBtn;
+    ImageView east_imgView, west_imgView, north_imgView, south_imgView;
+    String projID, east_encodeImgStr, west_encodeImgStr, north_encodeImgStr, south_encodeImgStr;
+    Bitmap east_bitmap, west_bitmap, north_bitmap, south_bitmap;
+    Button btnGetLocation;
+    LocationManager locationManager;
+    TextView lbl_latitude, lbl_longitude;
+    //---------SHARED PREFERENCES-------------------
+    //taking project id from datacollection page
+    SharedPreferences sharedPreferencesId;
+    //taking user id from login/register
+    SharedPreferences sharedPreferences_userId;
+    //---------holding the images on image view------------
+    //------------------------------EAST--------------------------
+    ActivityResultLauncher<Intent> someActivityResultLauncherEst = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent estData = result.getData();
+                        Uri imageUri;
+                        if (estData != null) {
+                            imageUri = estData.getData();
+                            InputStream inputStream;
+                            try {
+                                inputStream = getContentResolver().openInputStream(imageUri);
+                                east_bitmap = BitmapFactory.decodeStream(inputStream);
+                                east_imgView.setImageBitmap(east_bitmap);
+                                east_encodeBitmapImg(east_bitmap);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+                }
+            });
+    //-------------------------------------WEST-----------------------------------
+    ActivityResultLauncher<Intent> someActivityResultLauncherWst = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent wstData = result.getData();
+                        Uri imageUri;
+                        if (wstData != null) {
+                            imageUri = wstData.getData();
+                            InputStream inputStream;
+                            try {
+                                inputStream = getContentResolver().openInputStream(imageUri);
+                                west_bitmap = BitmapFactory.decodeStream(inputStream);
+                                west_imgView.setImageBitmap(west_bitmap);
+                                west_encodeBitmapImage(west_bitmap);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+    //--------------------------------------------NORTH-------------------------------
+    ActivityResultLauncher<Intent> someActivityResultLauncherNth = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent wstData = result.getData();
+                        Uri imageUri;
+                        if (wstData != null) {
+                            imageUri = wstData.getData();
+                            InputStream inputStream;
+                            try {
+                                inputStream = getContentResolver().openInputStream(imageUri);
+                                north_bitmap = BitmapFactory.decodeStream(inputStream);
+                                north_imgView.setImageBitmap(north_bitmap);
+                                north_encodeBitmapImage(north_bitmap);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+    //--------------------------------------------SOUTH-------------------------------
+    ActivityResultLauncher<Intent> someActivityResultLauncherSth = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent wstData = result.getData();
+                        Uri imageUri;
+                        if (wstData != null) {
+                            imageUri = wstData.getData();
+                            InputStream inputStream;
+                            try {
+                                inputStream = getContentResolver().openInputStream(imageUri);
+                                south_bitmap = BitmapFactory.decodeStream(inputStream);
+                                south_imgView.setImageBitmap(south_bitmap);
+                                south_encodeBitmapImage(south_bitmap);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
     // defining spinner for state, district, tehsil, block, topo250k, topo50k
     private Spinner stateSpinner, districtSpinner, tehsilSpinner, blockSpinner, topo250kSpinner, topo50kSpinner,
             physioCatgySpinner, subPhysioUnitSpinner, slopeGradientSpinner, slopeLengthSpinner, erosionSpinner, runoffSpinner,
@@ -85,7 +216,6 @@ public class LocationDetails extends AppCompatActivity {
     private Spinner s_Nodules_Spinner, q_Nodules_Spinner;
     //-----------------------------ROOTS--------------------------------------------------------------------------------
     private Spinner s_Roots_Spinner, q_Roots_Spinner, effervescence_Roots_Spinner;
-
     private EditText etsurveyorName, ettehsilName, etblockName, etvillageName, etelevation, etprojProfileID, etremark, etGeology,
             etParentMaterial, etClimate, etRainfall, etTopographyLandform, etNaturalVegetation,
             etPhaseSurface, etPhaseSubstratum, etpluRemark, etYield, etCroppingSys, etHorizon, etDepth,
@@ -93,11 +223,8 @@ public class LocationDetails extends AppCompatActivity {
             etPD_sand, etPD_silt, etPD_clay, etPD_textural, etPD_density, etWR_33kpa, etWR_1500kpa, etWR_awc, etWR_pawc, etWR_gravimetric,
             etPH, etEC, etOC, etCaCo, etCa, etMg, etNa, etK, etTotalBase, etCEC, etBS, etESP,
             etOrganicCarbon, et_MaN_nitrogen, et_MaN_phosphorus, et_MaN_potassium, et_MiN_sulphur, et_MiN_zinc, et_MiN_copper, et_MiN_iron, et_MiN_manganese;
-
     private TextView dateText, timeText;
     private Button backBtn, nextBtn;
-    ProgressDialog progressDialog;
-
     //declaring variable for storing selected state, district, tehsil, block, topo250k, topo50k
     private String selectedState, selectedDistrict, selectedTehsil, selectedBlock, selectedTopo250k, selectedTopo50k,
             selectedPhysioCatgy, selectedSubPhysioUnit, selectedSlopeGradient, selectedSlopeLength, selectedErosion,
@@ -105,7 +232,6 @@ public class LocationDetails extends AppCompatActivity {
             selectedPH, selectedStoneSize, selectedStoiness, selectedRockOutcrops,
             selectedForest, selectedCultivated, selectedTerraces, selectedPastureLand, selectedDegCulturable, selectedDegUncultrable,
             selectedLandCapClass, selectedLandCapsubClass, selectedLandIrrigaClass, selectedLandIrrigaSubclass, selectedCrop, selectedManagPractice;
-
     //---------------------MORPHOLOGICAL PARAMS---------------------------------------------------------------------------------
     private String selectedDistinctness, selectedTopography, selectedDiagnostic, selectedMatrixCol;
     //----------------------MOTTLE COLOUR--------------------------------------------------------------------------------
@@ -124,7 +250,6 @@ public class LocationDetails extends AppCompatActivity {
     private String selected_Nodules_S, selected_Nodules_Q;
     //-----------------------------ROOTS--------------------------------------------------------------------------------
     private String selected_Roots_S, selected_Roots_Q, selected_Roots_Effervescence;
-
     // creating a strings for storing our values from edittext fields.
     private String surveyorname, tehsilname, blockname, villagename, date, time, latitude, longitude, elevation, projectProfileID, remark,
             geology, parentMaterial, climate, rainfall, topographyLandform, naturalVegetation,
@@ -133,7 +258,6 @@ public class LocationDetails extends AppCompatActivity {
             PD_sand, PD_silt, PD_clay, PD_textural, PD_density, WR_33kpa, WR_1500kpa, WR_awc, WR_pawc, WR_gravimetric,
             PH, EC, OC, CaCo, Ca, Mg, Na, K, TotalBase, CEC, BS, ESP,
             organicCarbon, MaN_nitrogen, MaN_phosphorus, MaN_potassium, MiN_sulphur, MiN_zinc, MiN_copper, MiN_iron, MiN_manganese;
-
     //defining and declaring array adapter for state, district, tehsil, block, topo250k, topo50k
     private ArrayAdapter<CharSequence> stateAdapter, districtAdapter, tehsilAdapter, blockAdapter, topo250kAdapter, topo50kAdapter, physioCatgyAdapter, subPhysioUnitAdapter,
             slopeGradientAdapter, slopeLengthAdapter, erosionAdapter, runoffAdapter, drainageAdapter, groundWaterDepthAdapter, floodingAdapter, salt_AlkaliAdapter, ecAdapter,
@@ -157,45 +281,8 @@ public class LocationDetails extends AppCompatActivity {
     private ArrayAdapter<CharSequence> s_Nodules_Adapter, q_Nodules_Adapter;
     //-----------------------------ROOTS--------------------------------------------------------------------------------
     private ArrayAdapter<CharSequence> s_Roots_Adapter, q_Roots_Adapter, effervescence_Roots_Adapter;
-
-
-    //-------------------ADD PHOTOS-----------------------
-    Button east_browse, west_browse, north_browse, south_browse, uploadBtn;
-    ImageView east_imgView, west_imgView, north_imgView, south_imgView;
-    String projID, east_encodeImgStr, west_encodeImgStr, north_encodeImgStr, south_encodeImgStr;
-    Bitmap east_bitmap, west_bitmap, north_bitmap, south_bitmap;
-
-    private String projectID;
+    private String projectID, admin_status;
     private int userid;
-    // url to post the data
-//    private static final String url = "http://10.0.0.145/login/locationDetailSingle.php";
-    private static final String url = "http://14.139.123.73:9090/web/NBSS/php/locationDetailSingle.php";
-
-    //------------LOCATION CODE------------
-//    private static final int REQUEST_LOCATION = 1;
-//    LocationManager locationManager;
-//    private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
-    private static  final int REQUEST_LOCATION=1;
-    Button btnGetLocation;
-    LocationManager locationManager;
-    TextView lbl_latitude, lbl_longitude;
-
-
-
-    //    //---------SHARED PREFERENCES-------------------
-//    SharedPreferences sharedPreferences;
-//    //creating shared preference name and also creating key name
-//    private static final String SHARED_PRE_NAME = "locationDetails";
-//    private static final String KEY_PROJECT_PROFILE_ID = "ppid";
-//taking project id from datacollection page
-    SharedPreferences sharedPreferencesId;
-    private static final String SHARED_PRE_NAME = "dataCollection";
-    public static final String KEY_PROJECT_ID = "id";
-
-    //taking user id from login/register
-    SharedPreferences sharedPreferences_userId;
-    private static final String SHARED_PRE_NAME2 = "mypref";
-    public static final String KEY_ID = "id";
 
     @Override
     public void onBackPressed() {
@@ -208,12 +295,13 @@ public class LocationDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
 
+        admin_status = "";
         //--------Location codes-------------------
         //Add permission
-        ActivityCompat.requestPermissions(this,new String[]
+        ActivityCompat.requestPermissions(this, new String[]
                 {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-        lbl_latitude=findViewById(R.id.lbl_latitude);
-        lbl_longitude=findViewById(R.id.lbl_longitude);
+        lbl_latitude = findViewById(R.id.lbl_latitude);
+        lbl_longitude = findViewById(R.id.lbl_longitude);
         btnGetLocation = findViewById(R.id.get_location);
 
         //------------------HIDING THE ACTION BAR----------------------
@@ -229,8 +317,6 @@ public class LocationDetails extends AppCompatActivity {
         //----------spinners-----------
         stateSpinner = (Spinner) findViewById(R.id.spin_select_state);
         districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
-//        tehsilSpinner = (Spinner) findViewById(R.id.spin_select_tehsil);
-//        blockSpinner = (Spinner) findViewById(R.id.spin_select_block);
         topo250kSpinner = (Spinner) findViewById(R.id.spin_toposheet250k);
         topo50kSpinner = (Spinner) findViewById(R.id.spin_toposheet50k);
         //----------edittext-------------
@@ -322,7 +408,6 @@ public class LocationDetails extends AppCompatActivity {
         contrast_MC_Spinner = (Spinner) findViewById(R.id.spin_mc_contrast);
         texture_MC_Spinner = (Spinner) findViewById(R.id.spin_mc_texture);
         size_CF_Spinner = (Spinner) findViewById(R.id.spin_cf_size);
-//        vol_CF_Spinner = (Spinner) findViewById(R.id.spin_cf_vol);
         size_Str_Spinner = (Spinner) findViewById(R.id.spin_structure_size);
         grade_Str_Spinner = (Spinner) findViewById(R.id.spin_structure_grade);
         type_Str_Spinner = (Spinner) findViewById(R.id.spin_structure_type);
@@ -378,15 +463,9 @@ public class LocationDetails extends AppCompatActivity {
         north_imgView = (ImageView) findViewById(R.id.north_img);
         south_imgView = (ImageView) findViewById(R.id.south_img);
 
-        //-------------buttons---------------------------------------
-//        backBtn = (Button) findViewById(R.id.location_detail_back_btn);
-//        nextBtn = (Button) findViewById(R.id.location_detail_next_btn);
         //------------------------------date_time----------------------------
         dateText = (TextView) findViewById(R.id.lbl_full_date);
         timeText = (TextView) findViewById(R.id.lbl_full_time);
-//        latitudeText= (TextView) findViewById(R.id.lbl_latitude);
-//        longitudeText= (TextView) findViewById(R.id.lbl_longitude);
-
 
         //----------DATE-----------
         long date = System.currentTimeMillis();
@@ -399,74 +478,7 @@ public class LocationDetails extends AppCompatActivity {
         String timeString = timeFormat.format(date);
         timeText.setText(timeString);
 
-        //------------------LOCATION DETAILS--------------
-//---------------------------------------------LIST OF TEHSIL ON SPINNER-----------------------------------------------------------------
-//        //populate arrayAdapter using string array and spinner layout that we will define
-//        tehsilAdapter = ArrayAdapter.createFromResource(this, R.array.array_tehsil_subdivision, R.layout.spinner_item);
-//
-//        //now specifying the layout to use when list of choice is appears
-//        tehsilAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
-//
-//        //now simply populate the spinner using the adapter i.e tehsilAdapter
-//        tehsilSpinner.setAdapter(tehsilAdapter);
-//        //now when selecting any tehsil from spinner
-//        tehsilSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-//                //for disabling the first option of tehsil spinner
-//                TextView tv = (TextView) view;
-//                if (position == 0) {
-//                    // Set the hint text color gray
-//                    tv.setTextColor(Color.GRAY);
-//                    tv.setTextSize(18);
-//                }
-//
-//                //storing selected option from spinner save into selectedTehsil variable
-////                selectedTehsil = tehsilSpinner.getSelectedItem().toString();
-//
-//                //when selecting the state name district spinner is populated
-////                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-//---------------------------------------------LIST OF BLOCK ON SPINNER-----------------------------------------------------------------
-//        //populate arrayAdapter using string array and spinner layout that we will define
-//        blockAdapter = ArrayAdapter.createFromResource(this, R.array.array_block_mandal, R.layout.spinner_item);
-//
-//        //now specifying the layout to use when list of choice is appears
-//        blockAdapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
-//
-//        //now simply populate the spinner using the adapter i.e blockAdapter
-//        blockSpinner.setAdapter(blockAdapter);
-//        //now when selecting any block from spinner
-//        blockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-//                //for disabling the first option of block spinner
-//                TextView tv = (TextView) view;
-//                if (position == 0) {
-//                    // Set the hint text color gray
-//                    tv.setTextColor(Color.GRAY);
-//                    tv.setTextSize(18);
-//                }
-//
-//                //storing selected option from spinner save into selectedBlock variable
-////                selectedBlock = blockSpinner.getSelectedItem().toString();
-//                //when selecting the state name district spinner is populated
-//                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
-
-//---------------------------------------------LIST OF TOPOSHEET 250K ON SPINNER-----------------------------------------------------------------
+        //---------------------------------------------LIST OF TOPOSHEET 250K ON SPINNER-----------------------------------------------------------------
         //populate arrayAdapter using string array and spinner layout that we will define
         topo250kAdapter = ArrayAdapter.createFromResource(this, R.array.array_toposheet_250k, R.layout.spinner_item);
 
@@ -489,8 +501,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedTopo250k variable
                 selectedTopo250k = topo250kSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -520,8 +530,6 @@ public class LocationDetails extends AppCompatActivity {
                 }
                 //storing selected option from spinner save into selectedTopo50k variable
                 selectedTopo50k = topo50kSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -766,8 +774,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedPhysioCatgy = physioCatgySpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -799,8 +805,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedSubPhysioUnit variable
                 selectedSubPhysioUnit = subPhysioUnitSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -830,8 +834,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedSlopeGradient = slopeGradientSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -862,8 +864,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedSlopeLength = slopeLengthSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -894,8 +894,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedErosion = erosionSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -926,8 +924,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedRunoff = runoffSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -958,8 +954,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedDrainage = drainageSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -990,8 +984,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedGroundWaterDepth = groundWaterDepthSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1022,8 +1014,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedFlooding = floodingSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1054,8 +1044,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedSalt_Alkali = salt_AlkaliSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1086,8 +1074,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedPH = pHSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1118,8 +1104,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedEc = ecSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1150,8 +1134,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedStoneSize = stoneSizeSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1182,8 +1164,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedStoiness = stoinessSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1214,8 +1194,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selected... variable
                 selectedRockOutcrops = rockOutcropsSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1247,8 +1225,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedForest = forestSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1279,8 +1255,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedCultivated = cultivatedSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1311,8 +1285,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedTerraces = terracesSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1343,8 +1315,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedPastureLand = pastureLandSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1375,8 +1345,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedDegCulturable = degrCulturableSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1407,8 +1375,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedDegUncultrable = degrunCulturableSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1439,8 +1405,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedLandCapClass = landCapaClassSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1471,8 +1435,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedLandCapsubClass = landCapaSubClassSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1503,8 +1465,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedLandIrrigaClass = landIrrigaClassSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1535,8 +1495,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedLandIrrigaSubclass = landIrrigaSubClassSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1567,8 +1525,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedCrop = cropSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1599,8 +1555,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner save into selectedPhysioCatgy variable
                 selectedManagPractice = managPractSpinner.getSelectedItem().toString();
-                //when selecting the state name district spinner is populated
-                //districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1633,9 +1587,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner
                 selectedDistinctness = distinctnessSpinner.getSelectedItem().toString();
-
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1668,8 +1619,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selectedTopography = topographySpinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1702,8 +1651,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selectedDiagnostic = diagnosticSpinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1736,8 +1683,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selectedMatrixCol = matrixColSpinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1771,8 +1716,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_MC_Abundance = abundance_MC_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1805,8 +1748,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_MC_Size = size_MC_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1839,8 +1780,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_MC_Contrast = contrast_MC_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1873,8 +1812,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_MC_Texture = texture_MC_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -1908,48 +1845,12 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_CF_Size = size_CF_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-        //---------------------------------------------LIST OF CF_VOL'S SPINNER-----------------------------------------------------------------
-        //populate arrayAdapter using string array and spinner layout that we will define
-//        vol_CF_Adapter = ArrayAdapter.createFromResource(this, R.array.array_cf_vol, R.layout.spinner_item);
-//
-//        //now specifying the layout to use when list of choice is appears
-//        vol_CF_Adapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
-//
-//        //now simply populate the spinner using the adapter i.e boundaryAdapter
-//        vol_CF_Spinner.setAdapter(vol_CF_Adapter);
-//        //now when selecting any options from spinner
-//        vol_CF_Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-//                //for disabling the first option of tehsil spinner
-//                TextView tv = (TextView) view;
-//                if (position == 0) {
-//                    // Set the hint text color gray
-////                    tv.setActivated(false);
-//                    tv.setTextColor(Color.GRAY);
-//                    tv.setTextSize(18);
-//                }
-//
-//                //storing selected option from spinner
-//                selected_CF_Vol = vol_CF_Spinner.getSelectedItem().toString();
-//
-//                //when selecting the state name district spinner is populated
-////                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
 
         //---------------------------------------------LIST OF STR_SIZE'S SPINNER-----------------------------------------------------------------
         //populate arrayAdapter using string array and spinner layout that we will define
@@ -1976,8 +1877,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Str_Size = size_Str_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2010,8 +1909,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Str_Grade = grade_Str_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2044,8 +1941,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Str_Type = type_Str_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2079,8 +1974,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Con_D = d_Con_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2113,8 +2006,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Con_M = m_Con_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2147,8 +2038,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Con_W = w_Con_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2182,8 +2071,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Poros_S = s_Poro_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2216,8 +2103,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Poros_Q = q_Poro_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2251,8 +2136,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Cutans_Ty = ty_Cutans_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2285,8 +2168,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Cutans_Th = th_Cutans_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2319,8 +2200,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Cutans_Q = q_Cutans_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2354,8 +2233,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Nodules_S = s_Nodules_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2387,9 +2264,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner
                 selected_Nodules_Q = q_Nodules_Spinner.getSelectedItem().toString();
-
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2423,8 +2297,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Roots_S = s_Roots_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2457,8 +2329,6 @@ public class LocationDetails extends AppCompatActivity {
                 //storing selected option from spinner
                 selected_Roots_Q = q_Roots_Spinner.getSelectedItem().toString();
 
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2490,9 +2360,6 @@ public class LocationDetails extends AppCompatActivity {
 
                 //storing selected option from spinner
                 selected_Roots_Effervescence = effervescence_Roots_Spinner.getSelectedItem().toString();
-
-                //when selecting the state name district spinner is populated
-//                districtSpinner = (Spinner) findViewById(R.id.spin_select_district);
             }
 
             @Override
@@ -2513,7 +2380,8 @@ public class LocationDetails extends AppCompatActivity {
                             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                                 Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent, "Browse East Image"), 1);
+//                                startActivityForResult(Intent.createChooser(intent, "Browse East Image"), 1);
+                                someActivityResultLauncherEst.launch(Intent.createChooser(intent, "Browse East Image"));
                             }
 
                             @Override
@@ -2540,7 +2408,8 @@ public class LocationDetails extends AppCompatActivity {
                             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                                 Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent, "Browse West Image"), 2);
+//                                startActivityForResult(Intent.createChooser(intent, "Browse West Image"), 2);
+                                someActivityResultLauncherWst.launch(Intent.createChooser(intent, "Browse West Image"));
                             }
 
                             @Override
@@ -2567,7 +2436,8 @@ public class LocationDetails extends AppCompatActivity {
                             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                                 Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent, "Browse Image"), 3);
+//                                startActivityForResult(Intent.createChooser(intent, "Browse Image"), 3);
+                                someActivityResultLauncherNth.launch(Intent.createChooser(intent, "Browse North Image"));
                             }
 
                             @Override
@@ -2594,7 +2464,8 @@ public class LocationDetails extends AppCompatActivity {
                             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                                 Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent, "Browse Image"), 4);
+//                                startActivityForResult(Intent.createChooser(intent, "Browse Image"), 4);
+                                someActivityResultLauncherSth.launch(Intent.createChooser(intent, "Browse South Image"));
                             }
 
                             @Override
@@ -2610,51 +2481,19 @@ public class LocationDetails extends AppCompatActivity {
             }
         });
 
-//----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-        //for back button
-
-//        backBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//
-//        });
-
-        //for next button
-//        nextBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LocationDetails.this, SoilSiteParameters.class);
-//                startActivity(intent);
-//            }
-//        });
-        //---------shared preference----------------
-//        sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, MODE_PRIVATE);
-//        //when open the activity then first check "shared preference" data available or not
-//        String projID = sharedPreferences.getString(KEY_PROJECT_PROFILE_ID, null);
-//        if (projID == null) {
-//            Toast.makeText(LocationDetails.this, "Enter project profile id!!", Toast.LENGTH_SHORT).show();
-//        }
-
-
         //--------------BUTTON METHOD FOR GETTING CURRENT LOCATION DETAILS---------------
         btnGetLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                locationManager=(LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
                 //Check gps is enable or not
 
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-                {
+                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     //Write Function To enable gps
 
                     OnGPS();
-                }
-                else
-                {
+                } else {
                     //GPS is already On then
 
                     getLocation();
@@ -2663,73 +2502,57 @@ public class LocationDetails extends AppCompatActivity {
         });
 
     }
+
     private void getLocation() {
-
         //Check Permissions again
-
-        if (ActivityCompat.checkSelfPermission(LocationDetails.this,Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ActivityCompat.checkSelfPermission(LocationDetails.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(LocationDetails.this,
 
-                Manifest.permission.ACCESS_COARSE_LOCATION) !=PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this,new String[]
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]
                     {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-        }
-        else
-        {
-            Location LocationGps= locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            Location LocationNetwork=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            Location LocationPassive=locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        } else {
+            Location LocationGps = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location LocationNetwork = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            Location LocationPassive = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
-            if (LocationGps !=null)
-            {
-                double lat=LocationGps.getLatitude();
-                double longi=LocationGps.getLongitude();
+            if (LocationGps != null) {
+                double lat = LocationGps.getLatitude();
+                double longi = LocationGps.getLongitude();
 
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longi);
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
 
-//                showLocationTxt.setText("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
                 lbl_latitude.setText(latitude);
                 lbl_longitude.setText(longitude);
-            }
-            else if (LocationNetwork !=null)
-            {
-                double lat=LocationNetwork.getLatitude();
-                double longi=LocationNetwork.getLongitude();
+            } else if (LocationNetwork != null) {
+                double lat = LocationNetwork.getLatitude();
+                double longi = LocationNetwork.getLongitude();
 
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longi);
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
 
-//                showLocationTxt.setText("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
                 lbl_latitude.setText(latitude);
                 lbl_longitude.setText(longitude);
-            }
-            else if (LocationPassive !=null)
-            {
-                double lat=LocationPassive.getLatitude();
-                double longi=LocationPassive.getLongitude();
+            } else if (LocationPassive != null) {
+                double lat = LocationPassive.getLatitude();
+                double longi = LocationPassive.getLongitude();
 
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longi);
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
 
-//                showLocationTxt.setText("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
                 lbl_latitude.setText(latitude);
                 lbl_longitude.setText(longitude);
-            }
-            else
-            {
+            } else {
                 Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
             }
 
-            //Thats All Run Your App
         }
 
     }
 
     private void OnGPS() {
-
-        final AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
@@ -2743,44 +2566,9 @@ public class LocationDetails extends AppCompatActivity {
                 dialog.cancel();
             }
         });
-        final AlertDialog alertDialog=builder.create();
+        final AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.length > 0) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                getCurrentLocation();
-//            } else {
-//                Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
-//
-//    private void getCurrentLocation() {
-////        LocationRequest locationRequest = new LocationRequest();
-////        locationRequest.setInterval(10000);
-////        locationRequest.setFastestInterval(3000);
-////        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-////
-////        LocationServices.getFusedLocationProviderClient(LocationDetails.this)
-////                .requestLocationUpdates(locationRequest, new LocationCallback() {
-////                    @Override
-////                    public void onLocationResult(@NonNull LocationResult locationResult) {
-////                        super.onLocationResult(locationResult);
-////                        LocationServices.getFusedLocationProviderClient(LocationDetails.this)
-////                                .removeLocationUpdates(this);
-////                        if (locationRequest != null && locationResult.getLocations().size() > 0) {
-////                            int latestLocationIndex = locationResult.getLocations().size() - 1;
-////                            double latitude = locationRequest.getLocations().get(latestLocationIndex).getLatitude();
-////                            double longitude = locationRequest.getLocations().get(latestLocationIndex).getLongitude();
-////                            latitudeText.setText(String.format(latitude));
-////                            longitudeText.setText(String.format(longitude));
-////                        }
-////                    }
-////                }, Looper.getMainLooper());
-//    }
 
     //-----------HOME ICON on action bar-------------------
     @Override
@@ -2789,10 +2577,10 @@ public class LocationDetails extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //---------ADD PHOTOS-------------------
+    //---------onclicking go to home dashboard-------------------
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.home_menu:
                 startActivity(new Intent(getApplicationContext(), HomePage.class));
                 break;
@@ -2800,153 +2588,47 @@ public class LocationDetails extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //---------holding the images on image view------------
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 || requestCode == 2 || requestCode == 3 || requestCode == 4 || resultCode == RESULT_OK || data != null || data.getData() != null) {
-            switch (requestCode) {
-                case 1:
-                    if (resultCode == RESULT_OK) {
-                        Uri filepath = data.getData();
-                        try {
-                            InputStream inputStream = getContentResolver().openInputStream(filepath);
-                            east_bitmap = BitmapFactory.decodeStream(inputStream);
-                            east_imgView.setImageBitmap(east_bitmap);
-                            east_encodeBitmapImg(east_bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }//if resultCode Case 1
-                    break;
-                case 2:
-                    if (resultCode == RESULT_OK) {
-                        Uri filepath = data.getData();
-                        try {
-                            InputStream inputStream = getContentResolver().openInputStream(filepath);
-                            west_bitmap = BitmapFactory.decodeStream(inputStream);
-                            west_imgView.setImageBitmap(west_bitmap);
-                            west_encodeBitmapImage(west_bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    }//if resultCode Case 2
-                    break;
-                case 3:
-                    if (resultCode == RESULT_OK) {
-                        Uri filepath = data.getData();
-                        try {
-                            InputStream inputStream = getContentResolver().openInputStream(filepath);
-                            north_bitmap = BitmapFactory.decodeStream(inputStream);
-                            north_imgView.setImageBitmap(north_bitmap);
-                            north_encodeBitmapImage(north_bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    }//if resultCode Case 3
-                    break;
-                case 4:
-                    if (resultCode == RESULT_OK) {
-                        Uri filepath = data.getData();
-                        try {
-                            InputStream inputStream = getContentResolver().openInputStream(filepath);
-                            south_bitmap = BitmapFactory.decodeStream(inputStream);
-                            south_imgView.setImageBitmap(south_bitmap);
-                            south_encodeBitmapImage(south_bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }//if resultCode Case 3
-            }//Switch
-
-        }
-    }
-    private void east_encodeBitmapImg(Bitmap sec_bitmap) {
+    //----------------------EAST-------------------
+    private void east_encodeBitmapImg(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        sec_bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
-        east_encodeImgStr = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+        east_encodeImgStr = Base64.encodeToString(bytesofimage, Base64.DEFAULT);
     }
 
+    //-------------------------WEST-----------------------
     private void west_encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
-        west_encodeImgStr = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+        west_encodeImgStr = Base64.encodeToString(bytesofimage, Base64.DEFAULT);
     }
 
+    //-----------------------------NORTH--------------------
     private void north_encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
-        north_encodeImgStr = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+        north_encodeImgStr = Base64.encodeToString(bytesofimage, Base64.DEFAULT);
     }
 
+    //-------------------------------SOUTH------------------------
     private void south_encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
-        south_encodeImgStr = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+        south_encodeImgStr = Base64.encodeToString(bytesofimage, Base64.DEFAULT);
     }
-
-    //--------------BUTTON METHOD FOR GETTING CURRENT LOCATION DETAILS---------------
-
-
-//    public void getLocation(View view){
-//        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-//            OnGPS();
-//        } else {
-//            getLocation();
-//        }
-//    }
-//    private void OnGPS() {
-//        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener(){
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-//            }
-//        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.cancel();
-//            }
-//        });
-//        final AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//    }
-//    private void getLocation() {
-//        if (ActivityCompat.checkSelfPermission(
-//                LocationDetails.this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-//                LocationDetails.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-//        } else {
-//            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//            if (locationGPS != null) {
-//                double lat = locationGPS.getLatitude();
-//                double longi = locationGPS.getLongitude();
-//                latitude = String.valueOf(lat);
-//                longitude = String.valueOf(longi);
-//                latitudeText.setText(latitude);
-//                longitudeText.setText(longitude);
-//            } else {
-//                Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 
     //----------BUTTON METHOD FOR SAVING DATA------------------
     public void SubmitBtn1(View view) {
         // below is for progress dialog box
         //Initialinzing the progress Dialog
-        progressDialog= new ProgressDialog(LocationDetails.this);
+        progressDialog = new ProgressDialog(LocationDetails.this);
         //show Dialog
         progressDialog.show();
         //set Content View
@@ -2954,21 +2636,13 @@ public class LocationDetails extends AppCompatActivity {
         //set transparent background
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-//        //--------------------SHAREDPREFERENCE-------------------
-//        //when clicking btn put data on shared preference
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString(KEY_PROJECT_PROFILE_ID, etprojProfileID.getText().toString());
-//        editor.apply();
-
         // for project id
         sharedPreferencesId = getSharedPreferences(SHARED_PRE_NAME, Context.MODE_PRIVATE);
-        projectID= sharedPreferencesId.getString(KEY_PROJECT_ID,"");
-        Log.d("userid", projectID);
+        projectID = sharedPreferencesId.getString(KEY_PROJECT_ID, "");
 
         // for user id
         sharedPreferencesId = getSharedPreferences(SHARED_PRE_NAME2, Context.MODE_PRIVATE);
-        userid= Integer.parseInt(sharedPreferencesId.getString(KEY_ID,""));
-
+        userid = Integer.parseInt(sharedPreferencesId.getString(KEY_ID, ""));
 
         surveyorname = etsurveyorName.getText().toString().trim();
         tehsilname = ettehsilName.getText().toString().trim();
@@ -3044,225 +2718,219 @@ public class LocationDetails extends AppCompatActivity {
         MiN_iron = et_MiN_iron.getText().toString().trim();
         MiN_manganese = et_MiN_manganese.getText().toString().trim();
 
-        Log.d("dateeee", date);
-//        state = stateSpinner.getSelectedItem().toString().trim();
-//        tehsil = tehsilSpinner.getSelectedItem().toString().trim();
-//        block = blockSpinner.getSelectedItem().toString().trim();
-//        toposheet250k = topo250kSpinner.getSelectedItem().toString().trim();
-//        toposheet50k = topo50kSpinner.getSelectedItem().toString().trim();
-
         //----------validating the text fields if empty or not.-------------------//commenting only for next page codig
-//        if (TextUtils.isEmpty(surveyorname)) {
-//            etsurveyorName.setError("Please enter surveyor name..");
-//        } else if (TextUtils.isEmpty(villagename)) {
-//            etvillageName.setError("Please enter village name...");
-//        } else if (TextUtils.isEmpty(elevation)) {
-//            etelevation.setError("Please enter elevation...");
-//        } else if (TextUtils.isEmpty(projectProfileID)) {
-//            etprojProfileID.setError("Please enter project profile ID...");
-//        } else if (TextUtils.isEmpty(remark)) {
-//            etremark.setError("Please enter remark...");
-//        }
-//        else if (selectedState.equals("Select Your State")) {
-//            Toast.makeText(LocationDetails.this, "Please Select state !!", Toast.LENGTH_LONG).show();
-//        } else if (selectedDistrict.equals("Select Your District")) {
-//            Toast.makeText(LocationDetails.this, "Please Select district !!", Toast.LENGTH_LONG).show();
-//        } else if (selectedTehsil.equals("Select Tehsil...")) {
-//            Toast.makeText(LocationDetails.this, "Please Select tehsil !!", Toast.LENGTH_LONG).show();
-//        } else if (selectedBlock.equals("Select Block...")) {
-//            Toast.makeText(LocationDetails.this, "Please Select district !!", Toast.LENGTH_LONG).show();
-//        } else if (selectedTopo250k.equals("Select Toposheet 250k...")) {
-//            Toast.makeText(LocationDetails.this, "Please Select toposheet 250k !!", Toast.LENGTH_LONG).show();
-//        } else if (selectedTopo50k.equals("Select Toposheet 50k...")) {
-//            Toast.makeText(LocationDetails.this, "Please Select toposheet 50k !!", Toast.LENGTH_LONG).show();
-//        }
-//        else {
-        // calling method to add data to Firebase Firestore.
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+        if (TextUtils.isEmpty(surveyorname)) {
+            progressDialog.dismiss();
+            etsurveyorName.setError("Please enter Surveyor name");
+            Toast.makeText(this, "Surveyor name required...", Toast.LENGTH_LONG).show();
+            return;
+        } else if (selectedState.equals("Select Your State")) {
+            progressDialog.dismiss();
+            Toast.makeText(this, "State required...", Toast.LENGTH_LONG).show();
+            return;
+        } else if (TextUtils.isEmpty(latitude)) {
+            progressDialog.dismiss();
+            lbl_latitude.setError("Please enter latitude");
+            Toast.makeText(this, "Latitude required...", Toast.LENGTH_LONG).show();
+            return;
+        } else if (TextUtils.isEmpty(longitude)) {
+            progressDialog.dismiss();
+            lbl_longitude.setError("Please enter logitude");
+            Toast.makeText(this, "Longitude required...", Toast.LENGTH_LONG).show();
+            return;
+        } else if (TextUtils.isEmpty(projectProfileID)) {
+            progressDialog.dismiss();
+            etprojProfileID.setError("Please enter Project profile id");
+            Toast.makeText(this, "Project profile id required...", Toast.LENGTH_LONG).show();
+            return;
+        } else {
+            // calling method to add data
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    //reseting all data back to empty after sending to database
+                    //---------add photos------------
+                    east_imgView.setImageResource(R.drawable.select_img);
+                    west_imgView.setImageResource(R.drawable.select_img);
+                    north_imgView.setImageResource(R.drawable.select_img);
+                    south_imgView.setImageResource(R.drawable.select_img);
 
-                //---------add photos------------
-                east_imgView.setImageResource(R.drawable.select_img);
-                west_imgView.setImageResource(R.drawable.select_img);
-                north_imgView.setImageResource(R.drawable.select_img);
-                south_imgView.setImageResource(R.drawable.select_img);
-
-                if (TextUtils.equals(response, "success")) {
-                    progressDialog.dismiss();
-                    Toast.makeText(LocationDetails.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
-                } else {
-//                        tvStatus.setText("Something went wrong!");
-//                        SharedPreferences.Editor editor = sharedPreferences.edit();
-//                        editor.putString(KEY_PROJECT_PROFILE_ID, projectProfileID);
-//                        editor.apply();
-//                        finish();
-                    progressDialog.dismiss();
-                    startActivity(new Intent(LocationDetails.this, SoilDataReport.class));
-                    Toast.makeText(LocationDetails.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
+                    //below code is for live server
+                    try {
+                        if (TextUtils.equals(response, "1")) {
+                            progressDialog.dismiss();
+                            Toast.makeText(LocationDetails.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
+                        } else {
+                            progressDialog.dismiss();
+                            Toast.makeText(LocationDetails.this, "Data stored Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LocationDetails.this, SoilDataReport.class));
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), e.toString().trim(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-//                    Toast.makeText(getApplicationContext(), "Enter location details...", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Please choose image!!", Toast.LENGTH_SHORT).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> data = new HashMap<>();
-                data.put("userid", String.valueOf(userid));
-                data.put("projectID", projectID);
-                data.put("surveyorname", surveyorname);
-                data.put("state", selectedState);
-                data.put("district", selectedDistrict);
-                data.put("tehsil", tehsilname);
-                data.put("block", blockname);
-                data.put("villagename", villagename);
-                data.put("toposheet250k", selectedTopo250k);
-                data.put("toposheet50k", selectedTopo50k);
-                data.put("date", date);
-                data.put("time", time);
-                data.put("latitude", latitude);
-                data.put("longitude", longitude);
-                data.put("elevation", elevation);
-                data.put("projectProfileID", projectProfileID);
-                data.put("ld_remark", remark);
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast toast = Toast.makeText(getApplicationContext(), "Images required...", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER | Gravity.BOTTOM, 0, 20);
+                    toast.show();
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<String, String>();
+                    data.put("userid", String.valueOf(userid));
+                    data.put("projectID", projectID);
+                    data.put("surveyorname", surveyorname);
+                    data.put("state", selectedState);
+                    data.put("district", selectedDistrict);
+                    data.put("tehsil", tehsilname);
+                    data.put("block", blockname);
+                    data.put("villagename", villagename);
+                    data.put("toposheet250k", selectedTopo250k);
+                    data.put("toposheet50k", selectedTopo50k);
+                    data.put("date", date);
+                    data.put("time", time);
+                    data.put("latitude", latitude);
+                    data.put("longitude", longitude);
+                    data.put("elevation", elevation);
+                    data.put("projectProfileID", projectProfileID);
+                    data.put("ld_remark", remark);
 
-                data.put("physiographicCategory", selectedPhysioCatgy);
-                data.put("subPhysiographicUnit", selectedSubPhysioUnit);
-                data.put("geology", geology);
-                data.put("parentMaterial", parentMaterial);
-                data.put("climate", climate);
-                data.put("rainfall", rainfall);
-                data.put("topographyLandformType", topographyLandform);
+                    data.put("physiographicCategory", selectedPhysioCatgy);
+                    data.put("subPhysiographicUnit", selectedSubPhysioUnit);
+                    data.put("geology", geology);
+                    data.put("parentMaterial", parentMaterial);
+                    data.put("climate", climate);
+                    data.put("rainfall", rainfall);
+                    data.put("topographyLandformType", topographyLandform);
 
-                data.put("slopeGradiant", selectedSlopeGradient);
-                data.put("slopeLength", selectedSlopeLength);
-                data.put("erosion", selectedErosion);
-                data.put("runoff", selectedRunoff);
-                data.put("drainage", selectedDrainage);
-                data.put("groundWaterDepth", selectedGroundWaterDepth);
-                data.put("flooding", selectedFlooding);
-                data.put("saltAlkali", selectedSalt_Alkali);
-                data.put("ssp_pH", selectedPH);
-                data.put("ssp_Ec", selectedEc);
-                data.put("stoneSize", selectedStoneSize);
-                data.put("stoiness", selectedStoiness);
-                data.put("rockOutcrops", selectedRockOutcrops);
-                data.put("naturalVegetation", naturalVegetation);
+                    data.put("slopeGradiant", selectedSlopeGradient);
+                    data.put("slopeLength", selectedSlopeLength);
+                    data.put("erosion", selectedErosion);
+                    data.put("runoff", selectedRunoff);
+                    data.put("drainage", selectedDrainage);
+                    data.put("groundWaterDepth", selectedGroundWaterDepth);
+                    data.put("flooding", selectedFlooding);
+                    data.put("saltAlkali", selectedSalt_Alkali);
+                    data.put("ssp_pH", selectedPH);
+                    data.put("ssp_Ec", selectedEc);
+                    data.put("stoneSize", selectedStoneSize);
+                    data.put("stoiness", selectedStoiness);
+                    data.put("rockOutcrops", selectedRockOutcrops);
+                    data.put("naturalVegetation", naturalVegetation);
 
-                data.put("forest", selectedForest);
-                data.put("cultivated", selectedCultivated);
-                data.put("terraces", selectedTerraces);
-                data.put("pastureLand", selectedPastureLand);
-                data.put("degradedCulturable", selectedDegCulturable);
-                data.put("degradedUnCulturable", selectedDegUncultrable);
-                data.put("landCapabilityClass", selectedLandCapClass);
-                data.put("landCapabilitySubClass", selectedLandCapsubClass);
-                data.put("landIrrigabilityClass", selectedLandIrrigaClass);
-                data.put("landIrrigabilitySubClass", selectedLandIrrigaSubclass);
-                data.put("crop", selectedCrop);
-                data.put("managementPractice", selectedManagPractice);
-                data.put("phaseSurface", phaseSurface);
-                data.put("phaseSubstratum", phaseSubstratum);
-                data.put("plu_remark", pluremark);
-                data.put("yield", yield);
-                data.put("croppingSystem", croppingSystem);
+                    data.put("forest", selectedForest);
+                    data.put("cultivated", selectedCultivated);
+                    data.put("terraces", selectedTerraces);
+                    data.put("pastureLand", selectedPastureLand);
+                    data.put("degradedCulturable", selectedDegCulturable);
+                    data.put("degradedUnCulturable", selectedDegUncultrable);
+                    data.put("landCapabilityClass", selectedLandCapClass);
+                    data.put("landCapabilitySubClass", selectedLandCapsubClass);
+                    data.put("landIrrigabilityClass", selectedLandIrrigaClass);
+                    data.put("landIrrigabilitySubClass", selectedLandIrrigaSubclass);
+                    data.put("crop", selectedCrop);
+                    data.put("managementPractice", selectedManagPractice);
+                    data.put("phaseSurface", phaseSurface);
+                    data.put("phaseSubstratum", phaseSubstratum);
+                    data.put("plu_remark", pluremark);
+                    data.put("yield", yield);
+                    data.put("croppingSystem", croppingSystem);
 
-                data.put("horizon", horizon);
-                data.put("depth", depth);
+                    data.put("horizon", horizon);
+                    data.put("depth", depth);
 
-                //--------BOUNDARY-----------------
-                data.put("b_distinctness", selectedDistinctness);
-                data.put("b_topography", selectedTopography);
-                data.put("b_diagnostic", selectedDiagnostic);
-                data.put("b_matrixColour", selectedMatrixCol);
-                //--------MOTTLE COLOUR-----------------
-                data.put("mc_abundance", selected_MC_Abundance);
-                data.put("mc_size", selected_MC_Size);
-                data.put("mc_contrast", selected_MC_Contrast);
-                data.put("mc_texture", selected_MC_Texture);
-                //--------COARSE FRAGMENTS-----------------
-                data.put("cf_size", selected_CF_Size);
-                data.put("cf_vol", cf_vol);
-                //--------STRUCTURE-----------------
-                data.put("str_size", selected_Str_Size);
-                data.put("str_grade", selected_Str_Grade);
-                data.put("str_type", selected_Str_Type);
-                //--------CONSISTENCE-----------------
-                data.put("con_d", selected_Con_D);
-                data.put("con_m", selected_Con_M);
-                data.put("con_w", selected_Con_W);
-                //--------POROSITY-----------------
-                data.put("poros_s", selected_Poros_S);
-                data.put("poros_q", selected_Poros_Q);
-                //--------CUTANS-----------------
-                data.put("cutans_ty", selected_Cutans_Ty);
-                data.put("cutans_th", selected_Cutans_Th);
-                data.put("cutans_q", selected_Cutans_Q);
-                //--------NODULES-----------------
-                data.put("nodules_s", selected_Nodules_S);
-                data.put("nodules_q", selected_Nodules_Q);
-                //--------ROOTS-----------------
-                data.put("roots_s", selected_Roots_S);
-                data.put("roots_q", selected_Roots_Q);
-                data.put("roots_effervescence", selected_Roots_Effervescence);
-                //--------OTHER FEATURES-----------------
-                data.put("of_size", of_size);
-                data.put("of_abundance", of_abundance);
-                data.put("of_nature", of_nature);
-                data.put("of_samplebagno", of_samplebagno);
-                data.put("of_additionalnotes", of_additionalnotes);
+                    //--------BOUNDARY-----------------
+                    data.put("b_distinctness", selectedDistinctness);
+                    data.put("b_topography", selectedTopography);
+                    data.put("b_diagnostic", selectedDiagnostic);
+                    data.put("b_matrixColour", selectedMatrixCol);
+                    //--------MOTTLE COLOUR-----------------
+                    data.put("mc_abundance", selected_MC_Abundance);
+                    data.put("mc_size", selected_MC_Size);
+                    data.put("mc_contrast", selected_MC_Contrast);
+                    data.put("mc_texture", selected_MC_Texture);
+                    //--------COARSE FRAGMENTS-----------------
+                    data.put("cf_size", selected_CF_Size);
+                    data.put("cf_vol", cf_vol);
+                    //--------STRUCTURE-----------------
+                    data.put("str_size", selected_Str_Size);
+                    data.put("str_grade", selected_Str_Grade);
+                    data.put("str_type", selected_Str_Type);
+                    //--------CONSISTENCE-----------------
+                    data.put("con_d", selected_Con_D);
+                    data.put("con_m", selected_Con_M);
+                    data.put("con_w", selected_Con_W);
+                    //--------POROSITY-----------------
+                    data.put("poros_s", selected_Poros_S);
+                    data.put("poros_q", selected_Poros_Q);
+                    //--------CUTANS-----------------
+                    data.put("cutans_ty", selected_Cutans_Ty);
+                    data.put("cutans_th", selected_Cutans_Th);
+                    data.put("cutans_q", selected_Cutans_Q);
+                    //--------NODULES-----------------
+                    data.put("nodules_s", selected_Nodules_S);
+                    data.put("nodules_q", selected_Nodules_Q);
+                    //--------ROOTS-----------------
+                    data.put("roots_s", selected_Roots_S);
+                    data.put("roots_q", selected_Roots_Q);
+                    data.put("roots_effervescence", selected_Roots_Effervescence);
+                    //--------OTHER FEATURES-----------------
+                    data.put("of_size", of_size);
+                    data.put("of_abundance", of_abundance);
+                    data.put("of_nature", of_nature);
+                    data.put("of_samplebagno", of_samplebagno);
+                    data.put("of_additionalnotes", of_additionalnotes);
 
-                data.put("sand", PD_sand);
-                data.put("silt", PD_silt);
-                data.put("clay", PD_clay);
-                data.put("USDA_textural_class", PD_textural);
-                data.put("bulk_density", PD_density);
-                data.put("33kPa", WR_33kpa);
-                data.put("1500kPa", WR_1500kpa);
-                data.put("AWC", WR_awc);
-                data.put("PAWC", WR_pawc);
-                data.put("gravimetric_moisture", WR_gravimetric);
+                    data.put("sand", PD_sand);
+                    data.put("silt", PD_silt);
+                    data.put("clay", PD_clay);
+                    data.put("USDA_textural_class", PD_textural);
+                    data.put("bulk_density", PD_density);
+                    data.put("33kPa", WR_33kpa);
+                    data.put("1500kPa", WR_1500kpa);
+                    data.put("AWC", WR_awc);
+                    data.put("PAWC", WR_pawc);
+                    data.put("gravimetric_moisture", WR_gravimetric);
 
-                data.put("cp_pH", PH);
-                data.put("cp_EC", EC);
-                data.put("OC", OC);
-                data.put("CaCo", CaCo);
-                data.put("Ca", Ca);
-                data.put("Mg", Mg);
-                data.put("Na", Na);
-                data.put("K", K);
-                data.put("totalBase", TotalBase);
-                data.put("CEC", CEC);
-                data.put("BS", BS);
-                data.put("ESP", ESP);
+                    data.put("cp_pH", PH);
+                    data.put("cp_EC", EC);
+                    data.put("OC", OC);
+                    data.put("CaCo", CaCo);
+                    data.put("Ca", Ca);
+                    data.put("Mg", Mg);
+                    data.put("Na", Na);
+                    data.put("K", K);
+                    data.put("totalBase", TotalBase);
+                    data.put("CEC", CEC);
+                    data.put("BS", BS);
+                    data.put("ESP", ESP);
 
-                data.put("organicCarbon", organicCarbon);
-                data.put("MaN_nitrogen", MaN_nitrogen);
-                data.put("MaN_phosphorus", MaN_phosphorus);
-                data.put("MaN_potassium", MaN_potassium);
-                data.put("MiN_sulphur", MiN_sulphur);
-                data.put("MiN_zinc", MiN_zinc);
-                data.put("MiN_copper", MiN_copper);
-                data.put("MiN_iron", MiN_iron);
-                data.put("MiN_manganese", MiN_manganese);
+                    data.put("organicCarbon", organicCarbon);
+                    data.put("MaN_nitrogen", MaN_nitrogen);
+                    data.put("MaN_phosphorus", MaN_phosphorus);
+                    data.put("MaN_potassium", MaN_potassium);
+                    data.put("MiN_sulphur", MiN_sulphur);
+                    data.put("MiN_zinc", MiN_zinc);
+                    data.put("MiN_copper", MiN_copper);
+                    data.put("MiN_iron", MiN_iron);
+                    data.put("MiN_manganese", MiN_manganese);
 
-                data.put("east_image", east_encodeImgStr);
-                data.put("west_image", west_encodeImgStr);
-                data.put("north_image", north_encodeImgStr);
-                data.put("south_image", south_encodeImgStr);
-                return data;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+                    data.put("east_image", east_encodeImgStr);
+                    data.put("west_image", west_encodeImgStr);
+                    data.put("north_image", north_encodeImgStr);
+                    data.put("south_image", south_encodeImgStr);
+                    data.put("admin_status", admin_status);
+                    return data;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }
+
     }
-
-//    }
 
 }

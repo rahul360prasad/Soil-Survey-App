@@ -1,4 +1,3 @@
-
 package com.example.soilsurveyapp;
 
 import androidx.annotation.NonNull;
@@ -41,42 +40,45 @@ import java.util.Map;
 
 public class ProjectRegistrationForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    public static final String KEY_ID = "id";
+    // url to post the data
+    //    private static final String url = "http://10.0.0.145/login/projRegForm.php";
+    private static final String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+    //creating shared preference name and also creating key name
+    private static final String SHARED_PRE_NAME = "proReg";
+    private static final String KEY_PROJECT_ID = "id";
+    private static final String SHARED_PRE_NAME2 = "mypref";
     String[] dropdownItems = new String[]{"Choose options...", "Institute Funded", "External Funded", "International Funded"};
-
+    ProgressDialog progressDialog;
+    //---------SHARED PREFERENCES-------------------
+    SharedPreferences sharedPreferences;
+    //taking user id from login/register
+    SharedPreferences sharedPreferencesId;
     // creating variables for our edit text
     private EditText etProjName, etProjPeriod, etProjDuration, etProjID, etProjPrinInvestName;
     private Spinner dropDown;
     // creating a strings for storing our values from edittext fields.
-    private String projName, projPeriod, projDuration, projID, projPrinInvestName, projFundSrc ;
+    private String projName, projPeriod, projDuration, projID, projPrinInvestName, projFundSrc;
     private int userid;
     // creating variable for button
     private Button submitBtn;
 
-    ProgressDialog progressDialog;
-
-    // url to post the data
-    private static final String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
-//    private static final String url = "http://10.0.0.145/login/projRegForm.php";
-
-    //---------SHARED PREFERENCES-------------------
-    SharedPreferences sharedPreferences;
-    //creating shared preference name and also creating key name
-    private static final String SHARED_PRE_NAME = "proReg";
-    private static final String KEY_PROJECT_ID = "id";
-
-    //taking user id from login/register
-    SharedPreferences sharedPreferencesId;
-    private static final String SHARED_PRE_NAME2 = "mypref";
-     public static final String KEY_ID = "id";
+    //-----------hardware back button----------------
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProjectRegistrationForm.this, HomePage.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_registration_form);
 
-         sharedPreferencesId = getSharedPreferences(SHARED_PRE_NAME2, Context.MODE_PRIVATE);
-         userid= Integer.parseInt(sharedPreferencesId.getString(KEY_ID,""));
+        sharedPreferencesId = getSharedPreferences(SHARED_PRE_NAME2, Context.MODE_PRIVATE);
+        userid = Integer.parseInt(sharedPreferencesId.getString(KEY_ID, ""));
         //Log.d("userid", userid);
+
         //---HIDING THE ACTION BAR
         try {
 //          this.getSupportActionBar().hide();
@@ -141,7 +143,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.home_menu:
                 startActivity(new Intent(getApplicationContext(), HomePage.class));
                 break;
@@ -149,10 +151,10 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
         return super.onOptionsItemSelected(item);
     }
 
-    public void SubmitBtn(View view){
+    public void SubmitBtn(View view) {
         // below is for progress dialog box
         //Initialinzing the progress Dialog
-        progressDialog= new ProgressDialog(ProjectRegistrationForm.this);
+        progressDialog = new ProgressDialog(ProjectRegistrationForm.this);
         //show Dialog
         progressDialog.show();
         //set Content View
@@ -164,7 +166,7 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
         //when clicking register btn put data on shared preference
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_PROJECT_ID, etProjID.getText().toString());
-         editor.apply();
+        editor.apply();
 
         projName = etProjName.getText().toString().trim();
         projPeriod = etProjPeriod.getText().toString().trim();
@@ -174,114 +176,82 @@ public class ProjectRegistrationForm extends AppCompatActivity implements Adapte
         projFundSrc = dropDown.getSelectedItem().toString().trim();
 
         //----------validating the text fields if empty or not.-------------------
-                if (TextUtils.isEmpty(projName)) {
-                    progressDialog.dismiss();
-                    etProjName.setError("Please enter Project Details");
-                } else if (TextUtils.isEmpty(projPeriod)) {
-                    progressDialog.dismiss();
-                    etProjPeriod.setError("Please enter Project Details");
-                } else if (TextUtils.isEmpty(projDuration)) {
-                    progressDialog.dismiss();
-                    etProjDuration.setError("Please enter Project Details");
-                } else if (TextUtils.isEmpty(projID)) {
-                    progressDialog.dismiss();
-                    etProjID.setError("Please enter Project Details");
-                } else if (TextUtils.isEmpty(projPrinInvestName)) {
-                    progressDialog.dismiss();
-                    etProjPrinInvestName.setError("Please enter Project Details");
-                 } else {
-                    // calling method to add data to Firebase Firestore.
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url+"?TYPE=PROJECT_REG&userid="+userid+
-                            "&projName="+projName+
-                            "&projPeriod="+projPeriod+
-                            "&projDuration="+projDuration+
-                            "&projID="+projID+
-                            "&projPrinInvestName="+projPrinInvestName+
-                            "&projFundSrc="+projFundSrc+"", new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-//                            if (TextUtils.equals(response, "success")) {
-//                                progressDialog.dismiss();
-//                                Toast.makeText(ProjectRegistrationForm.this, "Something went wrong!! .", Toast.LENGTH_SHORT).show();
-//                            } else {
-////                        tvStatus.setText("Something went wrong!");
-////                        SharedPreferences.Editor editor = sharedPreferences.edit();
-////                        editor.putString(KEY_PROJECT_PROFILE_ID, projectProfileID);
-////                        editor.apply();
-////                        finish();
-//                                progressDialog.dismiss();
-//                                startActivity(new Intent(ProjectRegistrationForm.this, HomePage.class));
-//                                Toast.makeText(ProjectRegistrationForm.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
-//                            }
+        if (TextUtils.isEmpty(projName)) {
+            progressDialog.dismiss();
+            etProjName.setError("Please enter Project name");
+            return;
+        } else if (TextUtils.isEmpty(projPeriod)) {
+            progressDialog.dismiss();
+            etProjPeriod.setError("Please enter Project period");
+            return;
+        } else if (TextUtils.isEmpty(projDuration)) {
+            progressDialog.dismiss();
+            etProjDuration.setError("Please enter Project duration");
+            return;
+        } else if (TextUtils.isEmpty(projID)) {
+            progressDialog.dismiss();
+            etProjID.setError("Please enter Project id");
+            return;
+        } else if (TextUtils.isEmpty(projPrinInvestName)) {
+            progressDialog.dismiss();
+            etProjPrinInvestName.setError("Please enter Project principle name");
+            return;
+        } else if (projFundSrc.equals("Choose options...")) {
+            progressDialog.dismiss();
+            Toast.makeText(ProjectRegistrationForm.this, "Please Select Funding Source !!", Toast.LENGTH_LONG).show();
+            return;
+        } else {
 
-                            //below code is for live server
-                            try {
-                                if(TextUtils.equals(response,"1")){
-                                     progressDialog.dismiss();
-                                    Toast.makeText(ProjectRegistrationForm.this, "Data stored Successfully", Toast.LENGTH_SHORT).show();
-                                    //JSONObject jsonObject = new JSONObject(response);
-                                    // on below line we are displaying a success toast message.
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString(KEY_PROJECT_ID, projID);
-                                    editor.apply();
-                                    finish();
-                                    Intent intent = new Intent(ProjectRegistrationForm.this, HomePage.class);
-                                    startActivity(intent);
-                                 }else{
-                                    progressDialog.dismiss();
-                                    Toast.makeText(ProjectRegistrationForm.this, "Failed to store!!", Toast.LENGTH_SHORT).show();
-                                }
-
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
+            // calling method to add data to Firebase Firestore.
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url + "?TYPE=PROJECT_REG&userid=" + userid +
+                    "&projName=" + projName +
+                    "&projPeriod=" + projPeriod +
+                    "&projDuration=" + projDuration +
+                    "&projID=" + projID +
+                    "&projPrinInvestName=" + projPrinInvestName +
+                    "&projFundSrc=" + projFundSrc + "", new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    //below code is for live server
+                    try {
+                        if (TextUtils.equals(response, "1")) {
                             progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProjectRegistrationForm.this, "Data stored Successfully", Toast.LENGTH_SHORT).show();
+                            // on below line we are displaying a success toast message.
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString(KEY_PROJECT_ID, projID);
+                            editor.apply();
+                            finish();
+                            Intent intent = new Intent(ProjectRegistrationForm.this, HomePage.class);
+                            startActivity(intent);
+                        } else {
+                            progressDialog.dismiss();
+                            Toast.makeText(ProjectRegistrationForm.this, "Failed to store!!", Toast.LENGTH_SHORT).show();
                         }
-                    }){
-//                        @Override
-//                        protected Map<String, String> getParams() throws AuthFailureError {
-//                            Map<String, String> data = new HashMap<String, String>();
-//                            data.put("userid", String.valueOf(userid));
-//                            data.put("projName", projName);
-//                            data.put("projPeriod", projPeriod);
-//                            data.put("projDuration", projDuration);
-//                            data.put("projID", projID);
-//                            data.put("projPrinInvestName", projPrinInvestName);
-//                            data.put("projFundSrc", projFundSrc);
-//                            return data;
-//                        }
-                    };
-                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                    requestQueue.add(stringRequest);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-
-                //-----------validating spinner feild---------------------------------
-                if(!projFundSrc.equals("Choose options...")){
-                    dropDown.getSelectedItem().toString();
-                }
-                else{
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
                     progressDialog.dismiss();
-                    Toast.makeText(ProjectRegistrationForm.this,"Please Select Funding Source !!", Toast.LENGTH_LONG).show();
-                    return;
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            });
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }
     }
-
 
 
     //--------------performing action onItemSelected and onNothingSelected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        //Toast.makeText(getApplicationContext(), dropdownItems[position], Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
-
     }
 
 }

@@ -9,83 +9,78 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_round"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
-        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.427">
 
         <!-- exit the app textview -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="-20dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="earth-and-connections.json"
+            app:lottie_loop="true"
+            app:lottie_speed="1" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="Are you sure to exit App ?"
+            android:text="Internet is Required!!"
             android:textSize="20dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <!-- No Text View -->
+            android:layout_gravity="center_horizontal|center_vertical">
+            <!-- Try Again Text View -->
             <TextView
-                android:id="@+id/textViewNo"
-                android:layout_width="wrap_content"
+                android:id="@+id/btnTryAgain"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_exit_box_round"
                 android:backgroundTint="#2196F3"
                 android:elevation="8dp"
                 android:gravity="center"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:text="NO"
+                android:text="Try Again"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textViewYes"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
-            <!-- Yes Text View -->
+            <!-- Exit Text View -->
             <TextView
-                android:id="@+id/textViewYes"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewExit"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_exit_box_round"
                 android:backgroundTint="#FD0001"
                 android:elevation="8dp"
                 android:gravity="center"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:text="Yes"
+                android:text="Exit"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textViewNo"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

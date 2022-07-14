@@ -1,0 +1,4521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".UpdateLocationDetails">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/upt_loc_details_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="15dp"
+            android:text="Update Location Details"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/surveyor_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //surveyor fields
+
+        <LinearLayout
+            android:id="@+id/surveyor_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/state_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_loc_details_lbl">
+
+            <TextView
+                android:id="@+id/lbl_uptsurveyor_name"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Surveyor Name"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/upt_edtsurveyor_name"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter surveyor name..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //state
+
+        <LinearLayout
+            android:id="@+id/state_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surveyor_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptselect_state"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Select State"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_uptselect_state"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter state..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //District
+
+        <LinearLayout
+            android:id="@+id/district_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/state_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptselect_district"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Select District"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_uptselect_districts"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter district..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Tehsil
+
+        <LinearLayout
+            android:id="@+id/tehsil_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/district_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_upttehsil"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Tehsil /\n Sub-Division"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_upttehsil_name"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter thesil..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Block
+
+        <LinearLayout
+            android:id="@+id/block_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tehsil_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptblock"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Block /\n Mandal"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_uptblock_name"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter block..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Village
+
+        <LinearLayout
+            android:id="@+id/village_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/block_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptvillage"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Village name"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_uptvillage_name"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter village..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Toposheet 250k
+
+        <LinearLayout
+            android:id="@+id/topo250k_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/village_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_upttopo250k"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Toposheet 250k"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_upttopo250k"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter toposheet 250k..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Toposheet 50k
+
+        <LinearLayout
+            android:id="@+id/topo50k_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topo250k_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_upttopo50k"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Toposheet 50k"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_upttopo50k"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter toposheet 50k..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Date
+
+        <LinearLayout
+            android:id="@+id/date_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topo50k_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptdate"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Date"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_uptdate_disable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:hint="date..."
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Time
+
+        <LinearLayout
+            android:id="@+id/time_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_upttime"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Time"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_upttime_disable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:hint="time..."
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Latitude
+
+        <LinearLayout
+            android:id="@+id/latitude_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptlatitude"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Latitude"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_uptlatitude_disable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:hint="latitude..."
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Longitude
+
+        <LinearLayout
+            android:id="@+id/longitude_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptlongitude"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Longitude"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_uptlongitude_disable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:hint="longitude..."
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Elevation
+
+        <LinearLayout
+            android:id="@+id/elevation_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/longitude_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptelevation"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Elevation(in m)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_uptelevation"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter elevation..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Project Profile ID
+
+        <LinearLayout
+            android:id="@+id/projporfileID_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/elevation_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_uptprojprofile"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Project Profile ID*"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_uptprojprofileid"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:hint="project profile id..."
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Remark
+
+        <LinearLayout
+            android:id="@+id/remark_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/projporfileID_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ld_uptremark"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Remark"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ld_uptremark"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter remark..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //soil site parameters
+
+        <TextView
+            android:id="@+id/upt_lbl_soilsiteparams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Soil Site Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/phycategory_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/remark_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Physiographic category
+
+        <LinearLayout
+            android:id="@+id/phycategory_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/subphyunit_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_soilsiteparams">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptphycategory"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Physiographic Category/Broad"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptphycategory"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="physiography category..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //sub Physiographic category
+
+        <LinearLayout
+            android:id="@+id/subphyunit_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/geology_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phycategory_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptsubphyunit"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Sub-Physiographic Unit"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptsubphyunit"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="sub-physiography unit..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Geology
+
+        <LinearLayout
+            android:id="@+id/geology_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/parentMaterial_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subphyunit_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptgeology"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Geology"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_uptgeology"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter geology..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Parent Material
+
+        <LinearLayout
+            android:id="@+id/parentMaterial_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/climate_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/geology_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptparentmaterial"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Parent Material"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_uptparentmaterial"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter parent material..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Climate
+
+        <LinearLayout
+            android:id="@+id/climate_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/rainfall_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parentMaterial_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptclimate"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Climate"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_uptclimate"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter climate..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Rainfall
+
+        <LinearLayout
+            android:id="@+id/rainfall_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/topoLandform_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/climate_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptrainfall"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Rainfall(in mm)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_uptrainfall"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter rainfall..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Topography Landform type
+
+        <LinearLayout
+            android:id="@+id/topoLandform_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/slopeGradiant_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rainfall_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_upttopoLandform"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Topography/ Landform Type"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_upttopoLandform"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter type..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Slope Gradiant
+
+        <LinearLayout
+            android:id="@+id/slopeGradiant_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/slopeLength_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topoLandform_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptslopeGradiant"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Slope Gradiant(%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptslopeGradiant"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter slope gradiant..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Slope Length
+
+        <LinearLayout
+            android:id="@+id/slopeLength_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/erosion_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slopeGradiant_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptslopeLength"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Slope Length(in m)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptslopeLength"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter slope length..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Erosion
+
+        <LinearLayout
+            android:id="@+id/erosion_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/runoff_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slopeLength_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_upterosion"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Erosion"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_upterosion"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter erosion..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Runoff
+
+        <LinearLayout
+            android:id="@+id/runoff_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/drainage_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/erosion_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptrunoff"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Runoff"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptrunoff"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter runoff..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Drainage
+
+        <LinearLayout
+            android:id="@+id/drainage_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/gndwaterdpth_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/runoff_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptdrainage"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Drainage"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptdrainage"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter drainage..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Ground water depth
+
+        <LinearLayout
+            android:id="@+id/gndwaterdpth_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/flooding_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drainage_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptgndwaterdpth"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Ground water depth(in m)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptgndwaterdpth"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="ground water depth..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Flooding
+
+        <LinearLayout
+            android:id="@+id/flooding_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/saltAlkali_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gndwaterdpth_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptflooding"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Flooding"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptflooding"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="flooding..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Salt Alkali
+
+        <LinearLayout
+            android:id="@+id/saltAlkali_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/pH_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flooding_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptsaltAlkali"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Salt/Alkali(% surface coverage)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptsaltAlkali"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="salt/alkali..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //pH
+
+        <LinearLayout
+            android:id="@+id/pH_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Ec_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saltAlkali_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptpH"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="pH"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptpH"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter pH..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Ec
+
+        <LinearLayout
+            android:id="@+id/Ec_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/stoneSize_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pH_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptEc"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Ec"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptEc"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter EC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Stone Size
+
+        <LinearLayout
+            android:id="@+id/stoneSize_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/stoiness_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ec_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptstoneSize"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Stone Size(in cm)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptstoneSize"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter stone size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //stoiness
+
+        <LinearLayout
+            android:id="@+id/stoiness_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/rockOutcrops_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stoneSize_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptstoiness"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Stoiness\n(% sur.cov)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptstoiness"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter stoiness..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Rock Outcrops
+
+        <LinearLayout
+            android:id="@+id/rockOutcrops_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/naturalVeg_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stoiness_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptrockOutcrops"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Rock Outcrops\n(Distance in m)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/spin_ssp_uptrockOutcrops"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter rock outcrops..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Natural Vegetation
+
+        <LinearLayout
+            android:id="@+id/naturalVeg_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_presentLandUse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rockOutcrops_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_ssp_uptnaturalveg"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Natural Vegetation"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_ssp_uptnaturalveg"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter natural vegetation..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //PRESENT LAND USE
+
+        <TextView
+            android:id="@+id/upt_lbl_presentLandUse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Present Land Use"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/forest_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/naturalVeg_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Forest
+
+        <LinearLayout
+            android:id="@+id/forest_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/cultivated_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_presentLandUse">
+
+            <TextView
+                android:id="@+id/lbl_plu_uptforest"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Forest"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_uptforest"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter forest..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Cultivated
+
+        <LinearLayout
+            android:id="@+id/cultivated_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/terraces_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/forest_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_cultivated"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Cultivated"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_cultivated"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter cultivated..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Terraces
+
+        <LinearLayout
+            android:id="@+id/terraces_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/pastureland_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cultivated_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_terraces"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Terraces"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_terraces"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter terraces..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Pasture Land
+
+        <LinearLayout
+            android:id="@+id/pastureland_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/degradedculturable_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terraces_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_pastureland"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Pasture Land"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_pastureland"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter pastureland..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Degraded culturable
+
+        <LinearLayout
+            android:id="@+id/degradedculturable_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/degradedunculturable_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pastureland_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_degradedculturable"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Degraded culturable"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_degradedculturable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter degraded culturable..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Degraded unculturable
+
+        <LinearLayout
+            android:id="@+id/degradedunculturable_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/lbl_plu_classification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/degradedculturable_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_degradedunculturable"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Degraded Unculturable"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_degradedunculturable"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter degraded unculturable..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Classification family
+
+        <TextView
+            android:id="@+id/lbl_plu_classification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Classification (Family)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/phasesurface_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/degradedunculturable_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Phase surface
+
+        <LinearLayout
+            android:id="@+id/phasesurface_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/phaseSubstratum_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_plu_classification">
+
+            <TextView
+                android:id="@+id/lbl_plu_phasesurface"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Phase Surface"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_phasesurface"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter phase surface..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Phase sub stratum
+
+        <LinearLayout
+            android:id="@+id/phaseSubstratum_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/landcapabilityclass_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phasesurface_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_phaseSubstratum"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Phase Substratum"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_phaseSubstratum"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter phase Substratum..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Land Capability class
+
+        <LinearLayout
+            android:id="@+id/landcapabilityclass_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/landcapabilitysubclass_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phaseSubstratum_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_landcapabilityclass"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Land Capability Class"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_landcapabilityclass"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter land capability class..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Land Sub-Capability class
+
+        <LinearLayout
+            android:id="@+id/landcapabilitysubclass_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/landirrigabilityclass_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/landcapabilityclass_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_landcapabilitysubclass"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Land Capability sub-Class"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_landcapabilitysubclass"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="land capability sub-class..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Land Irrigability class
+
+        <LinearLayout
+            android:id="@+id/landirrigabilityclass_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/landirrigabilitysubclass_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/landcapabilitysubclass_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_landirrigabilityclass"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Land Irrigability Class"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_landirrigabilityclass"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="land irrigability class..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Land Irrigability sub class
+
+        <LinearLayout
+            android:id="@+id/landirrigabilitysubclass_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/classification_remark_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/landirrigabilityclass_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_landirrigabilitysubclass"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Land Irrigability sub-Class"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_landirrigabilitysubclass"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="land irrigability sub-class..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //classifiction remark
+
+        <LinearLayout
+            android:id="@+id/classification_remark_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_addCrops"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/landirrigabilitysubclass_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_classification_remark"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Remark"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_classification_remark"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter remark..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Add crops
+
+        <TextView
+            android:id="@+id/upt_lbl_addCrops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Add Crops"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/crops_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/classification_remark_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //crops
+
+        <LinearLayout
+            android:id="@+id/crops_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/yields_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_addCrops">
+
+            <TextView
+                android:id="@+id/lbl_plu_crops"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Crops"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_crops"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter crops..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+        //Yields
+
+        <LinearLayout
+            android:id="@+id/yields_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/mngtpractices_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crops_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_yields"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Yields"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_yields"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter yields..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Managment Practices
+
+        <LinearLayout
+            android:id="@+id/mngtpractices_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/cropingSystem_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yields_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_mngtpractices"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Management Practices"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_mngtpractices"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter management practices..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Cropping system
+
+        <LinearLayout
+            android:id="@+id/cropingSystem_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_projectDetails"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mngtpractices_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_cropingSystem"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Cropping System"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_cropingSystem"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter cropping system..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Project details
+
+        <TextView
+            android:id="@+id/upt_lbl_projectDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Project Details"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/horizon_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cropingSystem_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Horizon
+
+        <LinearLayout
+            android:id="@+id/horizon_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/depth_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_projectDetails">
+
+            <TextView
+                android:id="@+id/lbl_plu_horizon"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Horizon"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_horizon"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter horizon..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Horizon
+
+        <LinearLayout
+            android:id="@+id/depth_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_morphoParams"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizon_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_plu_depth"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Depth"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_plu_depth"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter depth..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //morphological parameters
+
+        <TextView
+            android:id="@+id/upt_lbl_morphoParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Morphological Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/upt_lbl_boundary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/depth_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Boundary
+
+        <TextView
+            android:id="@+id/upt_lbl_boundary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Boundary"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/distinctness_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upt_lbl_morphoParams"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Distinctness
+
+        <LinearLayout
+            android:id="@+id/distinctness_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/topography_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_boundary">
+
+            <TextView
+                android:id="@+id/lbl_mpb_distinctness"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Distinctness"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mpb_distinctness"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter distinctness..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Topography
+
+        <LinearLayout
+            android:id="@+id/topography_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/daigonisticHorizon_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/distinctness_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mpb_topography"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Topography"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mpb_topography"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter topography..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Diagonistic Horizon
+
+        <LinearLayout
+            android:id="@+id/daigonisticHorizon_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/matrixColor_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topography_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mpb_daigonisticHorizon"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Daigonistic Horizon"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mpb_daigonisticHorizon"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="daigonistic horizon..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Matrix color
+
+        <LinearLayout
+            android:id="@+id/matrixColor_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_mottleColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/daigonisticHorizon_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mpb_matrixColor"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Matrix Color"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mpb_matrixColor"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter matrix color..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Mottle color
+
+        <TextView
+            android:id="@+id/upt_lbl_mottleColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Mottle Color"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/abundance_mc_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/matrixColor_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Abundance
+
+        <LinearLayout
+            android:id="@+id/abundance_mc_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/size_mc_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_mottleColor">
+
+            <TextView
+                android:id="@+id/lbl_mp_abundance_mc"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Abundance"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_abundance_mc"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter abundance..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //MC size
+
+        <LinearLayout
+            android:id="@+id/size_mc_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/contrast_mc_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abundance_mc_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_mc"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Size"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_mc"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Contrast
+
+        <LinearLayout
+            android:id="@+id/contrast_mc_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/texture_mc_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_mc_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_contrast_mc"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Contrast"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_contrast_mc"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter contrast..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Texture
+
+        <LinearLayout
+            android:id="@+id/texture_mc_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_coarseFragments"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contrast_mc_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_texture_mc"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Texture"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_texture_mc"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter texture..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //coarse Fragments
+
+        <TextView
+            android:id="@+id/upt_lbl_coarseFragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Coarse Fragments"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_cf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/texture_mc_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //CF size
+
+        <LinearLayout
+            android:id="@+id/size_cf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/vol_cf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_coarseFragments">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_cf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Size"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_cf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //CF vol
+
+        <LinearLayout
+            android:id="@+id/vol_cf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_structure"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_cf_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_vol_cf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Vol(%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_vol_cf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter vol..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Structure
+
+        <TextView
+            android:id="@+id/upt_lbl_structure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Structure"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_str_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vol_cf_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //str size
+
+        <LinearLayout
+            android:id="@+id/size_str_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/grade_str_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_structure">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_str"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Size"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_str"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //str Grade
+
+        <LinearLayout
+            android:id="@+id/grade_str_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/type_str_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_str_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_grade_str"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Grade"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_grade_str"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter grade..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //str Type
+
+        <LinearLayout
+            android:id="@+id/type_str_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_consistence"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grade_str_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_type_str"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Type"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_type_str"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter type..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Consistence
+
+        <TextView
+            android:id="@+id/upt_lbl_consistence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Consistence (D-M-W)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/dry_consistence_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type_str_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Consistence D- dry
+
+        <LinearLayout
+            android:id="@+id/dry_consistence_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/moist_consistence_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_consistence">
+
+            <TextView
+                android:id="@+id/lbl_mp_dry_consistence"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="D (dry)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_dry_consistence"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter dry..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Consistence M- moist
+
+        <LinearLayout
+            android:id="@+id/moist_consistence_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/wet_consistence_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dry_consistence_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_moist_consistence"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="M (moist)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_moist_consistence"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter moist..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        //Consistence W- wet
+
+        <LinearLayout
+            android:id="@+id/wet_consistence_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_porosity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moist_consistence_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_wet_consistence"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="W (wet)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_wet_consistence"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter wet..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Porosity
+
+        <TextView
+            android:id="@+id/upt_lbl_porosity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Porosity (S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_porosity_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wet_consistence_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Porosity S-size
+
+        <LinearLayout
+            android:id="@+id/size_porosity_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/quantity_porosity_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_porosity">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_porosity"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="S (size)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_porosity"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Porosity Q-quantity
+
+        <LinearLayout
+            android:id="@+id/quantity_porosity_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_cutans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_porosity_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_quantity_porosity"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Q (Quantity)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_quantity_porosity"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter quantity..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Cutans
+
+        <TextView
+            android:id="@+id/upt_lbl_cutans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Cutans (Ty-Th-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/argillan_cutans_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantity_porosity_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Cutans Ty-argillan
+
+        <LinearLayout
+            android:id="@+id/argillan_cutans_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/thickness_cutans_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_cutans">
+
+            <TextView
+                android:id="@+id/lbl_mp_argillan_cutans"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Ty (argillan)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_argillan_cutans"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter argillan..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Cutans Th-thickness
+
+        <LinearLayout
+            android:id="@+id/thickness_cutans_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/quantity_cutans_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/argillan_cutans_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_thickness_cutans"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Th (Thickness)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_thickness_cutans"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter thickness..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Cutans Q-quantity
+
+        <LinearLayout
+            android:id="@+id/quantity_cutans_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_nodules"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thickness_cutans_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_quantity_cutans"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Q (Quantity)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_quantity_cutans"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter quantity..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Nodules
+
+        <TextView
+            android:id="@+id/upt_lbl_nodules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Nodules (S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_nodules_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantity_cutans_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Nodules s-size
+
+        <LinearLayout
+            android:id="@+id/size_nodules_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/quantity_nodules_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_nodules">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_nodules"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="S (Size)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_nodules"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Nodules Q-quantity
+
+        <LinearLayout
+            android:id="@+id/quantity_nodules_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_roots"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_nodules_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_quantity_nodules"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Q (Quantity)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_quantity_nodules"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter quantity..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Roots
+
+        <TextView
+            android:id="@+id/upt_lbl_roots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Roots (S-Q)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_roots_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantity_nodules_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //roots s-size
+
+        <LinearLayout
+            android:id="@+id/size_roots_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/quantity_roots_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_roots">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_roots"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="S (Size)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_roots"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //roots Q-quantity
+
+        <LinearLayout
+            android:id="@+id/quantity_roots_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_roots"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_roots_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_quantity_roots"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Q (Quantity)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_quantity_roots"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter quantity..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Effervescence
+
+        <LinearLayout
+            android:id="@+id/effervescence_roots_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_otherFeatures"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quantity_roots_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_effervescence_roots"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Effervescence\n(with dil HCL)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_effervescence_roots"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter effervescence..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Other features
+
+        <TextView
+            android:id="@+id/upt_lbl_otherFeatures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Other Features (allckan sides/pressure face, etc.)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/size_otf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/effervescence_roots_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Size
+
+        <LinearLayout
+            android:id="@+id/size_otf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/abundance_otf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_otherFeatures">
+
+            <TextView
+                android:id="@+id/lbl_mp_size_otf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Size"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_size_otf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter size..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Abundance
+
+        <LinearLayout
+            android:id="@+id/abundance_otf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/nature_otf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_otf_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_abundance_otf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Abundance"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_abundance_otf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter abundance..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Nature
+
+        <LinearLayout
+            android:id="@+id/nature_otf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/samplebagno_otf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abundance_otf_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_nature_otf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Nature"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_nature_otf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter nature..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Sample Bag No.
+
+        <LinearLayout
+            android:id="@+id/samplebagno_otf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/additionalnotes_otf_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nature_otf_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_samplebagno_otf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Sample Bag No."
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_samplebagno_otf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter no..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Additional notes
+
+        <LinearLayout
+            android:id="@+id/additionalnotes_otf_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_physicalParams"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/samplebagno_otf_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_mp_additionalnotes_otf"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Additional Notes"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_mp_additionalnotes_otf"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter additional notes..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Physical params
+
+        <TextView
+            android:id="@+id/upt_lbl_physicalParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Physical Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/upt_lbl_particlesizedist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/additionalnotes_otf_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Particle size distribution (%)
+
+        <TextView
+            android:id="@+id/upt_lbl_particlesizedist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Particle Size Distribution (%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/sand_psd_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upt_lbl_physicalParams"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //Sand
+
+        <LinearLayout
+            android:id="@+id/sand_psd_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/slit_psd_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_particlesizedist">
+
+            <TextView
+                android:id="@+id/lbl_pp_sand_psd"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Sand"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_sand_psd"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter sand..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Slit
+
+        <LinearLayout
+            android:id="@+id/slit_psd_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/clay_psd_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sand_psd_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_slit_psd"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Slit"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_slit_psd"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter slit..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Clay
+
+        <LinearLayout
+            android:id="@+id/clay_psd_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/texturalclass_psd_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slit_psd_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_clay_psd"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Clay"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_clay_psd"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter clay..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //USDA Textural class
+
+        <LinearLayout
+            android:id="@+id/texturalclass_psd_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bulkdensity_psd_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clay_psd_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_texturalclass_psd"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="USDA Textural Class"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_texturalclass_psd"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter USDA..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Bulk Density
+
+        <LinearLayout
+            android:id="@+id/bulkdensity_psd_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_waterretension"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/texturalclass_psd_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_bulkdensity_psd"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Bulk Density\n(Mg m-3)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_bulkdensity_psd"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter bulk density..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Water Retension (%)
+
+        <TextView
+            android:id="@+id/upt_lbl_waterretension"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Water Retension (%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/kpa33_wr_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bulkdensity_psd_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        //33kPa
+
+        <LinearLayout
+            android:id="@+id/kpa33_wr_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/kpa1500_wr_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_waterretension">
+
+            <TextView
+                android:id="@+id/lbl_pp_33kpa_wr"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="33kPa"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_33kpa_wr"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter 33kPa..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //1500kPa
+
+        <LinearLayout
+            android:id="@+id/kpa1500_wr_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/awc_wr_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kpa33_wr_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_kpa1500_wr"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="1500kPa"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_kpa1500_wr"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter 1500kPa..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //AWC
+
+        <LinearLayout
+            android:id="@+id/awc_wr_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/pawc_wr_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kpa1500_wr_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_awc_wr"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="AWC (cm m-1)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_awc_wr"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter AWC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //PAWC
+
+        <LinearLayout
+            android:id="@+id/pawc_wr_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/gravimetricMoisture_wr_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/awc_wr_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_pawc_wr"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="PAWC (cm m-1)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_pawc_wr"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter PAWC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Gravimetric moisture
+
+        <LinearLayout
+            android:id="@+id/gravimetricMoisture_wr_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_chemicalParams"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pawc_wr_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_pp_gravimetricMoisture_wr"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Gravimetric Moisture (%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_pp_gravimetricMoisture_wr"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter GM..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Chemical params
+
+        <TextView
+            android:id="@+id/upt_lbl_chemicalParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Chemical Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/pH_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gravimetricMoisture_wr_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        // CP pH
+
+        <LinearLayout
+            android:id="@+id/pH_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/EC_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_chemicalParams">
+
+            <TextView
+                android:id="@+id/lbl_cp_pH_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="pH"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_pH_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter pH..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP EC
+
+        <LinearLayout
+            android:id="@+id/EC_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/OC_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pH_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_EC_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="EC"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_EC_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter EC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP OC (%)
+
+        <LinearLayout
+            android:id="@+id/OC_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/CaCo_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EC_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_OC_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="OC (%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_OC_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter OC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP CaCo (%)
+
+        <LinearLayout
+            android:id="@+id/CaCo_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Ca_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OC_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_CaCo_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="CaCo (%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_CaCo_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter CaCo..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP Ca(cmol/kg soil)
+
+        <LinearLayout
+            android:id="@+id/Ca_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Mg_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CaCo_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_Ca_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Ca\n(cmol/kg soil)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_Ca_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter Ca..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // Mg (cmol/kg soil)
+
+        <LinearLayout
+            android:id="@+id/Mg_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Na_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ca_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_Mg_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Mg\n(cmol/kg soil)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_Mg_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter Mg..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // Na (cmol/kg soil)
+
+        <LinearLayout
+            android:id="@+id/Na_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/K_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Mg_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_Na_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Na\n(cmol/kg soil)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_Na_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter Na..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // K (cmol/kg soil)
+
+        <LinearLayout
+            android:id="@+id/K_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/totalBase_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Na_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_K_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="K\n(cmol/kg soil)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_K_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter K..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP Total Base
+
+        <LinearLayout
+            android:id="@+id/totalBase_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/CEC_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/K_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_totalBase_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Total Base\n(cmol(+)/kg)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_totalBase_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter total base..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP CEC cmol
+
+        <LinearLayout
+            android:id="@+id/CEC_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/BS_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalBase_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_CEC_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="CEC cmol\n(P+)/kg soil"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_CEC_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter CEC..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP %BS
+
+        <LinearLayout
+            android:id="@+id/BS_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/ESP_cp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CEC_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_BS_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="%BS=(total base/CEC)*100"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_BS_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter BS..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // CP %ESP
+
+        <LinearLayout
+            android:id="@+id/ESP_cp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_soilFertilityParams"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BS_cp_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_cp_ESP_cp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="ESP%(Na/CEC)*100"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_cp_ESP_cp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter ESP..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //Soil Fertility Parameters
+
+        <TextView
+            android:id="@+id/upt_lbl_soilFertilityParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Soil Fertility Parameters"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/organicCarbon_sfp_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ESP_cp_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        // SSP organic carbon
+
+        <LinearLayout
+            android:id="@+id/organicCarbon_sfp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_majorNutrients"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_soilFertilityParams">
+
+            <TextView
+                android:id="@+id/lbl_sfp_organicCarbon_sfp"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Organic Carbon(%)"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_organicCarbon_sfp"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter organic carbon..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //sfp major nutrients
+
+        <TextView
+            android:id="@+id/upt_lbl_majorNutrients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Major Nutrients(%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/nitrogen_mjn_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/organicCarbon_sfp_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        // SFP nitrogen kg
+
+        <LinearLayout
+            android:id="@+id/nitrogen_mjn_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/phosphorus_mjn_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_majorNutrients">
+
+            <TextView
+                android:id="@+id/lbl_sfp_nitrogen_mjn"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Nitrogen kg ha-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_nitrogen_mjn"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter nitrogen..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP phosphorus
+
+        <LinearLayout
+            android:id="@+id/phosphorus_mjn_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/potassium_mjn_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nitrogen_mjn_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_phosphorus_mjn"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Phosphorus kg ha-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_phosphorus_mjn"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter phosphorus..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP potassium
+
+        <LinearLayout
+            android:id="@+id/potassium_mjn_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_lbl_microNutrients"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phosphorus_mjn_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_potassium_mjn"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Potassium kg ha-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_potassium_mjn"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter potassium..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        //sfp micro nutrients
+
+        <TextView
+            android:id="@+id/upt_lbl_microNutrients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Micro Nutrients(%)"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/sulphur_min_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/potassium_mjn_linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        // SFP sulphur
+
+        <LinearLayout
+            android:id="@+id/sulphur_min_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/zinc_min_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upt_lbl_microNutrients">
+
+            <TextView
+                android:id="@+id/lbl_sfp_sulphur_min"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Sulphur mg kg-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_sulphur_min"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter sulphur..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP zinc
+
+        <LinearLayout
+            android:id="@+id/zinc_min_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/copper_min_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sulphur_min_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_zinc_min"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Zinc mg kg-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_zinc_min"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter zinc..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP copper
+
+        <LinearLayout
+            android:id="@+id/copper_min_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/iron_min_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zinc_min_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_copper_min"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Copper mg kg-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_copper_min"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter copper..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP iron
+
+        <LinearLayout
+            android:id="@+id/iron_min_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/manganese_min_linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/copper_min_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_iron_min"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Iron mg kg-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_iron_min"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter iron..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        // SFP Manganese
+
+        <LinearLayout
+            android:id="@+id/manganese_min_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/upt_locationDetail_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iron_min_linearLayout">
+
+            <TextView
+                android:id="@+id/lbl_sfp_manganese_min"
+                android:layout_width="171dp"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:text="Manganese mg kg-\u00B9"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_sfp_manganese_min"
+                android:layout_width="223dp"
+                android:layout_height="53dp"
+                android:hint="Enter manganese..."
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/upt_locationDetail_btn"
+            android:layout_width="223dp"
+            android:layout_height="53dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/login_btn"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="updateBtn"
+            android:text="Update"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="#018786"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manganese_min_linearLayout"
+            app:layout_constraintVertical_bias="0.049" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

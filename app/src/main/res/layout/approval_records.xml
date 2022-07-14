@@ -7,17 +7,19 @@
     <TableLayout>
 
         <TextView
-            android:id="@+id/tvProjProfileID"
+            android:id="@+id/tvStatus"
             android:layout_width="135dp"
             android:layout_height="48dp"
             android:background="@drawable/cell_shape_grey"
             android:ellipsize="end"
             android:gravity="center"
+            android:hint="Approval is pending..."
+            android:textStyle="bold"
             android:maxLines="1"
             android:padding="10dp"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </TableLayout>
 </TableLayout>

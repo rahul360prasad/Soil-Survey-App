@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <TableRow>
 
             <TextView
@@ -14,7 +15,9 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape_grey"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -25,7 +28,9 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape_grey"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -36,7 +41,9 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape_grey"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -51,9 +58,11 @@
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -62,9 +71,11 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -73,9 +84,11 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -90,9 +103,11 @@
                     android:layout_width="195dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -101,9 +116,11 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -112,9 +129,11 @@
                     android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -123,9 +142,11 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -134,9 +155,11 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>

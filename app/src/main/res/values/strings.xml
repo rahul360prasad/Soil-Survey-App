@@ -2,6 +2,12 @@
     <string name="app_name">Soil Survey App</string>
 
     //-----------------------------------LOCATION DETAILS----------------------------
+    //------LABEL HEADING WITH RED * MARK ONLY-----------
+    <string name="latitude">Latitude<font color='#FF0000'>*</font></string>
+    <string name="longitude">Longitude<font color='#FF0000'>*</font></string>
+    <string name="projectProfileID">Project Profile ID<font color='#FF0000'>*</font></string>
+
+
     //-------------STATE NAME----------------
     <string-array name="array_indian_state">
         <item>Select Your State</item>
@@ -1474,9 +1480,8 @@
 
     <string-array name="array_search_by">
         <item>Select Option...</item>
-        <item>State</item>
-        <item>Project ID</item>
-     </string-array>
+         <item>Project ID</item>
+    </string-array>
 
 
     //----------------------------ALL STATE AND

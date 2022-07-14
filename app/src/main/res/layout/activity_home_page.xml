@@ -7,7 +7,6 @@
     android:background="@drawable/ic_baseline_background_img"
     android:orientation="vertical"
     tools:context=".HomePage">
-    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="105dp"
             android:layout_gravity="clip_horizontal"
-              android:scaleType="fitXY"
             android:layout_marginBottom="10dp"
+            android:scaleType="fitXY"
             android:src="@drawable/soil_header_img"
             app:layout_constraintBottom_toTopOf="@+id/testdashboard"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,28 +32,57 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/testdashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center_horizontal|center_vertical"
-             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-             android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/gridLayout1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_header" />
+            app:layout_constraintTop_toBottomOf="@+id/home_header">
+
+            <TextView
+                android:id="@+id/userName_dashboard"
+                android:layout_width="212dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Welcome, "
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/gridLayout1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_header" />
+
+            <TextView
+                android:id="@+id/adminBtn_dashboard"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Admin"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/gridLayout1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_header" />
+        </LinearLayout>
 
         <GridLayout
             android:id="@+id/gridLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:alignmentMode="alignMargins"
             android:layout_marginTop="10dp"
+            android:alignmentMode="alignMargins"
             android:columnCount="2"
             android:columnOrderPreserved="true"
             android:orientation="vertical"
@@ -127,7 +155,7 @@
                 app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -184,7 +212,7 @@
                         android:layout_height="105dp"
                         android:layout_marginBottom="12dp"
                         android:src="@drawable/data_report"
-                         app:layout_constraintBottom_toTopOf="@+id/textView7"
+                        app:layout_constraintBottom_toTopOf="@+id/textView7"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
@@ -339,13 +367,7 @@
                         app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </androidx.cardview.widget.CardView>
-
         </GridLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.core.widget.NestedScrollView>

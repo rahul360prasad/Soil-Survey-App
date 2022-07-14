@@ -12,47 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--        <Button-->
-        <!--            android:id="@+id/location_detail_back_btn"-->
-        <!--            android:layout_width="150dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            android:layout_marginBottom="20dp"-->
-        <!--            android:background="@drawable/login_btn"-->
-        <!--            android:gravity="center_vertical|center_horizontal"-->
-        <!--            android:text="Back"-->
-        <!--            android:textAlignment="center"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="20sp"-->
-        <!--            app:backgroundTint="#018786"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/lbl_location_detail_remark"-->
-        <!--            app:layout_constraintHorizontal_bias="1.0"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/lbl_location_detail_remark"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/lbl_location_detail_remark"-->
-        <!--            app:layout_constraintVertical_bias="0.0" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/location_detail_next_btn"-->
-        <!--            android:layout_width="150dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            android:layout_marginBottom="20dp"-->
-        <!--            android:background="@drawable/login_btn"-->
-        <!--            android:gravity="center_vertical|center_horizontal"-->
-        <!--            android:text="Next"-->
-        <!--            android:onClick="SubmitBtn1"-->
-        <!--            android:textAlignment="center"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="20sp"-->
-        <!--            app:backgroundTint="#018786"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/remark"-->
-        <!--            app:layout_constraintHorizontal_bias="0.52"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/remark"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/remark"-->
-        <!--            app:layout_constraintVertical_bias="0.0" />-->
-
         <EditText
             android:id="@+id/surveyor_name"
             android:layout_width="223dp"
@@ -74,6 +33,7 @@
             android:layout_width="223dp"
             android:layout_height="53dp"
             android:layout_marginTop="395dp"
+            android:hint="Enter village..."
             android:inputType="text"
             android:textAlignment="center"
             android:textSize="20dp"
@@ -216,7 +176,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="265dp"
             android:gravity="center"
-            android:text="Select Tehsil /\n Sub-Division"
+            android:text="Tehsil/Sub-Division"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -232,7 +192,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="335dp"
             android:gravity="center"
-            android:text="Select Block /\n Mandal"
+            android:text="Block/Mandal"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -264,7 +224,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="455dp"
             android:gravity="center"
-            android:text="Select Toposheet 250K"
+            android:text="Toposheet 250K"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -280,7 +240,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="515dp"
             android:gravity="center"
-            android:text="Select Toposheet 50K"
+            android:text="Toposheet 50K"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -313,7 +273,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="215dp"
             android:gravity="center"
-            android:text="Select District"
+            android:text="District"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -329,7 +289,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="155dp"
             android:gravity="center"
-            android:text="Select state"
+            android:text="State"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -376,7 +336,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="695dp"
             android:gravity="center"
-            android:text="Latitude"
+            android:text="@string/latitude"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -407,7 +367,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="755dp"
             android:gravity="center"
-            android:text="Longitude"
+            android:text="@string/longitude"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -439,7 +399,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/login_btn"
             android:gravity="center_vertical|center_horizontal"
-             android:text="Get Cureent Location"
+            android:text="Get Cureent Location"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -473,7 +433,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="930dp"
             android:gravity="center"
-            android:text="Project Profile Id"
+            android:text="@string/projectProfileID"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -589,7 +549,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1140dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Physiographic Category/Broad* :"
+            android:text="Physiographic Category/Broad:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -621,7 +581,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1200dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Sub Physiographic Unit* :"
+            android:text="Sub Physiographic Unit:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -653,7 +613,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1260dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Geology* :"
+            android:text="Geology :"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -686,7 +646,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1320dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Parent Material* :"
+            android:text="Parent Material :"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -719,7 +679,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1380dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Climate* :"
+            android:text="Climate:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -819,7 +779,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1560dp"
             android:gravity="center"
-            android:text="Slope Gradiant (%)*:"
+            android:text="Slope Gradiant (%):"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -849,7 +809,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1620dp"
             android:gravity="center"
-            android:text="Slope Length (in m)*:"
+            android:text="Slope Length (in m):"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -880,7 +840,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1680dp"
             android:gravity="center"
-            android:text="Erosion*:"
+            android:text="Erosion:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -942,7 +902,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="1800dp"
             android:gravity="center"
-            android:text="Drainage*:"
+            android:text="Drainage:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1273,7 +1233,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2460dp"
             android:gravity="center"
-            android:text="Forest* :"
+            android:text="Forest:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1304,7 +1264,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2520dp"
             android:gravity="center"
-            android:text="Cultivated* :"
+            android:text="Cultivated:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1335,7 +1295,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2580dp"
             android:gravity="center"
-            android:text="Terraces* :"
+            android:text="Terraces:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1366,7 +1326,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2640dp"
             android:gravity="center"
-            android:text="Pasture Land* :"
+            android:text="Pasture Land:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1397,7 +1357,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2700dp"
             android:gravity="center"
-            android:text="Degraded Culturable* :"
+            android:text="Degraded Culturable:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1428,7 +1388,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2760dp"
             android:gravity="center"
-            android:text="Degraded Unculturable* :"
+            android:text="Degraded Unculturable:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1487,20 +1447,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-        <!--        <Spinner-->
-        <!--            android:id="@+id/spin_phase_surface"-->
-        <!--            android:layout_width="223dp"-->
-        <!--            android:layout_height="53dp"-->
-        <!--            android:layout_marginTop="536dp"-->
-        <!--            android:autofillHints="Choose options..."-->
-        <!--            android:spinnerMode="dropdown"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="1.0"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_phase_surface"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.0"-->
-        <!--            tools:ignore="MissingConstraints" />-->
+
         <EditText
             android:id="@+id/et_phase_surface"
             android:layout_width="223dp"
@@ -1532,20 +1479,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-        <!--        <Spinner-->
-        <!--            android:id="@+id/spin_substratum"-->
-        <!--            android:layout_width="223dp"-->
-        <!--            android:layout_height="53dp"-->
-        <!--            android:layout_marginTop="596dp"-->
-        <!--            android:autofillHints="Choose options..."-->
-        <!--            android:spinnerMode="dropdown"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="1.0"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/lbl_substratum"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.0"-->
-        <!--            tools:ignore="MissingConstraints" />-->
+
         <EditText
             android:id="@+id/et_phase_substratum"
             android:layout_width="223dp"
@@ -1568,7 +1502,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="2980dp"
             android:gravity="center"
-            android:text="Land Capability Class* :"
+            android:text="Land Capability Class:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1599,7 +1533,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="3040dp"
             android:gravity="center"
-            android:text="Land Capability Sub-Class* :"
+            android:text="Land Capability Sub-Class:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1630,7 +1564,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="3100dp"
             android:gravity="center"
-            android:text="Land Irrigability Class* :"
+            android:text="Land Irrigability Class:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1661,7 +1595,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="3160dp"
             android:gravity="center"
-            android:text="Land irrigability Sub-Class* :"
+            android:text="Land irrigability Sub-Class:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -1717,21 +1651,7 @@
             app:layout_constraintStart_toEndOf="@+id/lbl_pre_land_remark"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-        <!--        <TextView-->
-        <!--            android:id="@+id/lbl_add_crops"-->
-        <!--            android:layout_width="171dp"-->
-        <!--            android:layout_height="53dp"-->
-        <!--            android:layout_marginTop="962dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="Add Crop"-->
-        <!--            android:textAlignment="center"-->
-        <!--             android:textSize="20sp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.02"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.0" />-->
+
         <TextView
             android:id="@+id/lbl_add_crops"
             android:layout_width="match_parent"
@@ -1988,7 +1908,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="3845dp"
-            android:text="Boundary*"
+            android:text="Boundary:"
             android:textAlignment="center"
             android:textColor="@color/teal_700"
             android:textSize="22sp"
@@ -2068,7 +1988,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="3990dp"
             android:gravity="center"
-            android:text="Diagnostic Horizon* :"
+            android:text="Diagnostic Horizon:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -2098,7 +2018,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="4050dp"
             android:gravity="center"
-            android:text="Matrix Colour* :"
+            android:text="Matrix Colour :"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -2244,7 +2164,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="4340dp"
             android:gravity="center"
-            android:text="Texture* :"
+            android:text="Texture :"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -2359,7 +2279,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="4600dp"
-            android:text="Structure*"
+            android:text="Structure"
             android:textAlignment="center"
             android:textColor="@color/teal_700"
             android:textSize="22sp"
@@ -3869,7 +3789,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="7680dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="%BS=(total Base/CEC)*100 :"
+            android:text="%BS=(total Base/CEC)*100:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -3901,7 +3821,7 @@
             android:layout_height="53dp"
             android:layout_marginTop="7740dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="ESP%(Na/CEC)*100 :"
+            android:text="ESP%(Na/CEC)*100:"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -4505,8 +4425,6 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:backgroundTint="#018786" />
-
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

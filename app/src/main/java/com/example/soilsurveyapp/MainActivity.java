@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -31,25 +32,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
-//    EditText userInput, userPass;
-//    String str_name, str_password;
-//    String url = "http://10.0.0.145/soil_survey/login.php";
-
-    private EditText etName, etPassword;
-    private String name, password;
-    private String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
-    SharedPreferences sharedPreferences;
-
-    ProgressDialog progressDialog;
-
-
+    public static final String BROADCAST = "checkinternet";
     //creating shared preference name and also creating key name
     private static final String SHARED_PRE_NAME = "mypref";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
+    IntentFilter intentFilter;
+    SharedPreferences sharedPreferences;
+    ProgressDialog progressDialog;
+    private EditText etName, etPassword;
+    private String name, password;
+    private String url = "http://14.139.123.73:9090/web/NBSS/php/mysql.php";
+    //    String url = "http://10.0.0.145/soil_survey/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(SHARED_PRE_NAME, MODE_PRIVATE);
 
-        //---HIDING THE ACTION BAR
-        getSupportActionBar().setTitle("");
+        //below code is for hiding the title bar of app
+        try {
+            this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {
+        }
 
         //login's input box
-//        userInput = (EditText) findViewById(R.id.LoginUserInput);
-//        userPass = (EditText) findViewById(R.id.LoginPass);
         name = password = "";
         etName = findViewById(R.id.etName);
         etPassword = findViewById(R.id.etPassword);
@@ -79,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     public void Login(View view) {
 
         //Initialinzing the progress Dialog
-        progressDialog= new ProgressDialog(MainActivity.this);
+        progressDialog = new ProgressDialog(MainActivity.this);
         //show Dialog
         progressDialog.show();
         //set Content View
@@ -93,28 +90,37 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(KEY_NAME, etName.getText().toString());
         editor.putString(KEY_PASSWORD, etPassword.getText().toString());
         editor.apply();
-//                editor.clear();
-//                editor.commit();
+        editor.clear();
+        editor.commit();
 
         name = etName.getText().toString().trim();
         password = etPassword.getText().toString().trim();
-        if(!name.equals("") && !password.equals("")){
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url+"?TYPE=LOGIN&name="+name+"&password="+password, new Response.Listener<String>() {
+
+        //-----------validations for empty input box--------------
+        if (TextUtils.isEmpty(name)) {
+            progressDialog.dismiss();
+            etName.setError("Please enter username");
+            etName.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            progressDialog.dismiss();
+            etPassword.setError("Please enter your password");
+            etPassword.requestFocus();
+            return;
+        }
+
+        if (!name.equals("") && !password.equals("")) {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url + "?TYPE=LOGIN&name=" + name + "&password=" + password, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.d("res", response);
-//                    if (response.equals("success")) {
-//                        Intent intent = new Intent(MainActivity.this, HomePage.class);
-//                        startActivity(intent);
-////                        finish();
-//                    } else if (response.equals("failure")) {
-//                        Toast.makeText(MainActivity.this, "Invalid Login Id/Password", Toast.LENGTH_SHORT).show();
-//                    }
                     try {
-                        if(TextUtils.equals(response,"0")){
+                        if (TextUtils.equals(response, "0")) {
                             progressDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Failed to LoggedIn!!", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             JSONArray jsonarray = new JSONArray(response);
                             for (int i = 0; i < jsonarray.length(); i++) {
                                 JSONObject jsonobject = jsonarray.getJSONObject(i);
@@ -128,20 +134,17 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString(KEY_EMAIL, email);
                                 editor.apply();
 
-                                finish();
                                 progressDialog.dismiss();
                                 Toast.makeText(MainActivity.this, "LoggedIn Successfull", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainActivity.this, HomePage.class);
                                 startActivity(intent);
+                                finish();
+
+                                etName.setText("");
+                                etPassword.setText("");
                             }
-//                            Toast.makeText(MainActivity.this, "LoggedIn Successfull", Toast.LENGTH_SHORT).show();
-//                           // JSONObject jsonObject = new JSONObject(response);
-//                            // on below line we are displaying a success toast message.
-//                            Intent intent = new Intent(MainActivity.this, HomePage.class);
-//                            startActivity(intent);
-//                            finish();
                         }
-                    }catch (Exception e) {
+                    } catch (Exception e) {
                         progressDialog.dismiss();
                         Toast.makeText(MainActivity.this, "Failed to LoggedIn!!", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
@@ -151,28 +154,22 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     progressDialog.dismiss();
-                    Toast.makeText(MainActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "server error\nplease retry after sometime", Toast.LENGTH_SHORT).show();
                 }
-            }){
-//                @Override
-//                protected Map<String, String> getParams() throws AuthFailureError {
-//                    Map<String, String> data = new HashMap<>();
-//                    data.put("name", name);
-//                    data.put("password", password);
-//                    return data;
-//                }
-            };
+            });
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
-        }else{
+        } else {
             progressDialog.dismiss();
             Toast.makeText(this, "Fields can not be empty!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
+    //textview to move from login to register page
     public void moveToRegistration(View view) {
-        startActivity(new Intent(getApplicationContext(), RegisterPage.class));
+        etName.setText("");
+        etPassword.setText("");
+        startActivity(new Intent(this, RegisterPage.class));
         finish();
     }
 

@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <TableRow>
 
             <TextView
@@ -14,7 +15,9 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape_grey"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -25,7 +28,9 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape_grey"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -40,9 +45,11 @@
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -51,19 +58,24 @@
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
+
                 <TextView
                     android:id="@+id/tv_pp_clay"
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -72,9 +84,11 @@
                     android:layout_width="234dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -83,9 +97,11 @@
                     android:layout_width="232dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -99,9 +115,11 @@
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -110,9 +128,11 @@
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -121,9 +141,11 @@
                     android:layout_width="184dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -132,9 +154,11 @@
                     android:layout_width="198dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
@@ -143,9 +167,11 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape_grey"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="10dp"
-                     android:textAlignment="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>
